@@ -1,0 +1,44 @@
+{
+    "components": [
+        {
+            "name": "Enedis",
+            "label": "Enedis",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#3EB489",
+            "ignore": false
+        },
+        {
+            "name": "BT",
+            "label": "BT",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#3EB489",
+            "ignore": false
+        }
+    ],
+    "flows": [
+        {
+            "source": "Enedis",
+            "target": "BT",
+            "flow_name": "elec_ht",
+            "flow_pattern": "elec_ht",
+            "color": "#55FF55"
+        },
+        {
+            "source": "Enedis",
+            "target": "HT",
+            "flow_name": "elec_ht",
+            "flow_pattern": "elec_ht",
+            "color": "#55FF55"
+        }
+    ]
+}

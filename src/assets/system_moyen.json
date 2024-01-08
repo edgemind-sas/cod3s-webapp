@@ -1,0 +1,4579 @@
+{
+    "components": [
+        {
+            "name": "Enedis",
+            "label": "Enedis",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#3EB489",
+            "ignore": false
+        },
+        {
+            "name": "BT",
+            "label": "BT",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#3EB489",
+            "ignore": false
+        },
+        {
+            "name": "HT",
+            "label": "HT",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#3EB489",
+            "ignore": false
+        },
+        {
+            "name": "DistribTraction_01_CHMO",
+            "label": "DistribTraction_01_CHMO",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#3EB489",
+            "ignore": false
+        },
+        {
+            "name": "DistribTraction_01_MAED",
+            "label": "DistribTraction_01_MAED",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#3EB489",
+            "ignore": false
+        },
+        {
+            "name": "PCCServeur",
+            "label": "PCCServeur",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "PCCServeur_A",
+            "label": "PCCServeur_A",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "PCCServeur_B",
+            "label": "PCCServeur_B",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "PCCPO",
+            "label": "PCCPO",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "PCCPO_A",
+            "label": "PCCPO_A",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "PCCPO_B",
+            "label": "PCCPO_B",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "PCCPO_C",
+            "label": "PCCPO_C",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "PCCPO_D",
+            "label": "PCCPO_D",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "PCCTCO",
+            "label": "PCCTCO",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "STDReseauCtr",
+            "label": "STDReseauCtr",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "STDReseauCtr_A",
+            "label": "STDReseauCtr_A",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "STDReseauCtr_B",
+            "label": "STDReseauCtr_B",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "STDReseauLoc_01",
+            "label": "STDReseauLoc_01",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "STDReseauLoc_01_A",
+            "label": "STDReseauLoc_01_A",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "STDReseauLoc_01_B",
+            "label": "STDReseauLoc_01_B",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "STDRadioBord_01_CHMO_01",
+            "label": "STDRadioBord_01_CHMO_01",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "STDRadioBord_01_CHMO_02",
+            "label": "STDRadioBord_01_CHMO_02",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "STDRadioBord_01_MAED_01",
+            "label": "STDRadioBord_01_MAED_01",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "STDRadioSol_01",
+            "label": "STDRadioSol_01",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "PAS_01",
+            "label": "PAS_01",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "PAS_01_A",
+            "label": "PAS_01_A",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "PAS_01_B",
+            "label": "PAS_01_B",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "MES_01_CHMO_01",
+            "label": "MES_01_CHMO_01",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "MES_01_CHMO_01_A",
+            "label": "MES_01_CHMO_01_A",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "MES_01_CHMO_01_B",
+            "label": "MES_01_CHMO_01_B",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "MES_01_CHMO_02",
+            "label": "MES_01_CHMO_02",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "MES_01_CHMO_02_A",
+            "label": "MES_01_CHMO_02_A",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "MES_01_CHMO_02_B",
+            "label": "MES_01_CHMO_02_B",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "MES_01_CHMO_03",
+            "label": "MES_01_CHMO_03",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "MES_01_CHMO_03_A",
+            "label": "MES_01_CHMO_03_A",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "MES_01_CHMO_03_B",
+            "label": "MES_01_CHMO_03_B",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "MES_01_CHMO_04",
+            "label": "MES_01_CHMO_04",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "MES_01_CHMO_04_A",
+            "label": "MES_01_CHMO_04_A",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "MES_01_CHMO_04_B",
+            "label": "MES_01_CHMO_04_B",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "PAE_01_CHMO_01",
+            "label": "PAE_01_CHMO_01",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "PAE_01_CHMO_01_A",
+            "label": "PAE_01_CHMO_01_A",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "PAE_01_CHMO_01_B",
+            "label": "PAE_01_CHMO_01_B",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "PAE_01_CHMO_02",
+            "label": "PAE_01_CHMO_02",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "PAE_01_CHMO_02_A",
+            "label": "PAE_01_CHMO_02_A",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "PAE_01_CHMO_02_B",
+            "label": "PAE_01_CHMO_02_B",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "PAE_01_MAED_01",
+            "label": "PAE_01_MAED_01",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "PAE_01_MAED_01_A",
+            "label": "PAE_01_MAED_01_A",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "PAE_01_MAED_01_B",
+            "label": "PAE_01_MAED_01_B",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "APILoc_01_CHMO_01",
+            "label": "APILoc_01_CHMO_01",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "APILoc_01_CHMO_01_A",
+            "label": "APILoc_01_CHMO_01_A",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "APILoc_01_CHMO_01_B",
+            "label": "APILoc_01_CHMO_01_B",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "APILoc_01_CHMO_02",
+            "label": "APILoc_01_CHMO_02",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "APILoc_01_CHMO_02_A",
+            "label": "APILoc_01_CHMO_02_A",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "APILoc_01_CHMO_02_B",
+            "label": "APILoc_01_CHMO_02_B",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "APILoc_01_CHMO_03",
+            "label": "APILoc_01_CHMO_03",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "APILoc_01_CHMO_03_A",
+            "label": "APILoc_01_CHMO_03_A",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "APILoc_01_CHMO_03_B",
+            "label": "APILoc_01_CHMO_03_B",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "APILoc_01_CHMO_04",
+            "label": "APILoc_01_CHMO_04",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "APILoc_01_CHMO_04_A",
+            "label": "APILoc_01_CHMO_04_A",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "APILoc_01_CHMO_04_B",
+            "label": "APILoc_01_CHMO_04_B",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "APICtr",
+            "label": "APICtr",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "APICtr_A",
+            "label": "APICtr_A",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "APICtr_B",
+            "label": "APICtr_B",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "PAL_LTNUM_01",
+            "label": "PAL_LTNUM_01",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "PAL_LTNUM_01_A",
+            "label": "PAL_LTNUM_01_A",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "PAL_LTNUM_01_B",
+            "label": "PAL_LTNUM_01_B",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "LTREL_01",
+            "label": "LTREL_01",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#c9d4e6",
+            "ignore": false
+        },
+        {
+            "name": "PlatineAPE",
+            "label": "PlatineAPE",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "ignore": false
+        },
+        {
+            "name": "PlatineDGDS",
+            "label": "PlatineDGDS",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "ignore": false
+        },
+        {
+            "name": "MBascLoc",
+            "label": "MBascLoc",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "ignore": false
+        },
+        {
+            "name": "MBascCtr",
+            "label": "MBascCtr",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "ignore": false
+        },
+        {
+            "name": "ServeurArchivage",
+            "label": "ServeurArchivage",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "ignore": false
+        },
+        {
+            "name": "SIG_01_CHMO",
+            "label": "SIG_01_CHMO",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#9470C4",
+            "ignore": false
+        },
+        {
+            "name": "SIG_01_MAED",
+            "label": "SIG_01_MAED",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#9470C4",
+            "ignore": false
+        },
+        {
+            "name": "EV_01_CHMO",
+            "label": "EV_01_CHMO",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#E67E30",
+            "ignore": false
+        },
+        {
+            "name": "EV_01_MAED",
+            "label": "EV_01_MAED",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#E67E30",
+            "ignore": false
+        },
+        {
+            "name": "SLBBord_01_CHMO_01",
+            "label": "SLBBord_01_CHMO_01",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#F42094",
+            "ignore": false
+        },
+        {
+            "name": "SLBBord_01_CHMO_02",
+            "label": "SLBBord_01_CHMO_02",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#F42094",
+            "ignore": false
+        },
+        {
+            "name": "SLBBord_01_MAED_01",
+            "label": "SLBBord_01_MAED_01",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#F42094",
+            "ignore": false
+        },
+        {
+            "name": "SLBSol_01_CHMO",
+            "label": "SLBSol_01_CHMO",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#F42094",
+            "ignore": false
+        },
+        {
+            "name": "SLBSol_01_MAED",
+            "label": "SLBSol_01_MAED",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "color": "#F42094",
+            "ignore": false
+        },
+        {
+            "name": "AccessPoint_01_CHMO_01",
+            "label": "AccessPoint_01_CHMO_01",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "ignore": false
+        },
+        {
+            "name": "AccessPoint_01_MAED_01",
+            "label": "AccessPoint_01_MAED_01",
+            "pattern": ".*",
+            "fontname": "monospace",
+            "fontsize": "10",
+            "shape": "box",
+            "style": "filled",
+            "fontcolor": "#1f416d",
+            "ignore": false
+        }
+    ],
+    "flows": [
+        {
+            "source": "Enedis",
+            "target": "BT",
+            "flow_name": "elec_ht",
+            "flow_pattern": "elec_ht",
+            "color": "#55FF55"
+        },
+        {
+            "source": "Enedis",
+            "target": "HT",
+            "flow_name": "elec_ht",
+            "flow_pattern": "elec_ht",
+            "color": "#55FF55"
+        },
+        {
+            "source": "BT",
+            "target": "PCCServeur_A",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "PCCServeur_B",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "PCCPO_A",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "PCCPO_B",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "PCCPO_C",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "PCCPO_D",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "PCCTCO",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "STDReseauCtr_A",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "STDReseauCtr_B",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "STDReseauLoc_01_A",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "STDReseauLoc_01_B",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "STDRadioBord_01_CHMO_01",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "STDRadioBord_01_CHMO_02",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "STDRadioBord_01_MAED_01",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "STDRadioSol_01",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "PAS_01_A",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "PAS_01_B",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "MES_01_CHMO_01_A",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "MES_01_CHMO_01_B",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "MES_01_CHMO_02_A",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "MES_01_CHMO_02_B",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "MES_01_CHMO_03_A",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "MES_01_CHMO_03_B",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "MES_01_CHMO_04_A",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "MES_01_CHMO_04_B",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "PAE_01_CHMO_01_A",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "PAE_01_CHMO_01_B",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "PAE_01_CHMO_02_A",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "PAE_01_CHMO_02_B",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "PAE_01_MAED_01_A",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "PAE_01_MAED_01_B",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "APILoc_01_CHMO_01_A",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "APILoc_01_CHMO_01_B",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "APILoc_01_CHMO_02_A",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "APILoc_01_CHMO_02_B",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "APILoc_01_CHMO_03_A",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "APILoc_01_CHMO_03_B",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "APILoc_01_CHMO_04_A",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "APILoc_01_CHMO_04_B",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "APICtr_A",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "APICtr_B",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "PAL_LTNUM_01_A",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "PAL_LTNUM_01_B",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "LTREL_01",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "PlatineAPE",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "PlatineDGDS",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "MBascLoc",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "MBascCtr",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "ServeurArchivage",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "SIG_01_CHMO",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "SIG_01_MAED",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "EV_01_CHMO",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "EV_01_MAED",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "SLBBord_01_CHMO_01",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "SLBBord_01_CHMO_02",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "SLBBord_01_MAED_01",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "SLBSol_01_CHMO",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "SLBSol_01_MAED",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "AccessPoint_01_CHMO_01",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "BT",
+            "target": "AccessPoint_01_MAED_01",
+            "flow_name": "elec_bt",
+            "flow_pattern": "elec_bt",
+            "color": "#3EB489"
+        },
+        {
+            "source": "HT",
+            "target": "DistribTraction_01_CHMO",
+            "flow_name": "elec_ht",
+            "flow_pattern": "elec_ht",
+            "color": "#55FF55"
+        },
+        {
+            "source": "HT",
+            "target": "DistribTraction_01_MAED",
+            "flow_name": "elec_ht",
+            "flow_pattern": "elec_ht",
+            "color": "#55FF55"
+        },
+        {
+            "source": "DistribTraction_01_CHMO",
+            "target": "MES_01_CHMO_01_A",
+            "flow_name": "distribtraction_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "DistribTraction_01_CHMO",
+            "target": "MES_01_CHMO_01_B",
+            "flow_name": "distribtraction_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "DistribTraction_01_CHMO",
+            "target": "MES_01_CHMO_02_A",
+            "flow_name": "distribtraction_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "DistribTraction_01_CHMO",
+            "target": "MES_01_CHMO_02_B",
+            "flow_name": "distribtraction_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "DistribTraction_01_CHMO",
+            "target": "MES_01_CHMO_03_A",
+            "flow_name": "distribtraction_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "DistribTraction_01_CHMO",
+            "target": "MES_01_CHMO_03_B",
+            "flow_name": "distribtraction_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "DistribTraction_01_CHMO",
+            "target": "MES_01_CHMO_04_A",
+            "flow_name": "distribtraction_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "DistribTraction_01_CHMO",
+            "target": "MES_01_CHMO_04_B",
+            "flow_name": "distribtraction_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "DistribTraction_01_MAED",
+            "target": "MES_01_CHMO_01_A",
+            "flow_name": "distribtraction_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "DistribTraction_01_MAED",
+            "target": "MES_01_CHMO_01_B",
+            "flow_name": "distribtraction_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "DistribTraction_01_MAED",
+            "target": "MES_01_CHMO_02_A",
+            "flow_name": "distribtraction_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "DistribTraction_01_MAED",
+            "target": "MES_01_CHMO_02_B",
+            "flow_name": "distribtraction_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "DistribTraction_01_MAED",
+            "target": "MES_01_CHMO_03_A",
+            "flow_name": "distribtraction_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "DistribTraction_01_MAED",
+            "target": "MES_01_CHMO_03_B",
+            "flow_name": "distribtraction_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "DistribTraction_01_MAED",
+            "target": "MES_01_CHMO_04_A",
+            "flow_name": "distribtraction_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "DistribTraction_01_MAED",
+            "target": "MES_01_CHMO_04_B",
+            "flow_name": "distribtraction_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "PCCServeur",
+            "target": "PCCTCO",
+            "flow_name": "pccserveur_pcctco_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "PCCServeur",
+            "target": "PAS_01_A",
+            "flow_name": "pccserveur_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PCCServeur",
+            "target": "PAS_01_B",
+            "flow_name": "pccserveur_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PCCServeur",
+            "target": "PAL_LTNUM_01_A",
+            "flow_name": "pccserveur_pal_ltnum_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PCCServeur",
+            "target": "PAL_LTNUM_01_B",
+            "flow_name": "pccserveur_pal_ltnum_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PCCServeur",
+            "target": "APICtr_A",
+            "flow_name": "pccserveur_apictr_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PCCServeur",
+            "target": "APICtr_B",
+            "flow_name": "pccserveur_apictr_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PCCServeur",
+            "target": "APILoc_01_CHMO_01_A",
+            "flow_name": "pccserveur_apiloc_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PCCServeur",
+            "target": "APILoc_01_CHMO_01_B",
+            "flow_name": "pccserveur_apiloc_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PCCServeur",
+            "target": "APILoc_01_CHMO_02_A",
+            "flow_name": "pccserveur_apiloc_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PCCServeur",
+            "target": "APILoc_01_CHMO_02_B",
+            "flow_name": "pccserveur_apiloc_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PCCServeur",
+            "target": "APILoc_01_CHMO_03_A",
+            "flow_name": "pccserveur_apiloc_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PCCServeur",
+            "target": "APILoc_01_CHMO_03_B",
+            "flow_name": "pccserveur_apiloc_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PCCServeur",
+            "target": "APILoc_01_CHMO_04_A",
+            "flow_name": "pccserveur_apiloc_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PCCServeur",
+            "target": "APILoc_01_CHMO_04_B",
+            "flow_name": "pccserveur_apiloc_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PCCServeur",
+            "target": "MES_01_CHMO_01_A",
+            "flow_name": "pccserveur_mes_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PCCServeur",
+            "target": "MES_01_CHMO_01_B",
+            "flow_name": "pccserveur_mes_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PCCServeur",
+            "target": "MES_01_CHMO_02_A",
+            "flow_name": "pccserveur_mes_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PCCServeur",
+            "target": "MES_01_CHMO_02_B",
+            "flow_name": "pccserveur_mes_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PCCServeur",
+            "target": "MES_01_CHMO_03_A",
+            "flow_name": "pccserveur_mes_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PCCServeur",
+            "target": "MES_01_CHMO_03_B",
+            "flow_name": "pccserveur_mes_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PCCServeur",
+            "target": "MES_01_CHMO_04_A",
+            "flow_name": "pccserveur_mes_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PCCServeur",
+            "target": "MES_01_CHMO_04_B",
+            "flow_name": "pccserveur_mes_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PCCServeur_A",
+            "target": "PCCServeur",
+            "flow_name": "upccserveur_pcctco_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "PCCServeur_A",
+            "target": "PCCServeur",
+            "flow_name": "upccserveur_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PCCServeur_A",
+            "target": "PCCServeur",
+            "flow_name": "upccserveur_pal_ltnum_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PCCServeur_A",
+            "target": "PCCServeur",
+            "flow_name": "upccserveur_apictr_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PCCServeur_A",
+            "target": "PCCServeur",
+            "flow_name": "upccserveur_apiloc_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PCCServeur_A",
+            "target": "PCCServeur",
+            "flow_name": "upccserveur_mes_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PCCServeur_B",
+            "target": "PCCServeur",
+            "flow_name": "upccserveur_pcctco_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "PCCServeur_B",
+            "target": "PCCServeur",
+            "flow_name": "upccserveur_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PCCServeur_B",
+            "target": "PCCServeur",
+            "flow_name": "upccserveur_pal_ltnum_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PCCServeur_B",
+            "target": "PCCServeur",
+            "flow_name": "upccserveur_apictr_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PCCServeur_B",
+            "target": "PCCServeur",
+            "flow_name": "upccserveur_apiloc_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PCCServeur_B",
+            "target": "PCCServeur",
+            "flow_name": "upccserveur_mes_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PCCPO",
+            "target": "PCCServeur_A",
+            "flow_name": "pccpo_pccserveur_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "PCCPO",
+            "target": "PCCServeur_B",
+            "flow_name": "pccpo_pccserveur_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "PCCPO_A",
+            "target": "PCCPO",
+            "flow_name": "upccpo_pccserveur_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "PCCPO_B",
+            "target": "PCCPO",
+            "flow_name": "upccpo_pccserveur_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "PCCPO_C",
+            "target": "PCCPO",
+            "flow_name": "upccpo_pccserveur_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "PCCPO_D",
+            "target": "PCCPO",
+            "flow_name": "upccpo_pccserveur_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "STDReseauCtr",
+            "target": "PCCServeur_A",
+            "flow_name": "stdreseauctr",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDReseauCtr",
+            "target": "PCCServeur_B",
+            "flow_name": "stdreseauctr",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDReseauCtr",
+            "target": "STDReseauLoc_01_A",
+            "flow_name": "stdreseauctr",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDReseauCtr",
+            "target": "STDReseauLoc_01_B",
+            "flow_name": "stdreseauctr",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDReseauCtr",
+            "target": "APICtr_A",
+            "flow_name": "stdreseauctr",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDReseauCtr",
+            "target": "APICtr_B",
+            "flow_name": "stdreseauctr",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDReseauCtr_A",
+            "target": "STDReseauCtr",
+            "flow_name": "ustdreseauctr",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDReseauCtr_B",
+            "target": "STDReseauCtr",
+            "flow_name": "ustdreseauctr",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDReseauLoc_01",
+            "target": "PAS_01_A",
+            "flow_name": "stdreseauloc",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDReseauLoc_01",
+            "target": "PAS_01_B",
+            "flow_name": "stdreseauloc",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDReseauLoc_01",
+            "target": "PAL_LTNUM_01_A",
+            "flow_name": "stdreseauloc",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDReseauLoc_01",
+            "target": "PAL_LTNUM_01_B",
+            "flow_name": "stdreseauloc",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDReseauLoc_01",
+            "target": "MES_01_CHMO_01_A",
+            "flow_name": "stdreseauloc",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDReseauLoc_01",
+            "target": "MES_01_CHMO_01_B",
+            "flow_name": "stdreseauloc",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDReseauLoc_01",
+            "target": "MES_01_CHMO_02_A",
+            "flow_name": "stdreseauloc",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDReseauLoc_01",
+            "target": "MES_01_CHMO_02_B",
+            "flow_name": "stdreseauloc",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDReseauLoc_01",
+            "target": "MES_01_CHMO_03_A",
+            "flow_name": "stdreseauloc",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDReseauLoc_01",
+            "target": "MES_01_CHMO_03_B",
+            "flow_name": "stdreseauloc",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDReseauLoc_01",
+            "target": "MES_01_CHMO_04_A",
+            "flow_name": "stdreseauloc",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDReseauLoc_01",
+            "target": "MES_01_CHMO_04_B",
+            "flow_name": "stdreseauloc",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDReseauLoc_01",
+            "target": "APILoc_01_CHMO_01_A",
+            "flow_name": "stdreseauloc",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDReseauLoc_01",
+            "target": "APILoc_01_CHMO_01_B",
+            "flow_name": "stdreseauloc",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDReseauLoc_01",
+            "target": "APILoc_01_CHMO_02_A",
+            "flow_name": "stdreseauloc",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDReseauLoc_01",
+            "target": "APILoc_01_CHMO_02_B",
+            "flow_name": "stdreseauloc",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDReseauLoc_01",
+            "target": "APILoc_01_CHMO_03_A",
+            "flow_name": "stdreseauloc",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDReseauLoc_01",
+            "target": "APILoc_01_CHMO_03_B",
+            "flow_name": "stdreseauloc",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDReseauLoc_01",
+            "target": "APILoc_01_CHMO_04_A",
+            "flow_name": "stdreseauloc",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDReseauLoc_01",
+            "target": "APILoc_01_CHMO_04_B",
+            "flow_name": "stdreseauloc",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDReseauLoc_01",
+            "target": "EV_01_CHMO",
+            "flow_name": "stdreseauloc",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDReseauLoc_01",
+            "target": "EV_01_MAED",
+            "flow_name": "stdreseauloc",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDReseauLoc_01_A",
+            "target": "STDReseauLoc_01",
+            "flow_name": "ustdreseauloc",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDReseauLoc_01_B",
+            "target": "STDReseauLoc_01",
+            "flow_name": "ustdreseauloc",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDRadioBord_01_CHMO_01",
+            "target": "PAE_01_CHMO_01_A",
+            "flow_name": "stdradiobord",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDRadioBord_01_CHMO_01",
+            "target": "PAE_01_CHMO_01_B",
+            "flow_name": "stdradiobord",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDRadioBord_01_CHMO_02",
+            "target": "PAE_01_CHMO_02_A",
+            "flow_name": "stdradiobord",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDRadioBord_01_CHMO_02",
+            "target": "PAE_01_CHMO_02_B",
+            "flow_name": "stdradiobord",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDRadioBord_01_MAED_01",
+            "target": "PAE_01_MAED_01_A",
+            "flow_name": "stdradiobord",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDRadioBord_01_MAED_01",
+            "target": "PAE_01_MAED_01_B",
+            "flow_name": "stdradiobord",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDRadioSol_01",
+            "target": "PAS_01_A",
+            "flow_name": "stdradiosol",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "STDRadioSol_01",
+            "target": "PAS_01_B",
+            "flow_name": "stdradiosol",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAS_01",
+            "target": "PAE_01_CHMO_01_A",
+            "flow_name": "pas_pae_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAS_01",
+            "target": "PAE_01_CHMO_01_B",
+            "flow_name": "pas_pae_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAS_01",
+            "target": "PAE_01_CHMO_02_A",
+            "flow_name": "pas_pae_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAS_01",
+            "target": "PAE_01_CHMO_02_B",
+            "flow_name": "pas_pae_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAS_01",
+            "target": "PAE_01_MAED_01_A",
+            "flow_name": "pas_pae_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAS_01",
+            "target": "PAE_01_MAED_01_B",
+            "flow_name": "pas_pae_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAS_01",
+            "target": "LTREL_01",
+            "flow_name": "pas_ltrel_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "PAS_01",
+            "target": "MES_01_CHMO_01_A",
+            "flow_name": "pas_mes_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAS_01",
+            "target": "MES_01_CHMO_01_B",
+            "flow_name": "pas_mes_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAS_01",
+            "target": "MES_01_CHMO_02_A",
+            "flow_name": "pas_mes_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAS_01",
+            "target": "MES_01_CHMO_02_B",
+            "flow_name": "pas_mes_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAS_01",
+            "target": "MES_01_CHMO_03_A",
+            "flow_name": "pas_mes_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAS_01",
+            "target": "MES_01_CHMO_03_B",
+            "flow_name": "pas_mes_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAS_01",
+            "target": "MES_01_CHMO_04_A",
+            "flow_name": "pas_mes_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAS_01",
+            "target": "MES_01_CHMO_04_B",
+            "flow_name": "pas_mes_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAS_01",
+            "target": "PAL_LTNUM_01_A",
+            "flow_name": "pas_pal_ltnum_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAS_01",
+            "target": "PAL_LTNUM_01_B",
+            "flow_name": "pas_pal_ltnum_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAS_01",
+            "target": "EV_01_CHMO",
+            "flow_name": "pas_ev_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAS_01",
+            "target": "EV_01_MAED",
+            "flow_name": "pas_ev_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAS_01_A",
+            "target": "PAS_01",
+            "flow_name": "upas_pae_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAS_01_A",
+            "target": "PAS_01",
+            "flow_name": "upas_ltrel_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "PAS_01_A",
+            "target": "PAS_01",
+            "flow_name": "upas_mes_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAS_01_A",
+            "target": "PAS_01",
+            "flow_name": "upas_pal_ltnum_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAS_01_A",
+            "target": "PAS_01",
+            "flow_name": "upas_ev_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAS_01_B",
+            "target": "PAS_01",
+            "flow_name": "upas_pae_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAS_01_B",
+            "target": "PAS_01",
+            "flow_name": "upas_ltrel_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "PAS_01_B",
+            "target": "PAS_01",
+            "flow_name": "upas_mes_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAS_01_B",
+            "target": "PAS_01",
+            "flow_name": "upas_pal_ltnum_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAS_01_B",
+            "target": "PAS_01",
+            "flow_name": "upas_ev_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_01",
+            "target": "PAS_01_A",
+            "flow_name": "mes_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_01",
+            "target": "PAS_01_B",
+            "flow_name": "mes_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_01",
+            "target": "PAL_LTNUM_01_A",
+            "flow_name": "mes_pal_ltnum_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_01",
+            "target": "PAL_LTNUM_01_B",
+            "flow_name": "mes_pal_ltnum_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_01",
+            "target": "PCCServeur_A",
+            "flow_name": "mes_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_01",
+            "target": "PCCServeur_B",
+            "flow_name": "mes_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_01",
+            "target": "EV_01_CHMO",
+            "flow_name": "mes_ev_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_01",
+            "target": "EV_01_MAED",
+            "flow_name": "mes_ev_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_01",
+            "target": "DistribTraction_01_CHMO",
+            "flow_name": "mes_distribtraction_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_01",
+            "target": "DistribTraction_01_MAED",
+            "flow_name": "mes_distribtraction_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_01",
+            "target": "SIG_01_CHMO",
+            "flow_name": "mes_sig_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_01",
+            "target": "SIG_01_MAED",
+            "flow_name": "mes_sig_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_01_A",
+            "target": "MES_01_CHMO_01",
+            "flow_name": "umes_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_01_A",
+            "target": "MES_01_CHMO_01",
+            "flow_name": "umes_ltnum_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_01_A",
+            "target": "MES_01_CHMO_01",
+            "flow_name": "umes_pal_ltnum_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_01_A",
+            "target": "MES_01_CHMO_01",
+            "flow_name": "umes_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_01_A",
+            "target": "MES_01_CHMO_01",
+            "flow_name": "umes_ev_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_01_A",
+            "target": "MES_01_CHMO_01",
+            "flow_name": "umes_distribtraction_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_01_A",
+            "target": "MES_01_CHMO_01",
+            "flow_name": "umes_sig_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_01_B",
+            "target": "MES_01_CHMO_01",
+            "flow_name": "umes_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_01_B",
+            "target": "MES_01_CHMO_01",
+            "flow_name": "umes_ltnum_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_01_B",
+            "target": "MES_01_CHMO_01",
+            "flow_name": "umes_pal_ltnum_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_01_B",
+            "target": "MES_01_CHMO_01",
+            "flow_name": "umes_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_01_B",
+            "target": "MES_01_CHMO_01",
+            "flow_name": "umes_ev_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_01_B",
+            "target": "MES_01_CHMO_01",
+            "flow_name": "umes_distribtraction_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_01_B",
+            "target": "MES_01_CHMO_01",
+            "flow_name": "umes_sig_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_02",
+            "target": "PAS_01_A",
+            "flow_name": "mes_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_02",
+            "target": "PAS_01_B",
+            "flow_name": "mes_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_02",
+            "target": "PAL_LTNUM_01_A",
+            "flow_name": "mes_pal_ltnum_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_02",
+            "target": "PAL_LTNUM_01_B",
+            "flow_name": "mes_pal_ltnum_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_02",
+            "target": "PCCServeur_A",
+            "flow_name": "mes_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_02",
+            "target": "PCCServeur_B",
+            "flow_name": "mes_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_02",
+            "target": "EV_01_CHMO",
+            "flow_name": "mes_ev_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_02",
+            "target": "EV_01_MAED",
+            "flow_name": "mes_ev_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_02",
+            "target": "DistribTraction_01_CHMO",
+            "flow_name": "mes_distribtraction_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_02",
+            "target": "DistribTraction_01_MAED",
+            "flow_name": "mes_distribtraction_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_02",
+            "target": "SIG_01_CHMO",
+            "flow_name": "mes_sig_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_02",
+            "target": "SIG_01_MAED",
+            "flow_name": "mes_sig_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_02_A",
+            "target": "MES_01_CHMO_02",
+            "flow_name": "umes_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_02_A",
+            "target": "MES_01_CHMO_02",
+            "flow_name": "umes_ltnum_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_02_A",
+            "target": "MES_01_CHMO_02",
+            "flow_name": "umes_pal_ltnum_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_02_A",
+            "target": "MES_01_CHMO_02",
+            "flow_name": "umes_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_02_A",
+            "target": "MES_01_CHMO_02",
+            "flow_name": "umes_ev_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_02_A",
+            "target": "MES_01_CHMO_02",
+            "flow_name": "umes_distribtraction_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_02_A",
+            "target": "MES_01_CHMO_02",
+            "flow_name": "umes_sig_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_02_B",
+            "target": "MES_01_CHMO_02",
+            "flow_name": "umes_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_02_B",
+            "target": "MES_01_CHMO_02",
+            "flow_name": "umes_ltnum_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_02_B",
+            "target": "MES_01_CHMO_02",
+            "flow_name": "umes_pal_ltnum_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_02_B",
+            "target": "MES_01_CHMO_02",
+            "flow_name": "umes_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_02_B",
+            "target": "MES_01_CHMO_02",
+            "flow_name": "umes_ev_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_02_B",
+            "target": "MES_01_CHMO_02",
+            "flow_name": "umes_distribtraction_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_02_B",
+            "target": "MES_01_CHMO_02",
+            "flow_name": "umes_sig_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_03",
+            "target": "PAS_01_A",
+            "flow_name": "mes_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_03",
+            "target": "PAS_01_B",
+            "flow_name": "mes_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_03",
+            "target": "PAL_LTNUM_01_A",
+            "flow_name": "mes_pal_ltnum_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_03",
+            "target": "PAL_LTNUM_01_B",
+            "flow_name": "mes_pal_ltnum_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_03",
+            "target": "PCCServeur_A",
+            "flow_name": "mes_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_03",
+            "target": "PCCServeur_B",
+            "flow_name": "mes_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_03",
+            "target": "EV_01_CHMO",
+            "flow_name": "mes_ev_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_03",
+            "target": "EV_01_MAED",
+            "flow_name": "mes_ev_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_03",
+            "target": "DistribTraction_01_CHMO",
+            "flow_name": "mes_distribtraction_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_03",
+            "target": "DistribTraction_01_MAED",
+            "flow_name": "mes_distribtraction_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_03",
+            "target": "SIG_01_CHMO",
+            "flow_name": "mes_sig_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_03",
+            "target": "SIG_01_MAED",
+            "flow_name": "mes_sig_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_03_A",
+            "target": "MES_01_CHMO_03",
+            "flow_name": "umes_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_03_A",
+            "target": "MES_01_CHMO_03",
+            "flow_name": "umes_ltnum_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_03_A",
+            "target": "MES_01_CHMO_03",
+            "flow_name": "umes_pal_ltnum_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_03_A",
+            "target": "MES_01_CHMO_03",
+            "flow_name": "umes_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_03_A",
+            "target": "MES_01_CHMO_03",
+            "flow_name": "umes_ev_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_03_A",
+            "target": "MES_01_CHMO_03",
+            "flow_name": "umes_distribtraction_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_03_A",
+            "target": "MES_01_CHMO_03",
+            "flow_name": "umes_sig_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_03_B",
+            "target": "MES_01_CHMO_03",
+            "flow_name": "umes_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_03_B",
+            "target": "MES_01_CHMO_03",
+            "flow_name": "umes_ltnum_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_03_B",
+            "target": "MES_01_CHMO_03",
+            "flow_name": "umes_pal_ltnum_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_03_B",
+            "target": "MES_01_CHMO_03",
+            "flow_name": "umes_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_03_B",
+            "target": "MES_01_CHMO_03",
+            "flow_name": "umes_ev_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_03_B",
+            "target": "MES_01_CHMO_03",
+            "flow_name": "umes_distribtraction_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_03_B",
+            "target": "MES_01_CHMO_03",
+            "flow_name": "umes_sig_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_04",
+            "target": "PAS_01_A",
+            "flow_name": "mes_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_04",
+            "target": "PAS_01_B",
+            "flow_name": "mes_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_04",
+            "target": "PAL_LTNUM_01_A",
+            "flow_name": "mes_pal_ltnum_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_04",
+            "target": "PAL_LTNUM_01_B",
+            "flow_name": "mes_pal_ltnum_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_04",
+            "target": "PCCServeur_A",
+            "flow_name": "mes_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_04",
+            "target": "PCCServeur_B",
+            "flow_name": "mes_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_04",
+            "target": "EV_01_CHMO",
+            "flow_name": "mes_ev_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_04",
+            "target": "EV_01_MAED",
+            "flow_name": "mes_ev_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_04",
+            "target": "DistribTraction_01_CHMO",
+            "flow_name": "mes_distribtraction_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_04",
+            "target": "DistribTraction_01_MAED",
+            "flow_name": "mes_distribtraction_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_04",
+            "target": "SIG_01_CHMO",
+            "flow_name": "mes_sig_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_04",
+            "target": "SIG_01_MAED",
+            "flow_name": "mes_sig_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_04_A",
+            "target": "MES_01_CHMO_04",
+            "flow_name": "umes_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_04_A",
+            "target": "MES_01_CHMO_04",
+            "flow_name": "umes_ltnum_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_04_A",
+            "target": "MES_01_CHMO_04",
+            "flow_name": "umes_pal_ltnum_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_04_A",
+            "target": "MES_01_CHMO_04",
+            "flow_name": "umes_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_04_A",
+            "target": "MES_01_CHMO_04",
+            "flow_name": "umes_ev_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_04_A",
+            "target": "MES_01_CHMO_04",
+            "flow_name": "umes_distribtraction_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_04_A",
+            "target": "MES_01_CHMO_04",
+            "flow_name": "umes_sig_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_04_B",
+            "target": "MES_01_CHMO_04",
+            "flow_name": "umes_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_04_B",
+            "target": "MES_01_CHMO_04",
+            "flow_name": "umes_ltnum_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_04_B",
+            "target": "MES_01_CHMO_04",
+            "flow_name": "umes_pal_ltnum_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_04_B",
+            "target": "MES_01_CHMO_04",
+            "flow_name": "umes_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "MES_01_CHMO_04_B",
+            "target": "MES_01_CHMO_04",
+            "flow_name": "umes_ev_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_04_B",
+            "target": "MES_01_CHMO_04",
+            "flow_name": "umes_distribtraction_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "MES_01_CHMO_04_B",
+            "target": "MES_01_CHMO_04",
+            "flow_name": "umes_sig_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "PAE_01_CHMO_01",
+            "target": "PAS_01_A",
+            "flow_name": "pae_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAE_01_CHMO_01",
+            "target": "PAS_01_B",
+            "flow_name": "pae_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAE_01_CHMO_01_A",
+            "target": "PAE_01_CHMO_01",
+            "flow_name": "upae_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAE_01_CHMO_01_A",
+            "target": "PAE_01_CHMO_01",
+            "flow_name": "upae_mav_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "PAE_01_CHMO_01_A",
+            "target": "PAE_01_CHMO_01",
+            "flow_name": "upae_mr_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "PAE_01_CHMO_01_B",
+            "target": "PAE_01_CHMO_01",
+            "flow_name": "upae_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAE_01_CHMO_01_B",
+            "target": "PAE_01_CHMO_01",
+            "flow_name": "upae_mav_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "PAE_01_CHMO_01_B",
+            "target": "PAE_01_CHMO_01",
+            "flow_name": "upae_mr_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "PAE_01_CHMO_02",
+            "target": "PAS_01_A",
+            "flow_name": "pae_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAE_01_CHMO_02",
+            "target": "PAS_01_B",
+            "flow_name": "pae_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAE_01_CHMO_02_A",
+            "target": "PAE_01_CHMO_02",
+            "flow_name": "upae_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAE_01_CHMO_02_A",
+            "target": "PAE_01_CHMO_02",
+            "flow_name": "upae_mav_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "PAE_01_CHMO_02_A",
+            "target": "PAE_01_CHMO_02",
+            "flow_name": "upae_mr_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "PAE_01_CHMO_02_B",
+            "target": "PAE_01_CHMO_02",
+            "flow_name": "upae_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAE_01_CHMO_02_B",
+            "target": "PAE_01_CHMO_02",
+            "flow_name": "upae_mav_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "PAE_01_CHMO_02_B",
+            "target": "PAE_01_CHMO_02",
+            "flow_name": "upae_mr_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "PAE_01_MAED_01",
+            "target": "PAS_01_A",
+            "flow_name": "pae_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAE_01_MAED_01",
+            "target": "PAS_01_B",
+            "flow_name": "pae_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAE_01_MAED_01_A",
+            "target": "PAE_01_MAED_01",
+            "flow_name": "upae_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAE_01_MAED_01_A",
+            "target": "PAE_01_MAED_01",
+            "flow_name": "upae_mav_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "PAE_01_MAED_01_A",
+            "target": "PAE_01_MAED_01",
+            "flow_name": "upae_mr_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "PAE_01_MAED_01_B",
+            "target": "PAE_01_MAED_01",
+            "flow_name": "upae_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAE_01_MAED_01_B",
+            "target": "PAE_01_MAED_01",
+            "flow_name": "upae_mav_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "PAE_01_MAED_01_B",
+            "target": "PAE_01_MAED_01",
+            "flow_name": "upae_mr_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_01",
+            "target": "PAS_01_A",
+            "flow_name": "apiloc_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_01",
+            "target": "PAS_01_B",
+            "flow_name": "apiloc_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_01",
+            "target": "APICtr_A",
+            "flow_name": "apiloc_apictr_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_01",
+            "target": "APICtr_B",
+            "flow_name": "apiloc_apictr_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_01",
+            "target": "PCCServeur_A",
+            "flow_name": "apiloc_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_01",
+            "target": "PCCServeur_B",
+            "flow_name": "apiloc_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_01",
+            "target": "DistribTraction_01_CHMO",
+            "flow_name": "apiloc_distribtraction_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_01",
+            "target": "DistribTraction_01_MAED",
+            "flow_name": "apiloc_distribtraction_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_01",
+            "target": "SIG_01_CHMO",
+            "flow_name": "apiloc_sig_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_01",
+            "target": "SIG_01_MAED",
+            "flow_name": "apiloc_sig_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_01_A",
+            "target": "APILoc_01_CHMO_01",
+            "flow_name": "uapiloc_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_01_A",
+            "target": "APILoc_01_CHMO_01",
+            "flow_name": "uapiloc_apictr_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_01_A",
+            "target": "APILoc_01_CHMO_01",
+            "flow_name": "uapiloc_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_01_A",
+            "target": "APILoc_01_CHMO_01",
+            "flow_name": "uapiloc_equaux_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_01_A",
+            "target": "APILoc_01_CHMO_01",
+            "flow_name": "uapiloc_distribtraction_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_01_A",
+            "target": "APILoc_01_CHMO_01",
+            "flow_name": "uapiloc_sig_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_01_B",
+            "target": "APILoc_01_CHMO_01",
+            "flow_name": "uapiloc_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_01_B",
+            "target": "APILoc_01_CHMO_01",
+            "flow_name": "uapiloc_apictr_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_01_B",
+            "target": "APILoc_01_CHMO_01",
+            "flow_name": "uapiloc_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_01_B",
+            "target": "APILoc_01_CHMO_01",
+            "flow_name": "uapiloc_equaux_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_01_B",
+            "target": "APILoc_01_CHMO_01",
+            "flow_name": "uapiloc_distribtraction_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_01_B",
+            "target": "APILoc_01_CHMO_01",
+            "flow_name": "uapiloc_sig_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_02",
+            "target": "PAS_01_A",
+            "flow_name": "apiloc_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_02",
+            "target": "PAS_01_B",
+            "flow_name": "apiloc_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_02",
+            "target": "APICtr_A",
+            "flow_name": "apiloc_apictr_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_02",
+            "target": "APICtr_B",
+            "flow_name": "apiloc_apictr_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_02",
+            "target": "PCCServeur_A",
+            "flow_name": "apiloc_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_02",
+            "target": "PCCServeur_B",
+            "flow_name": "apiloc_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_02",
+            "target": "DistribTraction_01_CHMO",
+            "flow_name": "apiloc_distribtraction_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_02",
+            "target": "DistribTraction_01_MAED",
+            "flow_name": "apiloc_distribtraction_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_02",
+            "target": "SIG_01_CHMO",
+            "flow_name": "apiloc_sig_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_02",
+            "target": "SIG_01_MAED",
+            "flow_name": "apiloc_sig_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_02_A",
+            "target": "APILoc_01_CHMO_02",
+            "flow_name": "uapiloc_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_02_A",
+            "target": "APILoc_01_CHMO_02",
+            "flow_name": "uapiloc_apictr_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_02_A",
+            "target": "APILoc_01_CHMO_02",
+            "flow_name": "uapiloc_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_02_A",
+            "target": "APILoc_01_CHMO_02",
+            "flow_name": "uapiloc_equaux_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_02_A",
+            "target": "APILoc_01_CHMO_02",
+            "flow_name": "uapiloc_distribtraction_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_02_A",
+            "target": "APILoc_01_CHMO_02",
+            "flow_name": "uapiloc_sig_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_02_B",
+            "target": "APILoc_01_CHMO_02",
+            "flow_name": "uapiloc_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_02_B",
+            "target": "APILoc_01_CHMO_02",
+            "flow_name": "uapiloc_apictr_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_02_B",
+            "target": "APILoc_01_CHMO_02",
+            "flow_name": "uapiloc_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_02_B",
+            "target": "APILoc_01_CHMO_02",
+            "flow_name": "uapiloc_equaux_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_02_B",
+            "target": "APILoc_01_CHMO_02",
+            "flow_name": "uapiloc_distribtraction_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_02_B",
+            "target": "APILoc_01_CHMO_02",
+            "flow_name": "uapiloc_sig_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_03",
+            "target": "PAS_01_A",
+            "flow_name": "apiloc_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_03",
+            "target": "PAS_01_B",
+            "flow_name": "apiloc_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_03",
+            "target": "APICtr_A",
+            "flow_name": "apiloc_apictr_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_03",
+            "target": "APICtr_B",
+            "flow_name": "apiloc_apictr_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_03",
+            "target": "PCCServeur_A",
+            "flow_name": "apiloc_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_03",
+            "target": "PCCServeur_B",
+            "flow_name": "apiloc_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_03",
+            "target": "DistribTraction_01_CHMO",
+            "flow_name": "apiloc_distribtraction_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_03",
+            "target": "DistribTraction_01_MAED",
+            "flow_name": "apiloc_distribtraction_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_03",
+            "target": "SIG_01_CHMO",
+            "flow_name": "apiloc_sig_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_03",
+            "target": "SIG_01_MAED",
+            "flow_name": "apiloc_sig_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_03_A",
+            "target": "APILoc_01_CHMO_03",
+            "flow_name": "uapiloc_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_03_A",
+            "target": "APILoc_01_CHMO_03",
+            "flow_name": "uapiloc_apictr_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_03_A",
+            "target": "APILoc_01_CHMO_03",
+            "flow_name": "uapiloc_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_03_A",
+            "target": "APILoc_01_CHMO_03",
+            "flow_name": "uapiloc_equaux_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_03_A",
+            "target": "APILoc_01_CHMO_03",
+            "flow_name": "uapiloc_distribtraction_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_03_A",
+            "target": "APILoc_01_CHMO_03",
+            "flow_name": "uapiloc_sig_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_03_B",
+            "target": "APILoc_01_CHMO_03",
+            "flow_name": "uapiloc_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_03_B",
+            "target": "APILoc_01_CHMO_03",
+            "flow_name": "uapiloc_apictr_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_03_B",
+            "target": "APILoc_01_CHMO_03",
+            "flow_name": "uapiloc_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_03_B",
+            "target": "APILoc_01_CHMO_03",
+            "flow_name": "uapiloc_equaux_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_03_B",
+            "target": "APILoc_01_CHMO_03",
+            "flow_name": "uapiloc_distribtraction_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_03_B",
+            "target": "APILoc_01_CHMO_03",
+            "flow_name": "uapiloc_sig_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_04",
+            "target": "PAS_01_A",
+            "flow_name": "apiloc_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_04",
+            "target": "PAS_01_B",
+            "flow_name": "apiloc_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_04",
+            "target": "APICtr_A",
+            "flow_name": "apiloc_apictr_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_04",
+            "target": "APICtr_B",
+            "flow_name": "apiloc_apictr_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_04",
+            "target": "PCCServeur_A",
+            "flow_name": "apiloc_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_04",
+            "target": "PCCServeur_B",
+            "flow_name": "apiloc_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_04",
+            "target": "DistribTraction_01_CHMO",
+            "flow_name": "apiloc_distribtraction_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_04",
+            "target": "DistribTraction_01_MAED",
+            "flow_name": "apiloc_distribtraction_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_04",
+            "target": "SIG_01_CHMO",
+            "flow_name": "apiloc_sig_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_04",
+            "target": "SIG_01_MAED",
+            "flow_name": "apiloc_sig_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_04_A",
+            "target": "APILoc_01_CHMO_04",
+            "flow_name": "uapiloc_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_04_A",
+            "target": "APILoc_01_CHMO_04",
+            "flow_name": "uapiloc_apictr_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_04_A",
+            "target": "APILoc_01_CHMO_04",
+            "flow_name": "uapiloc_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_04_A",
+            "target": "APILoc_01_CHMO_04",
+            "flow_name": "uapiloc_equaux_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_04_A",
+            "target": "APILoc_01_CHMO_04",
+            "flow_name": "uapiloc_distribtraction_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_04_A",
+            "target": "APILoc_01_CHMO_04",
+            "flow_name": "uapiloc_sig_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_04_B",
+            "target": "APILoc_01_CHMO_04",
+            "flow_name": "uapiloc_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_04_B",
+            "target": "APILoc_01_CHMO_04",
+            "flow_name": "uapiloc_apictr_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_04_B",
+            "target": "APILoc_01_CHMO_04",
+            "flow_name": "uapiloc_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APILoc_01_CHMO_04_B",
+            "target": "APILoc_01_CHMO_04",
+            "flow_name": "uapiloc_equaux_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_04_B",
+            "target": "APILoc_01_CHMO_04",
+            "flow_name": "uapiloc_distribtraction_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APILoc_01_CHMO_04_B",
+            "target": "APILoc_01_CHMO_04",
+            "flow_name": "uapiloc_sig_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APICtr",
+            "target": "APILoc_01_CHMO_01_A",
+            "flow_name": "apictr_apiloc_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APICtr",
+            "target": "APILoc_01_CHMO_01_B",
+            "flow_name": "apictr_apiloc_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APICtr",
+            "target": "APILoc_01_CHMO_02_A",
+            "flow_name": "apictr_apiloc_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APICtr",
+            "target": "APILoc_01_CHMO_02_B",
+            "flow_name": "apictr_apiloc_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APICtr",
+            "target": "APILoc_01_CHMO_03_A",
+            "flow_name": "apictr_apiloc_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APICtr",
+            "target": "APILoc_01_CHMO_03_B",
+            "flow_name": "apictr_apiloc_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APICtr",
+            "target": "APILoc_01_CHMO_04_A",
+            "flow_name": "apictr_apiloc_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APICtr",
+            "target": "APILoc_01_CHMO_04_B",
+            "flow_name": "apictr_apiloc_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APICtr",
+            "target": "PCCServeur_A",
+            "flow_name": "apictr_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APICtr",
+            "target": "PCCServeur_B",
+            "flow_name": "apictr_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APICtr",
+            "target": "LTREL_01",
+            "flow_name": "apictr_ltrel_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APICtr_A",
+            "target": "APICtr",
+            "flow_name": "uapictr_apiloc_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APICtr_A",
+            "target": "APICtr",
+            "flow_name": "uapictr_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APICtr_A",
+            "target": "APICtr",
+            "flow_name": "uapictr_ltrel_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "APICtr_B",
+            "target": "APICtr",
+            "flow_name": "uapictr_apiloc_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APICtr_B",
+            "target": "APICtr",
+            "flow_name": "uapictr_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "APICtr_B",
+            "target": "APICtr",
+            "flow_name": "uapictr_ltrel_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "PAL_LTNUM_01",
+            "target": "PCCServeur_A",
+            "flow_name": "pal_ltnum_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAL_LTNUM_01",
+            "target": "PCCServeur_B",
+            "flow_name": "pal_ltnum_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAL_LTNUM_01",
+            "target": "MES_01_CHMO_01_A",
+            "flow_name": "pal_ltnum_mes_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAL_LTNUM_01",
+            "target": "MES_01_CHMO_01_B",
+            "flow_name": "pal_ltnum_mes_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAL_LTNUM_01",
+            "target": "MES_01_CHMO_02_A",
+            "flow_name": "pal_ltnum_mes_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAL_LTNUM_01",
+            "target": "MES_01_CHMO_02_B",
+            "flow_name": "pal_ltnum_mes_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAL_LTNUM_01",
+            "target": "MES_01_CHMO_03_A",
+            "flow_name": "pal_ltnum_mes_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAL_LTNUM_01",
+            "target": "MES_01_CHMO_03_B",
+            "flow_name": "pal_ltnum_mes_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAL_LTNUM_01",
+            "target": "MES_01_CHMO_04_A",
+            "flow_name": "pal_ltnum_mes_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAL_LTNUM_01",
+            "target": "MES_01_CHMO_04_B",
+            "flow_name": "pal_ltnum_mes_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAL_LTNUM_01",
+            "target": "PAS_01_A",
+            "flow_name": "pal_ltnum_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAL_LTNUM_01",
+            "target": "PAS_01_B",
+            "flow_name": "pal_ltnum_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAL_LTNUM_01",
+            "target": "LTREL_01",
+            "flow_name": "pal_ltnum_ltrel_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "PAL_LTNUM_01_A",
+            "target": "PAL_LTNUM_01",
+            "flow_name": "upal_ltnum_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAL_LTNUM_01_A",
+            "target": "PAL_LTNUM_01",
+            "flow_name": "upal_ltnum_mes_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAL_LTNUM_01_A",
+            "target": "PAL_LTNUM_01",
+            "flow_name": "upal_ltnum_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAL_LTNUM_01_A",
+            "target": "PAL_LTNUM_01",
+            "flow_name": "upal_ltnum_ltrel_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "PAL_LTNUM_01_B",
+            "target": "PAL_LTNUM_01",
+            "flow_name": "upal_ltnum_pccserveur_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAL_LTNUM_01_B",
+            "target": "PAL_LTNUM_01",
+            "flow_name": "upal_ltnum_mes_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAL_LTNUM_01_B",
+            "target": "PAL_LTNUM_01",
+            "flow_name": "upal_ltnum_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "PAL_LTNUM_01_B",
+            "target": "PAL_LTNUM_01",
+            "flow_name": "upal_ltnum_ltrel_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "LTREL_01",
+            "target": "DistribTraction_01_CHMO",
+            "flow_name": "ltrel_distribtraction_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "LTREL_01",
+            "target": "DistribTraction_01_MAED",
+            "flow_name": "ltrel_distribtraction_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "LTREL_01",
+            "target": "PAS_01_A",
+            "flow_name": "ltrel_pas_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "LTREL_01",
+            "target": "PAS_01_B",
+            "flow_name": "ltrel_pas_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "LTREL_01",
+            "target": "PAL_LTNUM_01_A",
+            "flow_name": "ltrel_pal_ltnum_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "LTREL_01",
+            "target": "PAL_LTNUM_01_B",
+            "flow_name": "ltrel_pal_ltnum_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "SIG_01_CHMO",
+            "target": "MES_01_CHMO_01_A",
+            "flow_name": "sig_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "SIG_01_CHMO",
+            "target": "MES_01_CHMO_01_B",
+            "flow_name": "sig_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "SIG_01_CHMO",
+            "target": "MES_01_CHMO_02_A",
+            "flow_name": "sig_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "SIG_01_CHMO",
+            "target": "MES_01_CHMO_02_B",
+            "flow_name": "sig_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "SIG_01_CHMO",
+            "target": "MES_01_CHMO_03_A",
+            "flow_name": "sig_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "SIG_01_CHMO",
+            "target": "MES_01_CHMO_03_B",
+            "flow_name": "sig_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "SIG_01_CHMO",
+            "target": "MES_01_CHMO_04_A",
+            "flow_name": "sig_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "SIG_01_CHMO",
+            "target": "MES_01_CHMO_04_B",
+            "flow_name": "sig_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "SIG_01_CHMO",
+            "target": "APILoc_01_CHMO_01_A",
+            "flow_name": "sig_apiloc_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "SIG_01_CHMO",
+            "target": "APILoc_01_CHMO_01_B",
+            "flow_name": "sig_apiloc_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "SIG_01_CHMO",
+            "target": "APILoc_01_CHMO_02_A",
+            "flow_name": "sig_apiloc_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "SIG_01_CHMO",
+            "target": "APILoc_01_CHMO_02_B",
+            "flow_name": "sig_apiloc_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "SIG_01_CHMO",
+            "target": "APILoc_01_CHMO_03_A",
+            "flow_name": "sig_apiloc_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "SIG_01_CHMO",
+            "target": "APILoc_01_CHMO_03_B",
+            "flow_name": "sig_apiloc_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "SIG_01_CHMO",
+            "target": "APILoc_01_CHMO_04_A",
+            "flow_name": "sig_apiloc_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "SIG_01_CHMO",
+            "target": "APILoc_01_CHMO_04_B",
+            "flow_name": "sig_apiloc_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "SIG_01_MAED",
+            "target": "MES_01_CHMO_01_A",
+            "flow_name": "sig_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "SIG_01_MAED",
+            "target": "MES_01_CHMO_01_B",
+            "flow_name": "sig_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "SIG_01_MAED",
+            "target": "MES_01_CHMO_02_A",
+            "flow_name": "sig_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "SIG_01_MAED",
+            "target": "MES_01_CHMO_02_B",
+            "flow_name": "sig_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "SIG_01_MAED",
+            "target": "MES_01_CHMO_03_A",
+            "flow_name": "sig_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "SIG_01_MAED",
+            "target": "MES_01_CHMO_03_B",
+            "flow_name": "sig_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "SIG_01_MAED",
+            "target": "MES_01_CHMO_04_A",
+            "flow_name": "sig_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "SIG_01_MAED",
+            "target": "MES_01_CHMO_04_B",
+            "flow_name": "sig_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "SIG_01_MAED",
+            "target": "APILoc_01_CHMO_01_A",
+            "flow_name": "sig_apiloc_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "SIG_01_MAED",
+            "target": "APILoc_01_CHMO_01_B",
+            "flow_name": "sig_apiloc_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "SIG_01_MAED",
+            "target": "APILoc_01_CHMO_02_A",
+            "flow_name": "sig_apiloc_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "SIG_01_MAED",
+            "target": "APILoc_01_CHMO_02_B",
+            "flow_name": "sig_apiloc_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "SIG_01_MAED",
+            "target": "APILoc_01_CHMO_03_A",
+            "flow_name": "sig_apiloc_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "SIG_01_MAED",
+            "target": "APILoc_01_CHMO_03_B",
+            "flow_name": "sig_apiloc_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "SIG_01_MAED",
+            "target": "APILoc_01_CHMO_04_A",
+            "flow_name": "sig_apiloc_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "SIG_01_MAED",
+            "target": "APILoc_01_CHMO_04_B",
+            "flow_name": "sig_apiloc_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "EV_01_CHMO",
+            "target": "MES_01_CHMO_01_A",
+            "flow_name": "ev_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "EV_01_CHMO",
+            "target": "MES_01_CHMO_01_B",
+            "flow_name": "ev_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "EV_01_CHMO",
+            "target": "MES_01_CHMO_02_A",
+            "flow_name": "ev_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "EV_01_CHMO",
+            "target": "MES_01_CHMO_02_B",
+            "flow_name": "ev_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "EV_01_CHMO",
+            "target": "MES_01_CHMO_03_A",
+            "flow_name": "ev_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "EV_01_CHMO",
+            "target": "MES_01_CHMO_03_B",
+            "flow_name": "ev_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "EV_01_CHMO",
+            "target": "MES_01_CHMO_04_A",
+            "flow_name": "ev_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "EV_01_CHMO",
+            "target": "MES_01_CHMO_04_B",
+            "flow_name": "ev_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "EV_01_CHMO",
+            "target": "PAS_01_A",
+            "flow_name": "ev_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "EV_01_CHMO",
+            "target": "PAS_01_B",
+            "flow_name": "ev_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "EV_01_MAED",
+            "target": "MES_01_CHMO_01_A",
+            "flow_name": "ev_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "EV_01_MAED",
+            "target": "MES_01_CHMO_01_B",
+            "flow_name": "ev_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "EV_01_MAED",
+            "target": "MES_01_CHMO_02_A",
+            "flow_name": "ev_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "EV_01_MAED",
+            "target": "MES_01_CHMO_02_B",
+            "flow_name": "ev_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "EV_01_MAED",
+            "target": "MES_01_CHMO_03_A",
+            "flow_name": "ev_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "EV_01_MAED",
+            "target": "MES_01_CHMO_03_B",
+            "flow_name": "ev_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "EV_01_MAED",
+            "target": "MES_01_CHMO_04_A",
+            "flow_name": "ev_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "EV_01_MAED",
+            "target": "MES_01_CHMO_04_B",
+            "flow_name": "ev_mes_cnx",
+            "flow_pattern": ".*cnx.*",
+            "color": "#ff70C4"
+        },
+        {
+            "source": "EV_01_MAED",
+            "target": "PAS_01_A",
+            "flow_name": "ev_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "EV_01_MAED",
+            "target": "PAS_01_B",
+            "flow_name": "ev_pas_std",
+            "flow_pattern": ".*std.*",
+            "color": "#1f41ff"
+        },
+        {
+            "source": "SLBBord_01_CHMO_01",
+            "target": "PAE_01_CHMO_01_A",
+            "flow_name": "slbbord"
+        },
+        {
+            "source": "SLBBord_01_CHMO_01",
+            "target": "PAE_01_CHMO_01_B",
+            "flow_name": "slbbord"
+        },
+        {
+            "source": "SLBBord_01_CHMO_02",
+            "target": "PAE_01_CHMO_02_A",
+            "flow_name": "slbbord"
+        },
+        {
+            "source": "SLBBord_01_CHMO_02",
+            "target": "PAE_01_CHMO_02_B",
+            "flow_name": "slbbord"
+        },
+        {
+            "source": "SLBBord_01_MAED_01",
+            "target": "PAE_01_MAED_01_A",
+            "flow_name": "slbbord"
+        },
+        {
+            "source": "SLBBord_01_MAED_01",
+            "target": "PAE_01_MAED_01_B",
+            "flow_name": "slbbord"
+        },
+        {
+            "source": "SLBSol_01_CHMO",
+            "target": "SLBBord_01_CHMO_01",
+            "flow_name": "sol_bord_slb"
+        },
+        {
+            "source": "SLBSol_01_CHMO",
+            "target": "SLBBord_01_CHMO_02",
+            "flow_name": "sol_bord_slb"
+        },
+        {
+            "source": "SLBSol_01_CHMO",
+            "target": "SLBBord_01_MAED_01",
+            "flow_name": "sol_bord_slb"
+        },
+        {
+            "source": "SLBSol_01_MAED",
+            "target": "SLBBord_01_CHMO_01",
+            "flow_name": "sol_bord_slb"
+        },
+        {
+            "source": "SLBSol_01_MAED",
+            "target": "SLBBord_01_CHMO_02",
+            "flow_name": "sol_bord_slb"
+        },
+        {
+            "source": "SLBSol_01_MAED",
+            "target": "SLBBord_01_MAED_01",
+            "flow_name": "sol_bord_slb"
+        },
+        {
+            "source": "AccessPoint_01_CHMO_01",
+            "target": "STDRadioSol_01",
+            "flow_name": "accesspoint"
+        },
+        {
+            "source": "AccessPoint_01_MAED_01",
+            "target": "STDRadioSol_01",
+            "flow_name": "accesspoint"
+        }
+    ]
+}
