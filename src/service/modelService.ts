@@ -39,8 +39,16 @@ export default {
     return response.data.data[0].name; 
   },
 
-  async addDocument(fileData) {
-    const response = await axios.post(config.apiBaseUrl, fileData);
+  async addDocument(name, path) {
+    const fileData = {
+      name: name,
+      path: path
+    };
+    const response = await axios.post(config.apiBaseUrl, fileData, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
     return response.data; 
   }
  

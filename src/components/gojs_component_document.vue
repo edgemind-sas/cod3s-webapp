@@ -26,6 +26,7 @@
 
 <script>
 import modelService from '@/service/modelService'; 
+import config from '@/config/globals.ts'
 
 export default {
 data() {
@@ -75,16 +76,30 @@ methods: {
     }
     this.addDocument(file);
   },
-  async addDocument(file) {
-    try {
-      const formData = new FormData();
-      formData.append('file', file);
-      await modelService.addDocument(formData);
-      this.fetchDocuments();
-    } catch (error) {
-      console.error('There was an error posting the document:', error);
+ 
+
+
+
+async addDocument(file) {
+  try {
+    const fileName = file.name;
+    const filePath = `${config.pathDocument}/${fileName}`;
+    
+    const response = await modelService.addDocument(fileName, filePath);
+    console.log('File added:', response);
+    this.fetchDocuments();
+  } catch (error) {
+    console.error('There was an error posting the document:', error);
+    
+    if (error.response) {
+      console.error('Server response:', error.response.data);
+      console.error('Server response status:', error.response.status);
     }
   }
+}
+
+
+
 },
 };
 </script>
