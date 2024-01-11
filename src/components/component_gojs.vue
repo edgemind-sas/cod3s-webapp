@@ -28,7 +28,7 @@
 <script lang="ts">
 import { defineComponent, ref, reactive, onMounted, toRefs } from 'vue';
 import * as go from 'gojs';
-import modelService from '@/service/modelService'; // Make sure this path is correct
+import axios from 'axios';
 
 export default defineComponent({
   props: {
@@ -42,72 +42,103 @@ export default defineComponent({
       secondFilterValue: "" 
     });
     let myDiagram;
-    let jsonData; // Store the loaded JSON data
 
-    function makePort(name, spot, output, input) {
-      const $ = go.GraphObject.make;
-      return $(go.Shape, "Rectangle", {
-        fill: "black", 
-        stroke: null, 
-        desiredSize: new go.Size(8, 8),
-        alignment: spot,
-        portId: name,
-        fromSpot: spot, toSpot: spot,
-        fromLinkable: output, toLinkable: input,
-        cursor: "pointer"
-      });
+    async function loadJsonData(filePath) {
+      const url = `http://localhost:8000/document/extracted-content/${filePath}`;
+      const response = await axios.get(url);
+      if (response.data && response.data.data && response.data.data[0]) {
+        return response.data.data[0];
+      } else {
+        throw new Error('Invalid JSON data');
+      }
     }
 
     function initializeDiagram(jsonData) {
       const $ = go.GraphObject.make;
-      myDiagram = $(go.Diagram, myDiagramDiv.value, {
-        initialAutoScale: go.Diagram.Uniform,
-        layout: $(go.LayeredDigraphLayout, { direction: 90 }),
-        "undoManager.isEnabled": true
-      });
 
-      myDiagram.nodeTemplate = $(
-        go.Node, "Spot",
-        {
-          click: (e, obj) => createLinksForNode(obj.part.data.key)
-        },
-        $(go.Panel, "Auto",
-          $(go.Shape, "Rectangle",
-            new go.Binding("fill", "color"),
-            { stroke: "black", strokeWidth: 2 }
-          ),
-          $(go.TextBlock,
-            { margin: 8 },
-            new go.Binding("text", "name")
-          )
-        ),
-        makePort("T", go.Spot.Top, true, false),
-        makePort("L", go.Spot.Left, true, false),
-        makePort("R", go.Spot.Right, false, true),
-        makePort("B", go.Spot.Bottom, false, true)
-      );
-
-      myDiagram.model = new go.GraphLinksModel(
-        jsonData.components.map(c => ({
-          ...c,
-          key: c.name
-        }))
-      );
-    }
-
-    function createLinksForNode(nodeKey) {
-      const relatedLinks = jsonData.flows.filter(f => f.source === nodeKey || f.target === nodeKey);
-      myDiagram.startTransaction("addLinks");
-      relatedLinks.forEach(link => {
-        myDiagram.model.addLinkData({
-          from: link.source,
-          to: link.target,
-          fromPort: link.fromPort,
-          toPort: link.toPort,
-          color: link.color 
+      function makePort(name, spot, output, input) {
+        return $(go.Shape, "Rectangle", {
+          fill: "black", 
+          stroke: null, 
+          desiredSize: new go.Size(8, 8),
+          alignment: spot,
+          portId: name,
+          fromSpot: spot, toSpot: spot,
+          fromLinkable: output, toLinkable: input,
+          cursor: "pointer"
         });
-      });
-      myDiagram.commitTransaction("addLinks");
+      }
+
+      myDiagram = $(go.Diagram, myDiagramDiv.value, {
+    initialAutoScale: go.Diagram.Uniform,
+    layout: $(go.TreeLayout, { angle: 90 }),  
+    "undoManager.isEnabled": true
+});
+
+    myDiagram.nodeTemplate = $(
+  go.Node, "Spot",
+  $(go.Panel, "Auto",
+    $(go.Shape, "Rectangle",
+      new go.Binding("fill", "color"),
+      { stroke: "black", strokeWidth: 2 }
+    ),
+    $(go.TextBlock,
+      { margin: 8 },
+      new go.Binding("text", "name")
+    )
+  ),
+  
+  makePort("T", go.Spot.Top, true, false),
+  makePort("L", go.Spot.Left, true, false),
+  makePort("R", go.Spot.Right, false, true),
+  makePort("B", go.Spot.Bottom, false, true),
+
+  $("TreeExpanderButton"),
+  
+  {
+    toolTip:  
+      $("ToolTip",
+        $(go.TextBlock, { margin: 4 },
+         
+          new go.Binding("text", "", (n) => {
+            return "Coordinates: " + n.location.toString();
+          }).ofObject()
+        )
+      )
+  }
+);
+
+
+myDiagram.linkTemplate = $(
+    go.Link,
+    { routing: go.Link.Orthogonal, corner: 5 },
+    $(go.Shape,
+      { strokeWidth: 2, stroke: "rgba(0,0,0,0.2)" },  
+      new go.Binding("stroke", "color").makeTwoWay()
+    ),
+    $(go.Shape,
+      { toArrow: "Standard", stroke: null, fill: "rgba(0,0,0,0.2)" },  
+      new go.Binding("fill", "color").makeTwoWay()
+    )
+);
+
+myDiagram.model = new go.GraphLinksModel(
+    jsonData.components.map(c => ({
+      ...c,
+      key: c.name
+    })),
+    jsonData.flows.map(f => ({
+      ...f,
+      from: f.source,
+      to: f.target,
+      fromPort: f.fromPort,
+      toPort: f.toPort
+    }))
+);
+myDiagram.addDiagramListener("InitialLayoutCompleted", e => {
+    e.diagram.findTreeRoots().each(r => r.expandTree(3));
+  });
+
     }
 
     const applyFirstFilter = () => {
@@ -149,12 +180,11 @@ export default defineComponent({
       }
 
       try {
-        jsonData = await modelService.loadJsonData(path.value);
-        console.log(jsonData);
+        const jsonData = await loadJsonData(path.value);
+        console.log(jsonData)
         initializeDiagram(jsonData);
       } catch (error) {
         console.error('Error loading JSON data:', error);
-        // Handle the error by showing an alert or some other method
       }
     });
 
@@ -162,9 +192,6 @@ export default defineComponent({
   },
 });
 </script>
-
-
-
 
 <style scoped>
 .filter-container {
