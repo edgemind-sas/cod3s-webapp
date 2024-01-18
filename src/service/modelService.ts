@@ -5,20 +5,16 @@ import config from '@/config/globals';
 
 export default {
   async loadJsonData(filePath: string) {
-    const url = `${config.apiBaseUrl}/extracted-content/${filePath}`;
+    const url = `${config.apiBaseUrl}/content/${filePath}`;
     try {
       const response = await axios.get(url);
       if (response.data && response.data.data && response.data.data[0]) {
         return response.data.data[0];
       } else {
-        
-        throw new Error('No data found at the given path.');
+        throw new Error('Invalid JSON data');
       }
     } catch (error) {
-     
       console.error('Error fetching JSON data:', error);
-
-      
       throw new Error('Failed to load JSON data.');
     }
   },
@@ -50,6 +46,19 @@ export default {
       }
     });
     return response.data; 
+  }, 
+
+   async fetchComponentNames(path: string): Promise<string[]> {
+    try {
+      const response = await axios.get(`http://localhost:8000/document/components-names/${path}`);
+      if (response.data && response.data.components) {
+        return response.data.components;
+      }
+      return [];
+    } catch (error) {
+      console.error('Error fetching component names:', error);
+      return [];
+    }
   }
  
 };

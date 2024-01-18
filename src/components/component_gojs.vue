@@ -1,177 +1,182 @@
 <template>
   <div class="filter-container">
-   
-    <div class="filter">
-      <input
-        v-model="state.firstFilterValue"
-        type="text"
-        placeholder="Enter regex for first filter"
-        class="filter-input"
-      />
-      <button @click="applyFirstFilter" class="filter-button">Apply First Filter</button>
+    <div>
+      <gojs_component_filter
+        file-path="path.value"
+      ></gojs_component_filter>
     </div>
-
-    
-    <div class="filter">
-      <input
-        v-model="state.secondFilterValue"
-        type="text"
-        placeholder="Enter regex for second filter"
-        class="filter-input"
-      />
-      <button @click="applySecondFilter" class="filter-button">Apply Second Filter</button>
-    </div>
-
     <div ref="myDiagramDiv" class="diagram"></div>
   </div>
 </template>
+
 <script lang="ts">
-import { defineComponent, ref, reactive, onMounted, toRefs } from 'vue';
+import { defineComponent, ref, onMounted, toRefs } from 'vue';
 import * as go from 'gojs';
 import axios from 'axios';
+import gojs_component_filter from "@/components/gojs_component_filter.vue"
+import modelService from "@/service/modelService"
 
 export default defineComponent({
+  components : {gojs_component_filter}, 
   props: {
     path: String
   },
   setup(props) {
     const { path } = toRefs(props);
     const myDiagramDiv = ref(null);
-    const state = reactive({ 
-      firstFilterValue: "", 
-      secondFilterValue: "" 
-    });
-    let myDiagram;
+    
+    let myDiagram: go.Diagram;
 
-    async function loadJsonData(filePath) {
-      const url = `http://localhost:8000/document/extracted-content/${filePath}`;
-      const response = await axios.get(url);
-      if (response.data && response.data.data && response.data.data[0]) {
-        return response.data.data[0];
-      } else {
-        throw new Error('Invalid JSON data');
+   
+
+    function convertPortPositionToSpot(position: string): go.Spot {
+      switch (position) {
+        case 'left': return go.Spot.Left;
+        case 'right': return go.Spot.Right;
+        case 'top': return go.Spot.Top;
+        case 'bottom': return go.Spot.Bottom;
+        default: return go.Spot.Top;
       }
     }
 
-    function initializeDiagram(jsonData) {
+    function makePort(portId: string, spot: go.Spot, output: boolean, input: boolean, color: string): go.GraphObject {
       const $ = go.GraphObject.make;
+      return $(go.Shape, "Rectangle", {
+        portId: portId,
+        fromSpot: spot, toSpot: spot,
+        fromLinkable: output, toLinkable: input,
+        cursor: "pointer",
+        fill: color,
+        desiredSize: new go.Size(8, 8)
+      });
+    }
 
-      function makePort(name, spot, output, input) {
-        return $(go.Shape, "Rectangle", {
-          fill: "black", 
-          stroke: null, 
-          desiredSize: new go.Size(8, 8),
-          alignment: spot,
-          portId: name,
-          fromSpot: spot, toSpot: spot,
-          fromLinkable: output, toLinkable: input,
-          cursor: "pointer"
-        });
+    function initializeDiagram(jsonData: any) {
+      const $ = go.GraphObject.make;
+      if (myDiagram) {
+        updateDiagramModel(jsonData);
+        return;
       }
 
       myDiagram = $(go.Diagram, myDiagramDiv.value, {
-    initialAutoScale: go.Diagram.Uniform,
-    layout: $(go.TreeLayout, { angle: 90 }),  
-    "undoManager.isEnabled": true
-});
+        "undoManager.isEnabled": true, 
+        layout: $(go.ForceDirectedLayout,  
+    {
+      defaultSpringLength: 50, 
+      defaultElectricalCharge: 100 
+    }
+  ),
+      });
 
-    myDiagram.nodeTemplate = $(
-  go.Node, "Spot",
+  myDiagram.nodeTemplate = $(
+  go.Node, "Table",
+  new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
+
   $(go.Panel, "Auto",
+    { row: 1, column: 1, name: "BODY", stretch: go.GraphObject.Fill },
     $(go.Shape, "Rectangle",
       new go.Binding("fill", "color"),
-      { stroke: "black", strokeWidth: 2 }
+      { stroke: null, strokeWidth: 0, minSize: new go.Size(60, 60) }
     ),
     $(go.TextBlock,
-      { margin: 8 },
-      new go.Binding("text", "name")
+      { margin: 10, textAlign: "center", font: "bold 14px Segoe UI,sans-serif", stroke: "#484848", editable: true },
+      new go.Binding("text", "name").makeTwoWay()
     )
   ),
-  
-  makePort("T", go.Spot.Top, true, false),
-  makePort("L", go.Spot.Left, true, false),
-  makePort("R", go.Spot.Right, false, true),
-  makePort("B", go.Spot.Bottom, false, true),
-
-  $("TreeExpanderButton"),
-  
-  {
-    toolTip:  
-      $("ToolTip",
-        $(go.TextBlock, { margin: 4 },
-         
-          new go.Binding("text", "", (n) => {
-            return "Coordinates: " + n.location.toString();
-          }).ofObject()
-        )
+ 
+  $(go.Panel, "Horizontal", { row: 1, column: 0 },
+    new go.Binding("itemArray", "leftArray"),
+    {
+      itemTemplate: $(go.Panel,
+        { _side: "left" },
+        new go.Binding("portId", "portId"),
+        makePort("", go.Spot.Left, true, true, "#000000") 
       )
-  }
+    }
+  ),
+  
+  $(go.Panel, "Horizontal", { row: 0, column: 1 },
+    new go.Binding("itemArray", "topArray"),
+    {
+      itemTemplate: $(go.Panel,
+        { _side: "top" },
+        new go.Binding("portId", "portId"),
+        makePort("", go.Spot.Top, true, true, "#000000") 
+      )
+    }
+  ),
+  
+  $(go.Panel, "Horizontal", { row: 1, column: 2 },
+    new go.Binding("itemArray", "rightArray"),
+    {
+      itemTemplate: $(go.Panel,
+        { _side: "right" },
+        new go.Binding("portId", "portId"),
+        makePort("", go.Spot.Right, true, true, "#000000") 
+      )
+    }
+  ),
+
+  $(go.Panel, "Horizontal", { row: 2, column: 1 },
+    new go.Binding("itemArray", "bottomArray"),
+    {
+      itemTemplate: $(go.Panel,
+        { _side: "bottom" },
+        new go.Binding("portId", "portId"),
+        makePort("", go.Spot.Bottom, true, true, "#000000") 
+      )
+    }
+  )
 );
 
+      myDiagram.linkTemplate = $(
+        go.Link,
+        { routing: go.Link.Orthogonal, corner: 5 },
+        $(go.Shape, { strokeWidth: 2 }, new go.Binding("stroke", "color")),
+        $(go.Shape, { toArrow: "Standard" }, new go.Binding("fill", "color"))
+      );
 
-myDiagram.linkTemplate = $(
-    go.Link,
-    { routing: go.Link.Orthogonal, corner: 5 },
-    $(go.Shape,
-      { strokeWidth: 2, stroke: "rgba(0,0,0,0.2)" },  
-      new go.Binding("stroke", "color").makeTwoWay()
-    ),
-    $(go.Shape,
-      { toArrow: "Standard", stroke: null, fill: "rgba(0,0,0,0.2)" },  
-      new go.Binding("fill", "color").makeTwoWay()
-    )
-);
-
-myDiagram.model = new go.GraphLinksModel(
-    jsonData.components.map(c => ({
-      ...c,
-      key: c.name
-    })),
-    jsonData.flows.map(f => ({
-      ...f,
-      from: f.source,
-      to: f.target,
-      fromPort: f.fromPort,
-      toPort: f.toPort
-    }))
-);
-myDiagram.addDiagramListener("InitialLayoutCompleted", e => {
-    e.diagram.findTreeRoots().each(r => r.expandTree(3));
-  });
-
+      assignModel(jsonData);
     }
 
-    const applyFirstFilter = () => {
-      applyFilter(state.firstFilterValue, true);
-    };
+    function updateDiagramModel(jsonData: any) {
+      
+    }
 
-    const applySecondFilter = () => {
-      applyFilter(state.secondFilterValue, false);
-    };
+    function assignModel(jsonData: any) {
+      const componentData = jsonData.components.map((c: any) => {
+        
+        const portsArray = Object.entries(c.ports).map(([key, value]) => {
+          const portColor = "#00AA00"; 
+          const port = makePort(key, convertPortPositionToSpot(value), true, true, portColor);
+          return { portId: key, panel: port };
+        });
 
-    const applyFilter = (filterValue, isFirstFilter) => {
-      if (myDiagram) {
-        if (filterValue.trim() !== "") {
-          try {
-            const regex = new RegExp(filterValue);
-            myDiagram.startTransaction("filter");
-            myDiagram.nodes.each(node => {
-              const matches = regex.test(node.data.name);
-              node.visible = isFirstFilter ? !matches : matches;
-            });
-            myDiagram.commitTransaction("filter");
-          } catch (e) {
-            console.error("Invalid regular expression: ", e);
-          }
-        } else {
-          myDiagram.startTransaction("filter");
-          myDiagram.nodes.each(node => {
-            node.visible = true;
-          });
-          myDiagram.commitTransaction("filter");
-        }
-      }
-    };
+        
+        return {
+          key: c.name,
+          color: c.style.color || "#FFFFFF", 
+          loc: go.Point.stringify(new go.Point(0, 0)),
+          leftArray: portsArray.filter((p: any) => p.panel.fromSpot.equals(go.Spot.Left)),
+          topArray: portsArray.filter((p: any) => p.panel.fromSpot.equals(go.Spot.Top)),
+          rightArray: portsArray.filter((p: any) => p.panel.fromSpot.equals(go.Spot.Right)),
+          bottomArray: portsArray.filter((p: any) => p.panel.fromSpot.equals(go.Spot.Bottom)),
+          name: c.name
+        };
+      });
+
+      const linkDataArray = jsonData.connections.map((link: any) => {
+        return {
+          from: link.comp_source,
+          to: link.comp_target,
+          fromPort: link.port_source,
+          toPort: link.port_target,
+          color: link.style.color || "#000000" 
+        };
+      });
+
+      myDiagram.model = new go.GraphLinksModel(componentData, linkDataArray);
+    }
 
     onMounted(async () => {
       if (!path.value) {
@@ -180,56 +185,19 @@ myDiagram.addDiagramListener("InitialLayoutCompleted", e => {
       }
 
       try {
-        const jsonData = await loadJsonData(path.value);
-        console.log(jsonData)
+        const jsonData = await modelService.loadJsonData(path.value);
         initializeDiagram(jsonData);
       } catch (error) {
         console.error('Error loading JSON data:', error);
       }
     });
 
-    return { myDiagramDiv, state, applyFirstFilter, applySecondFilter };
+    return { myDiagramDiv };
   },
 });
 </script>
 
 <style scoped>
-.filter-container {
-  padding: 20px;
-  background-color: #f5f5f5;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  margin-bottom: 20px;
-}
-
-.filter {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.filter-input {
-  flex-grow: 1;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-right: 10px;
-}
-
-.filter-button {
-  padding: 10px 15px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.filter-button:hover {
-  background-color: #0056b3;
-}
-
 .diagram {
   width: 100%;
   height: 600px;

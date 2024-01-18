@@ -1,44 +1,197 @@
 {
     "components": [
         {
-            "name": "Enedis",
-            "label": "Enedis",
-            "pattern": ".*",
-            "fontname": "monospace",
-            "fontsize": "10",
-            "shape": "box",
-            "style": "filled",
-            "fontcolor": "#1f416d",
-            "color": "#3EB489",
-            "ignore": false
+            "name": "C1",
+            "class_name": "Block",
+            "style": {
+                "fontname": "monospace",
+                "fontsize": "10",
+                "shape": "box",
+                "style": "filled",
+                "fontcolor": "#1f416d",
+                "color": "#55FF55"
+            },
+            "ports": {
+                "flow_in": "left",
+                "flow_out": "right"
+            }
         },
         {
-            "name": "BT",
-            "label": "BT",
-            "pattern": ".*",
-            "fontname": "monospace",
-            "fontsize": "10",
-            "shape": "box",
-            "style": "filled",
-            "fontcolor": "#1f416d",
-            "color": "#3EB489",
-            "ignore": false
+            "name": "C2",
+            "class_name": "Block",
+            "style": {
+                "fontname": "monospace",
+                "fontsize": "10",
+                "shape": "box",
+                "style": "filled",
+                "fontcolor": "#1f416d",
+                "color": "#3EB489"
+            },
+            "ports": {
+                "flow_in": "left",
+                "flow_out": "right"
+            }
+        },
+        {
+            "name": "LI__C",
+            "class_name": "LogicOr",
+            "style": {
+                "fontname": "monospace",
+                "fontsize": "10",
+                "shape": "box",
+                "style": "filled",
+                "fontcolor": "#1f416d", 
+                "color": "#c9d4e6"
+            },
+            "ports": {
+                "flow_in": "bottom",
+                "flow_out": "top",
+                "flow_available_in": "bottom",
+                "flow_available_out": "top"
+            }
+        },
+        {
+            "name": "LO__C",
+            "class_name": "LogicOr",
+            "style": {
+                "fontname": "monospace",
+                "fontsize": "10",
+                "shape": "box",
+                "style": "filled",
+                "fontcolor": "#1f416d",
+                "color": "#c9d4e6"
+            },
+            "ports": {
+                "flow_in": "bottom",
+                "flow_out": "top",
+                "flow_available_in": "bottom",
+                "flow_available_out": "top"
+            }
+        },
+        {
+            "name": "S",
+            "class_name": "Source",
+            "style": {
+                "fontname": "monospace",
+                "fontsize": "10",
+                "shape": "box",
+                "style": "filled",
+                "fontcolor": "#1f416d", 
+                "color": "#1f41ff"
+            },
+            "ports": {
+                "flow_out": "right"
+            }
         }
     ],
-    "flows": [
+    "connections": [
         {
-            "source": "Enedis",
-            "target": "BT",
-            "flow_name": "elec_ht",
-            "flow_pattern": "elec_ht",
-            "color": "#55FF55"
+            "comp_source": "C1",
+            "port_source": "flow_available_out",
+            "comp_target": "LI__C",
+            "port_target": "flow_available_in",
+            "style": {
+                "color": "#FF416d"
+            }
         },
         {
-            "source": "Enedis",
-            "target": "HT",
-            "flow_name": "elec_ht",
-            "flow_pattern": "elec_ht",
-            "color": "#55FF55"
+            "comp_source": "C1",
+            "port_source": "flow_in",
+            "comp_target": "S",
+            "port_target": "flow_out",
+            "style": {
+                "color": "#1f416d"
+            }
+        },
+        {
+            "comp_source": "C1",
+            "port_source": "flow_out",
+            "comp_target": "LO__C",
+            "port_target": "flow_in",
+            "style": {
+                "color": "#1f416d"
+            }
+        },
+        {
+            "comp_source": "C2",
+            "port_source": "flow_available_out",
+            "comp_target": "LI__C",
+            "port_target": "flow_available_in",
+            "style": {
+                "color": "#FF416d"
+            }
+        },
+        {
+            "comp_source": "C2",
+            "port_source": "flow_in",
+            "comp_target": "S",
+            "port_target": "flow_out",
+            "style": {
+                "color": "#1f416d"
+            }
+        },
+        {
+            "comp_source": "C2",
+            "port_source": "flow_out",
+            "comp_target": "LO__C",
+            "port_target": "flow_in",
+            "style": {
+                "color": "#1f416d"
+            }
+        },
+        {
+            "comp_source": "LI__C",
+            "port_source": "flow_available_in",
+            "comp_target": "C1",
+            "port_target": "flow_available_out",
+            "style": {
+                "color": "#FF416d"
+            }
+        },
+        {
+            "comp_source": "LI__C",
+            "port_source": "flow_available_in",
+            "comp_target": "C2",
+            "port_target": "flow_available_out",
+            "style": {
+                "color": "#FF416d"
+            }
+        },
+        {
+            "comp_source": "LO__C",
+            "port_source": "flow_in",
+            "comp_target": "C1",
+            "port_target": "flow_out",
+            "style": {
+                "color": "#1f416d"
+            }
+        },
+        {
+            "comp_source": "LO__C",
+            "port_source": "flow_in",
+            "comp_target": "C2",
+            "port_target": "flow_out",
+            "style": {
+                "color": "#1f416d"
+            }
+        },
+        {
+            "comp_source": "S",
+            "port_source": "flow_out",
+            "comp_target": "C1",
+            "port_target": "flow_in",
+            "style": {
+                "color": "#1f416d"
+            }
+        },
+        {
+            "comp_source": "S",
+            "port_source": "flow_out",
+            "comp_target": "C2",
+            "port_target": "flow_in",
+            "style": {
+                "color": "#1f416d"
+            }
         }
     ]
 }
