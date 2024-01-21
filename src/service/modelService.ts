@@ -4,12 +4,12 @@ import config from '@/config/globals';
 
 
 export default {
-  async loadJsonData(filePath: string) {
-    const url = `${config.apiBaseUrl}/content/${filePath}`;
+  async loadJsonData() {
+    const url = "http://localhost:8000/system_viz/";
     try {
       const response = await axios.get(url);
-      if (response.data && response.data.data && response.data.data[0]) {
-        return response.data.data[0];
+      if (response.data) {
+        return response.data;
       } else {
         throw new Error('Invalid JSON data');
       }
@@ -48,7 +48,7 @@ export default {
     return response.data; 
   }, 
 
-   async fetchComponentNames(path: string): Promise<string[]> {
+   /*async fetchComponentNames(path: string): Promise<string[]> {
     try {
       const response = await axios.get(`http://localhost:8000/document/components-names/${path}`);
       if (response.data && response.data.components) {
@@ -59,6 +59,6 @@ export default {
       console.error('Error fetching component names:', error);
       return [];
     }
-  }
+  }*/
  
 };

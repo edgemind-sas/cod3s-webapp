@@ -39,17 +39,18 @@ export default defineComponent({
       }
     }
 
-    function makePort(portId: string, spot: go.Spot, output: boolean, input: boolean, color: string): go.GraphObject {
-      const $ = go.GraphObject.make;
-      return $(go.Shape, "Rectangle", {
-        portId: portId,
-        fromSpot: spot, toSpot: spot,
-        fromLinkable: output, toLinkable: input,
-        cursor: "pointer",
-        fill: color,
-        desiredSize: new go.Size(8, 8)
-      });
-    }
+function makePort(portId: string, spot: go.Spot = go.Spot.Top, output: boolean = true, input: boolean = true, color: string = "#ef7b26"): go.GraphObject {
+  const $ = go.GraphObject.make;
+  return $(go.Shape, "Rectangle", {
+    portId: portId,
+    fromSpot: spot, toSpot: spot,
+    fromLinkable: output, toLinkable: input,
+    cursor: "pointer",
+    fill: color,
+    desiredSize: new go.Size(8, 8)
+  });
+}
+
 
     function initializeDiagram(jsonData: any) {
       const $ = go.GraphObject.make;
@@ -68,7 +69,7 @@ export default defineComponent({
   ),
       });
 
-  myDiagram.nodeTemplate = $(
+myDiagram.nodeTemplate = $(
   go.Node, "Table",
   new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
 
@@ -90,7 +91,7 @@ export default defineComponent({
       itemTemplate: $(go.Panel,
         { _side: "left" },
         new go.Binding("portId", "portId"),
-        makePort("", go.Spot.Left, true, true, "#000000") 
+        makePort("", go.Spot.Left, true, true, "#ef7b26") 
       )
     }
   ),
@@ -101,7 +102,7 @@ export default defineComponent({
       itemTemplate: $(go.Panel,
         { _side: "top" },
         new go.Binding("portId", "portId"),
-        makePort("", go.Spot.Top, true, true, "#000000") 
+        makePort("", go.Spot.Top, true, true, "#ef7b26") 
       )
     }
   ),
@@ -112,7 +113,7 @@ export default defineComponent({
       itemTemplate: $(go.Panel,
         { _side: "right" },
         new go.Binding("portId", "portId"),
-        makePort("", go.Spot.Right, true, true, "#000000") 
+        makePort("", go.Spot.Right, true, true, "#ef7b26") 
       )
     }
   ),
@@ -123,18 +124,28 @@ export default defineComponent({
       itemTemplate: $(go.Panel,
         { _side: "bottom" },
         new go.Binding("portId", "portId"),
-        makePort("", go.Spot.Bottom, true, true, "#000000") 
+        makePort("", go.Spot.Bottom, true, true, "#ef7b26") 
       )
     }
   )
 );
 
-      myDiagram.linkTemplate = $(
-        go.Link,
-        { routing: go.Link.Orthogonal, corner: 5 },
-        $(go.Shape, { strokeWidth: 2 }, new go.Binding("stroke", "color")),
-        $(go.Shape, { toArrow: "Standard" }, new go.Binding("fill", "color"))
-      );
+myDiagram.linkTemplate = $(
+  go.Link,
+  { routing: go.Link.Orthogonal, corner: 5 },
+  $(go.Shape, 
+    { strokeWidth: 2 },
+    new go.Binding("stroke", "stroke_color"),
+    new go.Binding("strokeWidth", "stroke_width")
+  ),
+  $(go.Shape,
+    { toArrow: "Standard" },
+    new go.Binding("toArrow", "to_arrow"),
+    new go.Binding("fill", "stroke_color")
+  )
+);
+
+
 
       assignModel(jsonData);
     }
@@ -143,53 +154,60 @@ export default defineComponent({
       
     }
 
-    function assignModel(jsonData: any) {
-      const componentData = jsonData.components.map((c: any) => {
-        
-        const portsArray = Object.entries(c.ports).map(([key, value]) => {
-          const portColor = "#00AA00"; 
-          const port = makePort(key, convertPortPositionToSpot(value), true, true, portColor);
-          return { portId: key, panel: port };
-        });
+   
+function assignModel(jsonData: any) {
+  const componentData = jsonData.components.map((c: any) => {
+    
+    const portsArray = c.ports.map((port: any) => {
+      const portColor = port.color || "#ef7b26"; 
+      const portSpot = convertPortPositionToSpot(port.spot); 
+      const portPanel = makePort(port.name, portSpot, true, true, portColor);
+      return { portId: port.name, panel: portPanel };
+    });
 
-        
-        return {
-          key: c.name,
-          color: c.style.color || "#FFFFFF", 
-          loc: go.Point.stringify(new go.Point(0, 0)),
-          leftArray: portsArray.filter((p: any) => p.panel.fromSpot.equals(go.Spot.Left)),
-          topArray: portsArray.filter((p: any) => p.panel.fromSpot.equals(go.Spot.Top)),
-          rightArray: portsArray.filter((p: any) => p.panel.fromSpot.equals(go.Spot.Right)),
-          bottomArray: portsArray.filter((p: any) => p.panel.fromSpot.equals(go.Spot.Bottom)),
-          name: c.name
-        };
-      });
+    return {
+      key: c.name,
+      color: c.style.color || "#FFFFFF", 
+      loc: go.Point.stringify(new go.Point(0, 0)),
+      leftArray: portsArray.filter((p: any) => p.panel.fromSpot.equals(go.Spot.Left)),
+      topArray: portsArray.filter((p: any) => p.panel.fromSpot.equals(go.Spot.Top)),
+      rightArray: portsArray.filter((p: any) => p.panel.fromSpot.equals(go.Spot.Right)),
+      bottomArray: portsArray.filter((p: any) => p.panel.fromSpot.equals(go.Spot.Bottom)),
+      name: c.name
+    };
+  });
 
-      const linkDataArray = jsonData.connections.map((link: any) => {
-        return {
-          from: link.comp_source,
-          to: link.comp_target,
-          fromPort: link.port_source,
-          toPort: link.port_target,
-          color: link.style.color || "#000000" 
-        };
-      });
+    const linkDataArray = jsonData.connections.map((link: any) => {
+    const processedLink = {
+      from: link.comp_source,
+      to: link.comp_target,
+      fromPort: link.port_source,
+      toPort: link.port_target,
+      stroke_color: link.style.stroke_color || "#1f416d", 
+      stroke_width: link.style.stroke_width || 2,         
+      to_arrow: link.style.to_arrow || "Standard"         
+    };
 
-      myDiagram.model = new go.GraphLinksModel(componentData, linkDataArray);
-    }
+  
+
+    return processedLink;
+  });
+
+  myDiagram.model = new go.GraphLinksModel(componentData, linkDataArray);
+}
 
     onMounted(async () => {
-      if (!path.value) {
+      /*if (!path.value) {
         console.error("No path provided for JSON data");
         return;
-      }
+      }*/
 
-      try {
-        const jsonData = await modelService.loadJsonData(path.value);
+      //try {
+        const jsonData = await modelService.loadJsonData();
         initializeDiagram(jsonData);
-      } catch (error) {
-        console.error('Error loading JSON data:', error);
-      }
+      //} catch (error) {
+        //console.error('Error loading JSON data:', error);
+      //}
     });
 
     return { myDiagramDiv };

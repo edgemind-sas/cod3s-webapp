@@ -34,10 +34,10 @@ export default defineComponent({
     const selectedComponent = ref('');
     const level = ref(1); 
 
-    const fetchComponentNames = async () => {
+    /*const fetchComponentNames = async () => {
       const path = route.params.path as string;
       componentNames.value = await modelService.fetchComponentNames(path);
-    };
+    };*/
 
     const apply = () => {
       emit('apply-filter', {
@@ -46,7 +46,7 @@ export default defineComponent({
       });
     };
 
-    onMounted(fetchComponentNames);
+    //onMounted(fetchComponentNames);
 
     return { componentNames, selectedComponent, level, apply };
   },

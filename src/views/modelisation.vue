@@ -13,7 +13,7 @@
       <v-window v-model="tab">
         <v-window-item value="one">
          
-          <gojs_component_document ></gojs_component_document>
+          <component_gojs ></component_gojs>
         </v-window-item>
 
         <v-window-item value="two">

@@ -3,56 +3,90 @@
         {
             "name": "C1",
             "class_name": "Block",
+            "ports": [
+                {
+                    "color": "#ef7b26",
+                    "name": "flow_available_in"
+                },
+                {
+                    "color": "#ef7b26",
+                    "name": "flow_available_out"
+                },
+                {
+                    "color": "#ef7b26",
+                    "name": "flow_in",
+                    "spot": "left"
+                },
+                {
+                    "color": "#ef7b26",
+                    "name": "flow_out",
+                    "spot": "right"
+                }
+            ],
             "style": {
                 "fontname": "monospace",
                 "fontsize": "10",
                 "shape": "box",
                 "style": "filled",
                 "fontcolor": "#1f416d",
-                "color": "#55FF55"
-            },
-            "ports": {
-                "flow_in": "left",
-                "flow_out": "right"
+                "color": "#c9d4e6"
             }
         },
         {
             "name": "C2",
             "class_name": "Block",
+            "ports": [
+                {
+                    "color": "#ef7b26",
+                    "name": "flow_available_in"
+                },
+                {
+                    "color": "#ef7b26",
+                    "name": "flow_available_out"
+                },
+                {
+                    "color": "#ef7b26",
+                    "name": "flow_in",
+                    "spot": "left"
+                },
+                {
+                    "color": "#ef7b26",
+                    "name": "flow_out",
+                    "spot": "right"
+                }
+            ],
             "style": {
                 "fontname": "monospace",
                 "fontsize": "10",
                 "shape": "box",
                 "style": "filled",
                 "fontcolor": "#1f416d",
-                "color": "#3EB489"
-            },
-            "ports": {
-                "flow_in": "left",
-                "flow_out": "right"
+                "color": "#c9d4e6"
             }
         },
         {
             "name": "LI__C",
             "class_name": "LogicOr",
-            "style": {
-                "fontname": "monospace",
-                "fontsize": "10",
-                "shape": "box",
-                "style": "filled",
-                "fontcolor": "#1f416d", 
-                "color": "#c9d4e6"
-            },
-            "ports": {
-                "flow_in": "bottom",
-                "flow_out": "top",
-                "flow_available_in": "bottom",
-                "flow_available_out": "top"
-            }
-        },
-        {
-            "name": "LO__C",
-            "class_name": "LogicOr",
+            "ports": [
+                {
+                    "color": "#ef7b26",
+                    "name": "flow_available_in",
+                    "spot": "bottom"
+                },
+                {
+                    "color": "#ef7b26",
+                    "name": "flow_available_out",
+                    "spot": "top"
+                },
+                {
+                    "color": "#ef7b26",
+                    "name": "flow_in"
+                },
+                {
+                    "color": "#ef7b26",
+                    "name": "flow_out"
+                }
+            ],
             "style": {
                 "fontname": "monospace",
                 "fontsize": "10",
@@ -60,27 +94,61 @@
                 "style": "filled",
                 "fontcolor": "#1f416d",
                 "color": "#c9d4e6"
-            },
-            "ports": {
-                "flow_in": "bottom",
-                "flow_out": "top",
-                "flow_available_in": "bottom",
-                "flow_available_out": "top"
             }
         },
         {
-            "name": "S",
-            "class_name": "Source",
+            "name": "LO__C",
+            "class_name": "LogicOr",
+            "ports": [
+                {
+                    "color": "#ef7b26",
+                    "name": "flow_available_in",
+                    "spot": "bottom"
+                },
+                {
+                    "color": "#ef7b26",
+                    "name": "flow_available_out",
+                    "spot": "top"
+                },
+                {
+                    "color": "#ef7b26",
+                    "name": "flow_in"
+                },
+                {
+                    "color": "#ef7b26",
+                    "name": "flow_out"
+                }
+            ],
             "style": {
                 "fontname": "monospace",
                 "fontsize": "10",
                 "shape": "box",
                 "style": "filled",
-                "fontcolor": "#1f416d", 
-                "color": "#1f41ff"
-            },
-            "ports": {
-                "flow_out": "right"
+                "fontcolor": "#1f416d",
+                "color": "#c9d4e6"
+            }
+        },
+        {
+            "name": "S",
+            "class_name": "Source",
+            "ports": [
+                {
+                    "color": "#ef7b26",
+                    "name": "flow_available_out"
+                },
+                {
+                    "color": "#ef7b26",
+                    "name": "flow_out",
+                    "spot": "right"
+                }
+            ],
+            "style": {
+                "fontname": "monospace",
+                "fontsize": "10",
+                "shape": "box",
+                "style": "filled",
+                "fontcolor": "#1f416d",
+                "color": "#c9d4e6"
             }
         }
     ],
@@ -91,16 +159,9 @@
             "comp_target": "LI__C",
             "port_target": "flow_available_in",
             "style": {
-                "color": "#FF416d"
-            }
-        },
-        {
-            "comp_source": "C1",
-            "port_source": "flow_in",
-            "comp_target": "S",
-            "port_target": "flow_out",
-            "style": {
-                "color": "#1f416d"
+                "stroke_color": "#FF416d",
+                "stroke_width": 2,
+                "to_arrow": "Circle"
             }
         },
         {
@@ -109,7 +170,8 @@
             "comp_target": "LO__C",
             "port_target": "flow_in",
             "style": {
-                "color": "#1f416d"
+                "stroke_color": "#1f416d",
+                "to_arrow": "Standard"
             }
         },
         {
@@ -118,16 +180,9 @@
             "comp_target": "LI__C",
             "port_target": "flow_available_in",
             "style": {
-                "color": "#FF416d"
-            }
-        },
-        {
-            "comp_source": "C2",
-            "port_source": "flow_in",
-            "comp_target": "S",
-            "port_target": "flow_out",
-            "style": {
-                "color": "#1f416d"
+                "stroke_color": "#FF416d",
+                "stroke_width": 2,
+                "to_arrow": "Circle"
             }
         },
         {
@@ -136,43 +191,8 @@
             "comp_target": "LO__C",
             "port_target": "flow_in",
             "style": {
-                "color": "#1f416d"
-            }
-        },
-        {
-            "comp_source": "LI__C",
-            "port_source": "flow_available_in",
-            "comp_target": "C1",
-            "port_target": "flow_available_out",
-            "style": {
-                "color": "#FF416d"
-            }
-        },
-        {
-            "comp_source": "LI__C",
-            "port_source": "flow_available_in",
-            "comp_target": "C2",
-            "port_target": "flow_available_out",
-            "style": {
-                "color": "#FF416d"
-            }
-        },
-        {
-            "comp_source": "LO__C",
-            "port_source": "flow_in",
-            "comp_target": "C1",
-            "port_target": "flow_out",
-            "style": {
-                "color": "#1f416d"
-            }
-        },
-        {
-            "comp_source": "LO__C",
-            "port_source": "flow_in",
-            "comp_target": "C2",
-            "port_target": "flow_out",
-            "style": {
-                "color": "#1f416d"
+                "stroke_color": "#1f416d",
+                "to_arrow": "Standard"
             }
         },
         {
@@ -181,7 +201,8 @@
             "comp_target": "C1",
             "port_target": "flow_in",
             "style": {
-                "color": "#1f416d"
+                "stroke_color": "#1f416d",
+                "to_arrow": "Standard"
             }
         },
         {
@@ -190,7 +211,8 @@
             "comp_target": "C2",
             "port_target": "flow_in",
             "style": {
-                "color": "#1f416d"
+                "stroke_color": "#1f416d",
+                "to_arrow": "Standard"
             }
         }
     ]
