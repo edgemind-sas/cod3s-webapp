@@ -1,28 +1,17 @@
 <template>
-  <v-card>
-    <v-tabs
-      v-model="tab"
-      bg-color="primary"
-    >
-      <v-tab value="one">GOJS</v-tab>
-      <v-tab value="two">PLUMP</v-tab>
+  <v-card class="edge-mind-theme" style="height: 100vh;"> 
+    <v-tabs v-model="tab" bg-color="primary">
+      <v-tab value="one">Diagram</v-tab>
       <v-tab value="three">JSON</v-tab>
     </v-tabs>
 
-    <v-card-text>
-      <v-window v-model="tab">
+    <v-card-text style="height: 100%;"> 
+      <v-window v-model="tab" style="height: 100%"> 
         <v-window-item value="one">
-         
-          <component_gojs ></component_gojs>
+          <component_gojs style="height: 100%"></component_gojs> 
         </v-window-item>
-
-        <v-window-item value="two">
-          <component_jsplumb> </component_jsplumb>
-        </v-window-item>
-
         <v-window-item value="three">
-          <!-- JSON Content -->
-          <pre>{{ formattedJsonData }}</pre>
+          <pre style="height: 100%;">{{ formattedJsonData }}</pre> 
         </v-window-item>
       </v-window>
     </v-card-text>
@@ -30,21 +19,32 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onMounted, computed } from 'vue';
-import * as go from 'gojs';
-import jsonData from '@/assets/system_petit.json'; 
-import component_gojs from '@/components/component_gojs.vue'
-import component_jsplumb from '@/components/component_jsplumb.vue'
-import gojs_component_document from '@/components/gojs_component_document.vue'
-export default defineComponent({
-  data: () => ({
-    tab: 'one', 
-  }),
-    components : {component_gojs, gojs_component_document, component_jsplumb}, 
-  setup() {
-    const formattedJsonData = computed(() => JSON.stringify(jsonData, null, 2));
+import { defineComponent, ref, onMounted } from 'vue';
+import modelService from "@/service/modelService";
+import component_gojs from '@/components/component_gojs.vue';
+import GojsComponentDocument from '@/components/gojs_component_document.vue';
 
-    return { formattedJsonData };
+export default defineComponent({
+  components: { component_gojs, GojsComponentDocument },
+
+  setup() {
+    const tab = ref('one');
+    const jsonData = ref(null);
+    const formattedJsonData = ref(null);
+
+    onMounted(async () => {
+      jsonData.value = await modelService.loadJsonData();
+      formattedJsonData.value = JSON.stringify(jsonData.value, null, 2);
+    });
+
+    return { tab, formattedJsonData };
   },
 });
 </script>
+
+<style>
+.v-tab{
+  color: #1f416dff !important; 
+  font-family: 'Open Sans', sans-serif;
+}
+</style>

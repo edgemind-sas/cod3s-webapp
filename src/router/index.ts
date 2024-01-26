@@ -23,7 +23,7 @@ const router = createRouter({
       path: '/gojs/:path',
       name: 'ComponentGojs',
       component: () => import('../components/component_gojs.vue'),
-      props: true  // Permet de passer les paramètres de route en tant que props au composant
+      props: true  
     },
   ]
 })

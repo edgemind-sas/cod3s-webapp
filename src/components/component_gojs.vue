@@ -1,9 +1,7 @@
 <template>
   <div class="filter-container">
     <div>
-      <gojs_component_filter
-        file-path="path.value"
-      ></gojs_component_filter>
+      <gojs_component_filter file-path="path.value"></gojs_component_filter>
     </div>
     <div ref="myDiagramDiv" class="diagram"></div>
   </div>
@@ -24,9 +22,12 @@ export default defineComponent({
   setup(props) {
     const { path } = toRefs(props);
     const myDiagramDiv = ref(null);
+   
     
     let myDiagram: go.Diagram;
 
+   
+    
    
 
     function convertPortPositionToSpot(position: string): go.Spot {
@@ -197,17 +198,15 @@ function assignModel(jsonData: any) {
 }
 
     onMounted(async () => {
-      /*if (!path.value) {
-        console.error("No path provided for JSON data");
-        return;
-      }*/
+      try {
+   
 
-      //try {
-        const jsonData = await modelService.loadJsonData();
+    const jsonData = await modelService.loadJsonData();
         initializeDiagram(jsonData);
-      //} catch (error) {
-        //console.error('Error loading JSON data:', error);
-      //}
+
+    } catch (error) {
+          console.error('Error loading JSON data:', error);
+        }
     });
 
     return { myDiagramDiv };
