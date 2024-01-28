@@ -8,11 +8,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onMounted, toRefs } from 'vue';
+import { defineComponent, ref, onMounted, toRefs, watch } from 'vue';
 import * as go from 'gojs';
 import axios from 'axios';
 import gojs_component_filter from "@/components/gojs_component_filter.vue"
 import modelService from "@/service/modelService"
+import { useSimulationStore } from '@/store/simulationStore';
+
 
 export default defineComponent({
   components : {gojs_component_filter}, 
@@ -22,6 +24,7 @@ export default defineComponent({
   setup(props) {
     const { path } = toRefs(props);
     const myDiagramDiv = ref(null);
+    const simulationStore = useSimulationStore();
    
     
     let myDiagram: go.Diagram;
@@ -152,7 +155,8 @@ myDiagram.linkTemplate = $(
     }
 
     function updateDiagramModel(jsonData: any) {
-      
+      // Simply call assignModel with the new jsonData
+      assignModel(jsonData);
     }
 
    
@@ -197,19 +201,38 @@ function assignModel(jsonData: any) {
   myDiagram.model = new go.GraphLinksModel(componentData, linkDataArray);
 }
 
-    onMounted(async () => {
-      try {
-   
 
-    const jsonData = await modelService.loadJsonData();
-        initializeDiagram(jsonData);
 
-    } catch (error) {
-          console.error('Error loading JSON data:', error);
-        }
+    watch(() => simulationStore.needDiagramRefresh, (newVal) => {
+      console.log("Watcher triggered, new value:", newVal); 
+      if (newVal) {
+        refreshDiagram(); // Call refresh function when flag is true
+      }
     });
 
-    return { myDiagramDiv };
+    async function refreshDiagram() {
+      try {
+        const jsonData = await modelService.loadJsonData();
+        if (myDiagram) {
+          // If your diagram is already initialized, update its model
+          updateDiagramModel(jsonData);
+        } else {
+          // If your diagram is not initialized, initialize it
+          initializeDiagram(jsonData);
+        }
+        simulationStore.resetRefresh(); // Reset the flag in the store after refreshing
+      } catch (error) {
+        console.error('Error refreshing the diagram:', error);
+      }
+    }
+
+
+    onMounted(async () => {
+    // Initial loading of the diagram might also need to call refreshDiagram
+    refreshDiagram();
+    });
+
+    return { myDiagramDiv, refreshDiagram };
   },
 });
 </script>

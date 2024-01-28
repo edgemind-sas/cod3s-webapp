@@ -16,49 +16,28 @@
       </v-toolbar>
     </v-container>
   </template>
-
   
-<script lang="ts">
-import modelService from '@/service/modelService';
-export default {
-  methods: {
-    startSimulation() {
-      modelService.startSimulation()
-        .then(response => {
-          window.location.reload();
-        })
-        .catch(error => {
-          console.error('There was an error!', error);
-        });
+  <script lang="ts">
+  import { defineComponent } from 'vue';
+  import { useSimulationStore } from '@/store/simulationStore'; // Import the store
+  
+  export default defineComponent({
+    setup() {
+      const simulationStore = useSimulationStore(); // Use the store
+  
+      return {
+        startSimulation: simulationStore.startSimulation,
+        goBackward: simulationStore.goBackward,
+        goForward: simulationStore.goForward,
+      };
     },
-    goBackward() {
-      modelService.goBackward()
-        .then(response => {
-          window.location.reload();
-        })
-        .catch(error => {
-          console.error('There was an error!', error);
-        });
-    },
-    goForward() {
-      modelService.goForward()
-        .then(response => {
-          window.location.reload();
-        })
-        .catch(error => {
-          console.error('There was an error!', error);
-        });
-    }
-  }
-}
-
-</script>
-
-<style scoped> 
-    .simulationInteractive{
-        background-color:#c9d4e6ff ;
-        font-family: 'Open Sans', sans-serif
-
-    }
-
-</style>
+  });
+  </script>
+  
+  <style scoped> 
+      .simulationInteractive{
+          background-color:#c9d4e6ff ;
+          font-family: 'Open Sans', sans-serif
+      }
+  </style>
+  

@@ -6,9 +6,9 @@
     </v-tabs>
 
     <v-card-text style="height: 100%;"> 
-      <v-window v-model="tab" style="height: 100%"> 
+      <v-window v-model="tab" style="height: 100%;"> 
         <v-window-item value="one">
-          <component_gojs style="height: 100%"></component_gojs> 
+          <component_gojs style="height: 100%;"></component_gojs> 
         </v-window-item>
         <v-window-item value="three">
           <pre style="height: 100%;">{{ formattedJsonData }}</pre> 
