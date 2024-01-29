@@ -6,14 +6,14 @@ export const useSimulationStore = defineStore({
   id: 'simulation',
   state: () => ({
     simulationStatus: '',
-    needDiagramRefresh: false, // Add a boolean flag for refresh control
+    needDiagramRefresh: false, 
   }),
   actions: {
     async startSimulation() {
       try {
         await modelService.startSimulation();
         this.simulationStatus = 'started';
-        this.needDiagramRefresh = true; // Set the flag to true to indicate a needed refresh
+        this.needDiagramRefresh = true;
       } catch (error) {
         console.error('Error starting simulation:', error);
       }
@@ -21,7 +21,7 @@ export const useSimulationStore = defineStore({
     async goBackward() {
       try {
         await modelService.goBackward();
-        this.needDiagramRefresh = true; // Set the flag to true to indicate a needed refresh
+        this.needDiagramRefresh = true; 
       } catch (error) {
         console.error('Error going backward:', error);
       }
@@ -29,9 +29,18 @@ export const useSimulationStore = defineStore({
     async goForward() {
       try {
         await modelService.goForward();
-        this.needDiagramRefresh = true; // Set the flag to true to indicate a needed refresh
+        this.needDiagramRefresh = true; 
       } catch (error) {
         console.error('Error going forward:', error);
+      }
+    },
+    async stopSimulation() {
+      try {
+        await modelService.stopSimulation();
+        this.simulationStatus = 'stoped';
+        this.needDiagramRefresh = true; 
+      } catch (error) {
+        console.error('Error starting simulation:', error);
       }
     },
     resetRefresh() {

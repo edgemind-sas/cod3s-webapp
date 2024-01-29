@@ -1,8 +1,5 @@
 <template>
   <div class="filter-container">
-    <div>
-      <gojs_component_filter file-path="path.value"></gojs_component_filter>
-    </div>
     <div ref="myDiagramDiv" class="diagram"></div>
   </div>
 </template>
@@ -10,14 +7,11 @@
 <script lang="ts">
 import { defineComponent, ref, onMounted, toRefs, watch } from 'vue';
 import * as go from 'gojs';
-import axios from 'axios';
-import gojs_component_filter from "@/components/gojs_component_filter.vue"
 import modelService from "@/service/modelService"
 import { useSimulationStore } from '@/store/simulationStore';
 
 
 export default defineComponent({
-  components : {gojs_component_filter}, 
   props: {
     path: String
   },
@@ -63,6 +57,8 @@ function makePort(portId: string, spot: go.Spot = go.Spot.Top, output: boolean =
         return;
       }
 
+
+      
       myDiagram = $(go.Diagram, myDiagramDiv.value, {
         "undoManager.isEnabled": true, 
         layout: $(go.ForceDirectedLayout,  
@@ -155,7 +151,7 @@ myDiagram.linkTemplate = $(
     }
 
     function updateDiagramModel(jsonData: any) {
-      // Simply call assignModel with the new jsonData
+     
       assignModel(jsonData);
     }
 

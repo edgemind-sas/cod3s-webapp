@@ -18,48 +18,6 @@ export default {
       throw new Error('Failed to load JSON data.');
     }
   },
-
-  async fetchDocuments() {
-    const response = await axios.get(config.apiBaseUrl);
-    return response.data.data[0]; 
-  },
-
-  async deleteDocument(itemName) {
-    const url = `${config.apiBaseUrl}/${itemName}`;
-    const response = await axios.delete(url);
-    return response.status; 
-  },
-
-  async fetchDocumentPath(itemName) {
-    const response = await axios.get(`${config.apiBaseUrl}/${itemName}`);
-    return response.data.data[0].name; 
-  },
-
-  async addDocument(name, path) {
-    const fileData = {
-      name: name,
-      path: path
-    };
-    const response = await axios.post(config.apiBaseUrl, fileData, {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
-    return response.data; 
-  }, 
-
-   /*async fetchComponentNames(path: string): Promise<string[]> {
-    try {
-      const response = await axios.get(`http://localhost:8000/document/components-names/${path}`);
-      if (response.data && response.data.components) {
-        return response.data.components;
-      }
-      return [];
-    } catch (error) {
-      console.error('Error fetching component names:', error);
-      return [];
-    }
-  }*/
   
   async fetchSystemName() {
     const url = "http://localhost:8000/project/ ";
@@ -85,5 +43,18 @@ export default {
 
   goForward() {
     return axios.post('http://localhost:8000/interactive_simulation/forward/');
-  }
+  }, 
+  stopSimulation(){
+    return axios.post('http://localhost:8000/interactive_simulation/stop/');
+  }, 
+  async fetchTransitions() {
+    try {
+      const response = await axios.get("http://localhost:8000/interactive_simulation/fireable_transitions/");
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching transitions:", error);
+      return [];
+    }
+  },
+ 
 };
