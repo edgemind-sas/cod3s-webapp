@@ -150,10 +150,34 @@ myDiagram.linkTemplate = $(
       assignModel(jsonData);
     }
 
-    function updateDiagramModel(jsonData: any) {
-     
-      assignModel(jsonData);
+    async function updateDiagramModel() {
+    try {
+        const updatedComponents = await modelService.fetchUpdatedComponents();
+        
+
+        
+        if (updatedComponents.components && updatedComponents.components.length > 0) {
+            myDiagram.startTransaction("updateModel");
+
+            updatedComponents.components.forEach(updatedComponent => {
+                const node = myDiagram.findNodeForKey(updatedComponent.name);
+                if (node) {
+                    if (updatedComponent.style && updatedComponent.style.color) {
+                        myDiagram.model.setDataProperty(node.data, "color", updatedComponent.style.color);
+                    }
+                    node.updateTargetBindings();
+                }
+            });
+
+            myDiagram.commitTransaction("updateModel");
+        } else {
+            console.log("Aucun composant à mettre à jour.");
+        }
+    } catch (error) {
+        console.error('Erreur lors de la mise à jour du diagramme:', error);
     }
+}
+
 
    
 function assignModel(jsonData: any) {
@@ -210,7 +234,7 @@ function assignModel(jsonData: any) {
       try {
         const jsonData = await modelService.loadJsonData();
         if (myDiagram) {
-          updateDiagramModel(jsonData);
+          updateDiagramModel();
         } else {
           
           initializeDiagram(jsonData);

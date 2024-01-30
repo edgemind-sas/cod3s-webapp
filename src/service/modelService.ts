@@ -65,5 +65,14 @@ export default {
       throw error;
     }
   },
- 
+  async fetchUpdatedComponents(): Promise<any> {
+    try {
+        const response = await axios.post('http://localhost:8000/system_viz_update/', {
+        });
+        return response.data;
+    } catch (error) {
+        console.error('Erreur lors de la récupération des composants mis à jour:', error);
+        throw error;
+    }
+}
 };
