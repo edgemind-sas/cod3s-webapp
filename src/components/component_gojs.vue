@@ -200,9 +200,9 @@ function assignModel(jsonData: any) {
 
 
     watch(() => simulationStore.needDiagramRefresh, (newVal) => {
-      console.log("Watcher triggered, new value:", newVal); 
+      
       if (newVal) {
-        refreshDiagram(); // Call refresh function when flag is true
+        refreshDiagram();
       }
     });
 
@@ -210,13 +210,12 @@ function assignModel(jsonData: any) {
       try {
         const jsonData = await modelService.loadJsonData();
         if (myDiagram) {
-          // If your diagram is already initialized, update its model
           updateDiagramModel(jsonData);
         } else {
-          // If your diagram is not initialized, initialize it
+          
           initializeDiagram(jsonData);
         }
-        simulationStore.resetRefresh(); // Reset the flag in the store after refreshing
+        simulationStore.resetRefresh(); 
       } catch (error) {
         console.error('Error refreshing the diagram:', error);
       }
@@ -224,7 +223,7 @@ function assignModel(jsonData: any) {
 
 
     onMounted(async () => {
-    // Initial loading of the diagram might also need to call refreshDiagram
+    
     refreshDiagram();
     });
 

@@ -39,15 +39,17 @@
   </template>
   
   <script lang="ts">
-  import { defineComponent, ref, onMounted } from 'vue';
+  import { defineComponent, ref, onMounted, watch } from 'vue';
   import { useSimulationStore } from '@/store/simulationStore';
   import modelService from "@/service/modelService"
+  
   
   export default defineComponent({
     setup() {
       const simulationStore = useSimulationStore(); 
       const transitions = ref([]);
       const currentTime = ref(0);
+    
   
       const headers = [
         { text: 'Trans ID', value: 'trans_id' },
@@ -56,11 +58,28 @@
         { text: 'Date', value: 'end_time' },
         { text: 'Law', value: 'occ_law.time' },
       ];
+
+      watch(() => simulationStore.needDiagramRefresh, (newVal) => {
+      
+      if (newVal) {
+        refreshTable();
+      }
+    });
+
+    async function refreshTable(){
+      try{
+    const response = await modelService.fetchTransitions();
+    transitions.value = response.transitions; 
+    currentTime.value = response.current_time;
+      } catch(error){
+          console.log("An error occurred while fetching the transitions:", error)
+      }
+
+    }
+
   
       onMounted(async () => {
-        const response = await modelService.fetchTransitions();
-  transitions.value = response.transitions; 
-  currentTime.value = response.current_time;
+        refreshTable();
       });
   
       const handleRowClick = (row: any) => {
@@ -75,7 +94,8 @@
         transitions, 
         headers,
         handleRowClick,
-        currentTime 
+        currentTime, 
+        refreshTable 
       };
     },
   });

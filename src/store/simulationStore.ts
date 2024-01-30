@@ -43,6 +43,7 @@ export const useSimulationStore = defineStore({
         console.error('Error starting simulation:', error);
       }
     },
+   
     resetRefresh() {
       this.needDiagramRefresh = false; 
     }
