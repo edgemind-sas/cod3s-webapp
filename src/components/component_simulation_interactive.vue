@@ -23,7 +23,7 @@
     >
       <template v-slot:item="{ item }">
         <tr @click="handleRowClick(item)">
-          <td>{{ item.trans_id }}</td>
+         
           <td>{{ item.name }}</td>
           <td>{{ item.target }}</td>
           <td>{{ item.end_time }}</td>
@@ -52,11 +52,11 @@
     
   
       const headers = [
-        { text: 'Trans ID', value: 'trans_id' },
-        { text: 'Name', value: 'name' },
-        { text: 'Target', value: 'target' },
-        { text: 'Date', value: 'end_time' },
-        { text: 'Law', value: 'occ_law.time' },
+        
+        { title: 'Name', key: 'name' },
+        { title: 'Target', key: 'target' },
+        { title: 'Date', key: 'end_time' },
+        { title: 'Law', key: 'occ_law.time' },
       ];
 
       watch(() => simulationStore.needDiagramRefresh, (newVal) => {
@@ -83,7 +83,11 @@
       });
   
       const handleRowClick = (row: any) => {
-        console.log('Row clicked:', row.trans_id);
+        try {
+        simulationStore.goForwardID(row.trans_id);
+  } catch (error) {
+      console.error('Error in forwarding with ID:', error);
+  }
       };
       
       return {

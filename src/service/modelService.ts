@@ -56,5 +56,14 @@ export default {
       return [];
     }
   },
+  async goForwardID(transition_id) {
+    try {
+      const response = await axios.post(`http://localhost:8000/interactive_simulation/forward/?transition_id=${transition_id}`);
+      return response.data;
+    } catch (error) {
+      console.error("Error going forward with ID:", error);
+      throw error;
+    }
+  },
  
 };
