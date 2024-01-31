@@ -1,36 +1,37 @@
 <template>
     <v-container>
       <v-toolbar class="simulationInteractive" flat dense>
-        <v-btn icon color="green" @click="startSimulation">
+        <v-btn icon color="green" @click="startSimulation" :disabled="isSimulationRunning">
           <v-icon>mdi-play</v-icon>
         </v-btn>
-        <v-btn icon color="red" @click="stopSimulation">
+        <v-btn icon color="red" @click="stopSimulation" :disabled="!isSimulationRunning">
           <v-icon>mdi-stop</v-icon >
         </v-btn>
-        <v-btn icon color="orange" @click="goBackward">
+        <v-btn icon color="orange" @click="goBackward" :disabled="!isSimulationRunning">
           <v-icon>mdi-skip-previous</v-icon>
         </v-btn>
-        <v-btn icon color="blue" @click="goForward">
+        <v-btn icon color="blue" @click="goForward" :disabled="!isSimulationRunning">
           <v-icon>mdi-skip-next</v-icon>
         </v-btn>
       </v-toolbar>
       <div class="separator"></div>
-      <v-data-table
+      <v-data-table-virtual
       :headers="headers"
       :items="transitions"
       item-key="trans_id"
-      class="full-width"
+      class="full-width scrollable-table"
+      height="400"
     >
       <template v-slot:item="{ item }">
         <tr @click="handleRowClick(item)">
          
-          <td>{{ item.name }}</td>
+          <td>{{ item.comp_name }}</td>
           <td>{{ item.target }}</td>
           <td>{{ item.end_time }}</td>
-          <td>{{ item.occ_law.time }}</td>
+          <td>{{ formatOccLaw(item.occ_law) }}</td>
         </tr>
       </template>
-    </v-data-table>
+    </v-data-table-virtual>
     <div class="separator"></div>
     <div>current time: {{ currentTime }}</div>
     <div class="separator"></div>
@@ -39,7 +40,7 @@
   </template>
   
   <script lang="ts">
-  import { defineComponent, ref, onMounted, watch } from 'vue';
+  import { defineComponent, ref, onMounted, watch, computed } from 'vue';
   import { useSimulationStore } from '@/store/simulationStore';
   import modelService from "@/service/modelService"
   
@@ -49,14 +50,16 @@
       const simulationStore = useSimulationStore(); 
       const transitions = ref([]);
       const currentTime = ref(0);
+      const isSimulationRunning = computed(() => simulationStore.simulationStatus === 'started');
+
     
   
       const headers = [
         
-        { title: 'Name', key: 'name' },
+        { title: 'Name', key: 'comp_name' },
         { title: 'Target', key: 'target' },
         { title: 'Date', key: 'end_time' },
-        { title: 'Law', key: 'occ_law.time' },
+        { title: 'Law', key: 'occ_law' }, 
       ];
 
       watch(() => simulationStore.needDiagramRefresh, (newVal) => {
@@ -85,11 +88,26 @@
       const handleRowClick = (row: any) => {
         try {
         simulationStore.goForwardID(row.trans_id);
-  } catch (error) {
+        } catch (error) {
       console.error('Error in forwarding with ID:', error);
   }
       };
       
+      const formatOccLaw = (occLaw: any) => {
+      if (!occLaw || typeof occLaw !== 'object') {
+        return '';
+      }
+      let result = occLaw.cls.replace('OccDistribution', '');
+      const additionalAttributes = Object.keys(occLaw)
+        .filter(key => key !== 'cls' && occLaw[key] !== undefined)
+        .map(key => `${key}=${occLaw[key]}`)
+        .join(', ');
+      if (additionalAttributes) {
+        result += `(${additionalAttributes})`;
+      }
+      return result;
+    };
+
       return {
         startSimulation: simulationStore.startSimulation,
         goBackward: simulationStore.goBackward,
@@ -99,7 +117,9 @@
         headers,
         handleRowClick,
         currentTime, 
-        refreshTable 
+        refreshTable, 
+        isSimulationRunning, 
+        formatOccLaw
       };
     },
   });
@@ -107,26 +127,33 @@
   
   
   <style scoped> 
-      .simulationInteractive{
+    .simulationInteractive{
           background-color:#c9d4e6ff ;
           font-family: 'Open Sans', sans-serif
       }
-      .separator {
+
+  .separator {
   margin-top: 20px; 
   margin-bottom: 20px; 
   border-bottom: 1px solid #0a0a0a; 
 }
-  .full-width {
+
+.full-width {
   width: 100%; 
   margin-left: -30;
   background-color: #c9d4e6ff;
 }
-      .v-data-table {
+.v-data-table {
   margin-left: -10;
 }
-      .v-container {
+.v-container {
   padding-left: 0;
   padding-right: 0;
 }
+.scrollable-table {
+  max-height: 400px; 
+  overflow-y: auto;
+}
+
 </style>
   
