@@ -20,12 +20,12 @@
               <v-list-item
                 link to="/modelisation"
                 class="navigation-link">
-              <v-list-item-title>System</v-list-item-title>
+                <v-list-item-title>System</v-list-item-title>
               </v-list-item>
 
               <v-list-item
-              to="/simulation"
-                @click="showSimulationComponent = true"
+                to="/simulation"
+                
                 class="navigation-link">
                 <v-list-item-title>Interactive simulation</v-list-item-title>
               </v-list-item>
@@ -34,77 +34,34 @@
           </v-col>
 
           
-        <v-col :style="{ flex: '1 1 auto' }">
-        <router-view></router-view>
-        </v-col>
+          <v-col>
+            <router-view></router-view>
+          </v-col>
 
-        <v-col :style="{ flex: '0 0 ' + sidebarWidth + 'px' }" class="sidebar-right">
-
-          <div class="resize-bar" @mousedown="startResize"></div>
-    
-          <component_simulation_interactive v-if="showSimulationComponent"></component_simulation_interactive>
-
-        </v-col>
         </v-row>
       </v-container>
     </v-main>
   </v-app>
 </template>
 
+
 <script lang="ts">
-import { defineComponent, ref, onMounted, watch } from 'vue';
-import { useRoute } from 'vue-router';
+import { defineComponent, ref, onMounted } from 'vue';
 import modelService from "@/service/modelService";
-import component_simulation_interactive from "@/components/component_simulation_interactive.vue"; 
 
 export default defineComponent({
-  components : { component_simulation_interactive },
   setup() {
     const systemName = ref(null);
-    const showSimulationComponent = ref(false);
-    const route = useRoute();
-    
-    const sidebarWidth = ref(100);
-    const mainColWidth = ref(900);
-
-    const startResize = (event: MouseEvent) => {
-    const startX = event.clientX;
-    const startWidth = sidebarWidth.value; 
-    const startWidthMainCol = mainColWidth.value;
-
-    const doResize = (moveEvent: MouseEvent) => {
-    const diffX = moveEvent.clientX - startX;
-    const newSidebarWidth = Math.max(startWidth - diffX, 50);
-    const newMainColWidth = Math.max(window.innerWidth - newSidebarWidth - (startWidthMainCol - startWidth), 100);
-
-    sidebarWidth.value = newSidebarWidth;
-    mainColWidth.value = newMainColWidth;
-  };
-
-    const stopResize = () => {
-        document.removeEventListener('mousemove', doResize);
-        document.removeEventListener('mouseup', stopResize);
-    };
-
-      document.addEventListener('mousemove', doResize);
-      document.addEventListener('mouseup', stopResize);
-    };
 
     onMounted(async () => {
       systemName.value = await modelService.fetchSystemName();
     });
 
-    watch(() => route.path, (newPath) =>{
-      if (newPath !== '/simulation') {
-        showSimulationComponent.value = false;
-      }
-    }, { immediate: true });
-
-    return { systemName, showSimulationComponent, sidebarWidth,
-      startResize, mainColWidth };
+    return { systemName };
   },
 })
 </script>
+
 
 <style>
 

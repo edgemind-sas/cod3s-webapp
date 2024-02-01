@@ -19,13 +19,13 @@ export default defineComponent({
     const { path } = toRefs(props);
     const myDiagramDiv = ref(null);
     const simulationStore = useSimulationStore();
-   
-    
+
+
     let myDiagram: go.Diagram;
 
-   
-    
-   
+
+
+
 
     function convertPortPositionToSpot(position: string): go.Spot {
       switch (position) {
@@ -37,17 +37,21 @@ export default defineComponent({
       }
     }
 
-function makePort(portId: string, spot: go.Spot = go.Spot.Top, output: boolean = true, input: boolean = true, color: string = "#ef7b26"): go.GraphObject {
+    function makePort(portId: string, spot: go.Spot = go.Spot.Top, output: boolean = true, input: boolean = false, color: string = "#ef7b26"): go.GraphObject {
   const $ = go.GraphObject.make;
+  // Notice that for an output port, the fromSpot is set and toSpot is None, and vice versa for an input port.
   return $(go.Shape, "Rectangle", {
     portId: portId,
-    fromSpot: spot, toSpot: spot,
-    fromLinkable: output, toLinkable: input,
+    fromSpot: output ? spot : go.Spot.None,
+    toSpot: input ? spot : go.Spot.None,
+    fromLinkable: output,
+    toLinkable: input,
     cursor: "pointer",
     fill: color,
     desiredSize: new go.Size(8, 8)
   });
 }
+
 
 
     function initializeDiagram(jsonData: any) {
@@ -58,92 +62,69 @@ function makePort(portId: string, spot: go.Spot = go.Spot.Top, output: boolean =
       }
 
 
-      
+
       myDiagram = $(go.Diagram, myDiagramDiv.value, {
-        "undoManager.isEnabled": true, 
-        layout: $(go.ForceDirectedLayout,  
-    {
-      defaultSpringLength: 50, 
-      defaultElectricalCharge: 100 
-    }
-  ),
+        "undoManager.isEnabled": true,
+        layout: $(go.ForceDirectedLayout,
+          {
+            defaultSpringLength: 50,
+            defaultElectricalCharge: 100
+          }
+        ),
       });
 
-myDiagram.nodeTemplate = $(
-  go.Node, "Table",
-  new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
+      myDiagram.nodeTemplate = $(
+        go.Node, "Table",
+        new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
 
-  $(go.Panel, "Auto",
-    { row: 1, column: 1, name: "BODY", stretch: go.GraphObject.Fill },
-    $(go.Shape, "Rectangle",
-      new go.Binding("fill", "color"),
-      { stroke: null, strokeWidth: 0, minSize: new go.Size(60, 60) }
-    ),
-    $(go.TextBlock,
-      { margin: 10, textAlign: "center", font: "bold 14px Segoe UI,sans-serif", stroke: "#484848", editable: true },
-      new go.Binding("text", "name").makeTwoWay()
-    )
-  ),
- 
-  $(go.Panel, "Horizontal", { row: 1, column: 0 },
-    new go.Binding("itemArray", "leftArray"),
-    {
-      itemTemplate: $(go.Panel,
-        { _side: "left" },
-        new go.Binding("portId", "portId"),
-        makePort("", go.Spot.Left, true, true, "#ef7b26") 
-      )
-    }
-  ),
-  
-  $(go.Panel, "Horizontal", { row: 0, column: 1 },
-    new go.Binding("itemArray", "topArray"),
-    {
-      itemTemplate: $(go.Panel,
-        { _side: "top" },
-        new go.Binding("portId", "portId"),
-        makePort("", go.Spot.Top, true, true, "#ef7b26") 
-      )
-    }
-  ),
-  
-  $(go.Panel, "Horizontal", { row: 1, column: 2 },
-    new go.Binding("itemArray", "rightArray"),
-    {
-      itemTemplate: $(go.Panel,
-        { _side: "right" },
-        new go.Binding("portId", "portId"),
-        makePort("", go.Spot.Right, true, true, "#ef7b26") 
-      )
-    }
-  ),
+        $(go.Panel, "Auto",
+          { row: 1, column: 1, name: "BODY", stretch: go.GraphObject.Fill },
+          $(go.Shape, "Rectangle",
+            new go.Binding("fill", "color"),
+            { stroke: null, strokeWidth: 0, minSize: new go.Size(60, 60) }
+          ),
+          $(go.TextBlock,
+            { margin: 10, textAlign: "center", font: "bold 14px Segoe UI,sans-serif", stroke: "#484848", editable: true },
+            new go.Binding("text", "name").makeTwoWay()
+          )
+        ),
 
-  $(go.Panel, "Horizontal", { row: 2, column: 1 },
-    new go.Binding("itemArray", "bottomArray"),
-    {
-      itemTemplate: $(go.Panel,
-        { _side: "bottom" },
-        new go.Binding("portId", "portId"),
-        makePort("", go.Spot.Bottom, true, true, "#ef7b26") 
-      )
+      makePortPanel('left', new go.Binding("itemArray", "leftArray"), go.Spot.Left),
+      makePortPanel('top', new go.Binding("itemArray", "topArray"), go.Spot.Top),
+      makePortPanel('right', new go.Binding("itemArray", "rightArray"), go.Spot.Right),
+      makePortPanel('bottom', new go.Binding("itemArray", "bottomArray"), go.Spot.Bottom)
+    
+      );
+        
+      function makePortPanel(side: string, portArrayBinding: any, spot: go.Spot): go.Panel {
+      const $ = go.GraphObject.make;
+      return $(go.Panel, "Horizontal", { row: side === 'top' ? 0 : side === 'bottom' ? 2 : 1, column: side === 'left' ? 0 : side === 'right' ? 2 : 1 },
+        portArrayBinding,
+        {
+          itemTemplate: $(go.Panel,
+            { _side: side },
+            new go.Binding("portId", "portId"),
+            makePort("", spot, true, true, "#ef7b26")
+          )
+        }
+      );
     }
-  )
-);
+          
 
-myDiagram.linkTemplate = $(
-  go.Link,
-  { routing: go.Link.Orthogonal, corner: 5 },
-  $(go.Shape, 
-    { strokeWidth: 2 },
-    new go.Binding("stroke", "stroke_color"),
-    new go.Binding("strokeWidth", "stroke_width")
-  ),
-  $(go.Shape,
-    { toArrow: "Standard" },
-    new go.Binding("toArrow", "to_arrow"),
-    new go.Binding("fill", "stroke_color")
-  )
-);
+      myDiagram.linkTemplate = $(
+        go.Link,
+        { routing: go.Link.Orthogonal, corner: 5 },
+        $(go.Shape,
+          { strokeWidth: 2 },
+          new go.Binding("stroke", "stroke_color"),
+          new go.Binding("strokeWidth", "stroke_width")
+        ),
+        $(go.Shape,
+          { toArrow: "Standard" },
+          new go.Binding("toArrow", "to_arrow"),
+          new go.Binding("fill", "stroke_color")
+        )
+      );
 
 
 
@@ -151,80 +132,86 @@ myDiagram.linkTemplate = $(
     }
 
     async function updateDiagramModel() {
-    try {
+      try {
         const updatedComponents = await modelService.fetchUpdatedComponents();
-        
 
-        
+
+
         if (updatedComponents.components && updatedComponents.components.length > 0) {
-            myDiagram.startTransaction("updateModel");
+          myDiagram.startTransaction("updateModel");
 
-            updatedComponents.components.forEach(updatedComponent => {
-                const node = myDiagram.findNodeForKey(updatedComponent.name);
-                if (node) {
-                    if (updatedComponent.style && updatedComponent.style.color) {
-                        myDiagram.model.setDataProperty(node.data, "color", updatedComponent.style.color);
-                    }
-                    node.updateTargetBindings();
-                }
-            });
+          updatedComponents.components.forEach(updatedComponent => {
+            const node = myDiagram.findNodeForKey(updatedComponent.name);
+            if (node) {
+              if (updatedComponent.style && updatedComponent.style.color) {
+                myDiagram.model.setDataProperty(node.data, "color", updatedComponent.style.color);
+              }
+              node.updateTargetBindings();
+            }
+          });
 
-            myDiagram.commitTransaction("updateModel");
+          myDiagram.commitTransaction("updateModel");
         } else {
-            console.log("Aucun composant à mettre à jour.");
+          console.log("Aucun composant à mettre à jour.");
         }
-    } catch (error) {
+      } catch (error) {
         console.error('Erreur lors de la mise à jour du diagramme:', error);
+      }
     }
-}
-
-
-   
-function assignModel(jsonData: any) {
-  const componentData = jsonData.components.map((c: any) => {
     
-    const portsArray = c.ports.map((port: any) => {
-      const portColor = port.color || "#ef7b26"; 
-      const portSpot = convertPortPositionToSpot(port.spot); 
-      const portPanel = makePort(port.name, portSpot, true, true, portColor);
-      return { portId: port.name, panel: portPanel };
-    });
 
-    return {
-      key: c.name,
-      color: c.style.color || "#FFFFFF", 
-      loc: go.Point.stringify(new go.Point(0, 0)),
-      leftArray: portsArray.filter((p: any) => p.panel.fromSpot.equals(go.Spot.Left)),
-      topArray: portsArray.filter((p: any) => p.panel.fromSpot.equals(go.Spot.Top)),
-      rightArray: portsArray.filter((p: any) => p.panel.fromSpot.equals(go.Spot.Right)),
-      bottomArray: portsArray.filter((p: any) => p.panel.fromSpot.equals(go.Spot.Bottom)),
-      name: c.name
-    };
-  });
 
-    const linkDataArray = jsonData.connections.map((link: any) => {
-    const processedLink = {
-      from: link.comp_source,
-      to: link.comp_target,
-      fromPort: link.port_source,
-      toPort: link.port_target,
-      stroke_color: link.style.stroke_color || "#1f416d", 
-      stroke_width: link.style.stroke_width || 2,         
-      to_arrow: link.style.to_arrow || "Standard"         
-    };
 
-  
+    function assignModel(jsonData: any) {
+      const componentData = jsonData.components.map((c: any) => {
 
-    return processedLink;
-  });
+        const portsArray = c.ports.map((port: any) => {
+          const portColor = port.color || "#ef7b26";
+          const portSpot = convertPortPositionToSpot(port.spot);
+          const portPanel = makePort(port.name, portSpot, true, true, portColor);
+          return { portId: port.name, panel: portPanel };
+        });
 
-  myDiagram.model = new go.GraphLinksModel(componentData, linkDataArray);
-}
+        return {
+          key: c.name,
+          color: c.style.color || "#FFFFFF",
+          loc: go.Point.stringify(new go.Point(0, 0)),
+          leftArray: portsArray.filter((p: any) => p.panel.fromSpot.equals(go.Spot.Left)),
+          topArray: portsArray.filter((p: any) => p.panel.fromSpot.equals(go.Spot.Top)),
+          rightArray: portsArray.filter((p: any) => p.panel.fromSpot.equals(go.Spot.Right)),
+          bottomArray: portsArray.filter((p: any) => p.panel.fromSpot.equals(go.Spot.Bottom)),
+          name: c.name
+        };
+      });
+
+      const linkDataArray = jsonData.connections.map((link: any) => {
+        const processedLink = {
+          from: link.comp_source,
+          to: link.comp_target,
+          fromPort: link.port_source,
+          toPort: link.port_target,
+          stroke_color: link.style.stroke_color || "#1f416d",
+          stroke_width: link.style.stroke_width || 2,
+          to_arrow: link.style.to_arrow || "Standard"
+        };
+
+
+
+        return processedLink;
+      });
+
+      myDiagram.model = new go.GraphLinksModel({
+        linkFromPortIdProperty: "fromPort", 
+        linkToPortIdProperty: "toPort", 
+        nodeDataArray: componentData,
+        linkDataArray: linkDataArray,
+      });
+    }
 
 
 
     watch(() => simulationStore.needDiagramRefresh, (newVal) => {
-      
+
       if (newVal) {
         refreshDiagram();
       }
@@ -236,10 +223,10 @@ function assignModel(jsonData: any) {
         if (myDiagram) {
           updateDiagramModel();
         } else {
-          
+
           initializeDiagram(jsonData);
         }
-        simulationStore.resetRefresh(); 
+        simulationStore.resetRefresh();
       } catch (error) {
         console.error('Error refreshing the diagram:', error);
       }
@@ -247,8 +234,8 @@ function assignModel(jsonData: any) {
 
 
     onMounted(async () => {
-    
-    refreshDiagram();
+
+      refreshDiagram();
     });
 
     return { myDiagramDiv, refreshDiagram };
@@ -262,6 +249,6 @@ function assignModel(jsonData: any) {
   height: 600px;
   background-color: white;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 </style>

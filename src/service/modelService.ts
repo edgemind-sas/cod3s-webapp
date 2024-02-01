@@ -1,13 +1,11 @@
 // modelService.ts
 import axios from 'axios';
-import config from '@/config/globals';
-
+import config from '@/config/globals';  
 
 export default {
   async loadJsonData() {
-    const url = "http://localhost:8000/system_viz/";
     try {
-      const response = await axios.get(url);
+      const response = await axios.get(`${config.apiBaseUrl}system_viz/`);
       if (response.data) {
         return response.data;
       } else {
@@ -20,9 +18,9 @@ export default {
   },
   
   async fetchSystemName() {
-    const url = "http://localhost:8000/project/ ";
+   
     try {
-      const response = await axios.get(url);
+      const response = await axios.get(`${config.apiBaseUrl}project/`);
       if (response.data.project) {
         return response.data.project.system_name;
       } else {
@@ -35,21 +33,21 @@ export default {
   },
 
   startSimulation() {
-    return axios.post('http://localhost:8000/interactive_simulation/start/');
+    return axios.post(`${config.apiBaseUrl}interactive_simulation/start/`);  
   },
   goBackward() {
-    return axios.post('http://localhost:8000/interactive_simulation/backward/');
+    return axios.post(`${config.apiBaseUrl}interactive_simulation/backward/`);  
   },
 
   goForward() {
-    return axios.post('http://localhost:8000/interactive_simulation/forward/');
+    return axios.post(`${config.apiBaseUrl}interactive_simulation/forward/`);  
   }, 
   stopSimulation(){
-    return axios.post('http://localhost:8000/interactive_simulation/stop/');
+    return axios.post(`${config.apiBaseUrl}interactive_simulation/stop/`);  
   }, 
   async fetchTransitions() {
     try {
-      const response = await axios.get("http://localhost:8000/interactive_simulation/fireable_transitions/");
+      const response = await axios.get(`${config.apiBaseUrl}interactive_simulation/fireable_transitions/`);  
       return response.data;
     } catch (error) {
       console.error("Error fetching transitions:", error);
@@ -58,7 +56,7 @@ export default {
   },
   async goForwardID(transition_id) {
     try {
-      const response = await axios.post(`http://localhost:8000/interactive_simulation/forward/?transition_id=${transition_id}`);
+      const response = await axios.post(`${config.apiBaseUrl}interactive_simulation/forward/?transition_id=${transition_id}`);  
       return response.data;
     } catch (error) {
       console.error("Error going forward with ID:", error);
@@ -67,12 +65,11 @@ export default {
   },
   async fetchUpdatedComponents(): Promise<any> {
     try {
-        const response = await axios.post('http://localhost:8000/system_viz_update/', {
-        });
+        const response = await axios.post(`${config.apiBaseUrl}system_viz_update/`, {});  
         return response.data;
     } catch (error) {
         console.error('Erreur lors de la récupération des composants mis à jour:', error);
         throw error;
     }
-}
+  }
 };
