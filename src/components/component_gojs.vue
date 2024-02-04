@@ -37,15 +37,15 @@ export default defineComponent({
       }
     }
 
-    function makePort(portId: string, spot: go.Spot = go.Spot.Top, output: boolean = true, input: boolean = false, color: string = "#ef7b26"): go.GraphObject {
+  function makePort(portId: string, spot: go.Spot = go.Spot.Top, output: boolean = true, input: boolean = false, color: string = "#ef7b26"): go.GraphObject {
   const $ = go.GraphObject.make;
-  // Notice that for an output port, the fromSpot is set and toSpot is None, and vice versa for an input port.
+  
   return $(go.Shape, "Rectangle", {
     portId: portId,
     fromSpot: output ? spot : go.Spot.None,
     toSpot: input ? spot : go.Spot.None,
-    fromLinkable: output,
-    toLinkable: input,
+    fromLinkable: false,
+    toLinkable: false,
     cursor: "pointer",
     fill: color,
     desiredSize: new go.Size(8, 8)
@@ -81,10 +81,11 @@ export default defineComponent({
           { row: 1, column: 1, name: "BODY", stretch: go.GraphObject.Fill },
           $(go.Shape, "Rectangle",
             new go.Binding("fill", "color"),
-            { stroke: null, strokeWidth: 0, minSize: new go.Size(60, 60) }
+            { stroke: null, strokeWidth: 0, minSize: new go.Size(80, 80) }
           ),
           $(go.TextBlock,
-            { margin: 10, textAlign: "center", font: "bold 14px Segoe UI,sans-serif", stroke: "#484848", editable: true },
+            { margin: 10, textAlign: "center", font: "bold 14px Segoe UI,sans-serif", stroke: "#484848", editable: false 
+          },
             new go.Binding("text", "name").makeTwoWay()
           )
         ),
@@ -113,7 +114,15 @@ export default defineComponent({
 
       myDiagram.linkTemplate = $(
         go.Link,
-        { routing: go.Link.Orthogonal, corner: 5 },
+        { routing: go.Link.AvoidsNodes, 
+          corner: 5,  
+          curve: go.Link.JumpGap,
+          fromEndSegmentLength: 20,
+          toEndSegmentLength: 20,
+          reshapable: true,
+          relinkableFrom: false, 
+          resegmentable: true,
+          relinkableTo: false },
         $(go.Shape,
           { strokeWidth: 2 },
           new go.Binding("stroke", "stroke_color"),
@@ -125,6 +134,17 @@ export default defineComponent({
           new go.Binding("fill", "stroke_color")
         )
       );
+
+  myDiagram.addDiagramListener("SelectionMoved", function(e) {
+  
+  e.diagram.selection.each(function(part) {
+    if (part instanceof go.Node) { 
+      const loc = part.location;
+      console.log(`Le composant ${part.data.key} a été déplacé à la position: ${loc.x.toFixed(2)}, ${loc.y.toFixed(2)}`);
+    }
+  });
+});
+
 
 
 
