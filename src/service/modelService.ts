@@ -1,6 +1,7 @@
 // modelService.ts
 import axios from 'axios';
 import config from '@/config/globals';  
+import { error } from 'console';
 
 export default {
   async loadJsonData() {
@@ -70,6 +71,16 @@ export default {
     } catch (error) {
         console.error('Erreur lors de la récupération des composants mis à jour:', error);
         throw error;
+    }
+  },
+  async fetchSequences(){
+    try{
+        const response = await axios.get(`${config.apiBaseUrl}interactive_simulation/sequence/`)
+        return response.data;
+    }catch(error)
+    {
+      console.error("Error fetching sequences:", error);
+      return []
     }
   }
 };

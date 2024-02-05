@@ -120,6 +120,7 @@ export default defineComponent({
           fromEndSegmentLength: 20,
           toEndSegmentLength: 20,
           reshapable: true,
+          toShortLength: 4,
           relinkableFrom: false, 
           resegmentable: true,
           relinkableTo: false },
@@ -138,11 +139,20 @@ export default defineComponent({
   myDiagram.addDiagramListener("SelectionMoved", function(e) {
   
   e.diagram.selection.each(function(part) {
+   
     if (part instanceof go.Node) { 
       const loc = part.location;
       console.log(`Le composant ${part.data.key} a été déplacé à la position: ${loc.x.toFixed(2)}, ${loc.y.toFixed(2)}`);
     }
   });
+});
+
+
+myDiagram.addDiagramListener("LinkReshaped", function(e) {
+  const link = e.subject;
+  const points = link.points.toArray().map(p => ({ x: p.x, y: p.y }));
+  console.log(`Le link ${link.data.key} a été redimensionné. Points:`, points);
+  // Vous pouvez ici appeler une fonction pour sauvegarder les points dans le store ou les envoyer au serveur.
 });
 
 

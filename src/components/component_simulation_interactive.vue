@@ -50,7 +50,15 @@
     <div class="separator"></div>
     <div>current time: {{ currentTime }}</div>
     <div class="separator"></div>
-    <div></div>
+    <div>
+      <v-data-table-virtual
+      :headers="headers_sequence"
+      :items="sequences"
+      class="full-width scrollable-table"
+      height="400"
+    >
+  </v-data-table-virtual>
+    </div>
   </v-container>
 </template>
 
@@ -63,6 +71,7 @@ export default defineComponent({
   setup() {
     const simulationStore = useSimulationStore();
     const transitions = ref([]);
+    const sequences = ref([])
     const currentTime = ref(0);
     const isSimulationRunning = computed(
       () => simulationStore.simulationStatus === "started"
@@ -73,6 +82,12 @@ export default defineComponent({
       { title: "Target", key: "target" },
       { title: "Date", key: "end_time" },
       { title: "Law", key: "occ_law" },
+    ];
+    
+    const headers_sequence = [
+      { title: "Date", key: "end_time" },
+      { title: "Component", key: "comp_name" },
+      { title: "State", key: "target" },
     ];
 
     watch(
@@ -87,8 +102,10 @@ export default defineComponent({
     async function refreshTable() {
       try {
         const response = await modelService.fetchTransitions();
+        const responce2 = await modelService.fetchSequences();
         transitions.value = response.transitions;
         currentTime.value = response.current_time;
+        sequences.value = responce2.sequence.transitions;
       } catch (error) {
         console.log("An error occurred while fetching the transitions:", error);
       }
@@ -133,6 +150,8 @@ export default defineComponent({
       refreshTable,
       isSimulationRunning,
       formatOccLaw,
+      headers_sequence, 
+      sequences
     };
   },
 });
