@@ -152,7 +152,7 @@ myDiagram.addDiagramListener("LinkReshaped", function(e) {
   const link = e.subject;
   const points = link.points.toArray().map(p => ({ x: p.x, y: p.y }));
   console.log(`Le link ${link.data.key} a été redimensionné. Points:`, points);
-  // Vous pouvez ici appeler une fonction pour sauvegarder les points dans le store ou les envoyer au serveur.
+  
 });
 
 
