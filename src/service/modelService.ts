@@ -82,5 +82,15 @@ export default {
       console.error("Error fetching sequences:", error);
       return []
     }
-  }
+  }, 
+
+  async updatePositions(positions: any): Promise<any> {
+    try {
+        const response = await axios.post(`${config.apiBaseUrl}positions_update/`, positions);  
+        return response.data;
+    } catch (error) {
+        console.error('Erreur lors de la mise à jour des positions:', error);
+        throw error;
+    }
+  },
 };

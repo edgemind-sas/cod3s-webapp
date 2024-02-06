@@ -73,6 +73,11 @@ export default defineComponent({
         ),
       });
 
+    myDiagram.layout = $(go.ForceDirectedLayout, {
+    isInitial: false,  
+    isOngoing: false, 
+  });
+
       myDiagram.nodeTemplate = $(
         go.Node, "Table",
         new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
@@ -136,15 +141,30 @@ export default defineComponent({
         )
       );
 
-  myDiagram.addDiagramListener("SelectionMoved", function(e) {
-  
-  e.diagram.selection.each(function(part) {
-   
-    if (part instanceof go.Node) { 
-      const loc = part.location;
-      console.log(`Le composant ${part.data.key} a été déplacé à la position: ${loc.x.toFixed(2)}, ${loc.y.toFixed(2)}`);
-    }
-  });
+      myDiagram.addDiagramListener("SelectionMoved", function(e) {
+    const positions: any = { components: [] };
+
+    e.diagram.selection.each(function(part) {
+        if (part instanceof go.Node) { 
+            const loc = part.location;
+            console.log(`Le composant ${part.data.key} a été déplacé à la position: ${loc.x.toFixed(2)}, ${loc.y.toFixed(2)}`);
+
+            positions.components.push({
+                comp_name: part.data.key,
+                x: loc.x.toFixed(2),
+                y: loc.y.toFixed(2),
+            });
+        }
+    });
+
+    // Envoyez les positions mises à jour à l'API
+    modelService.updatePositions(positions)
+        .then(response => {
+            console.log(response.message);
+        })
+        .catch(error => {
+            console.error("Il y a eu une erreur lors de la mise à jour des positions: ", error);
+        });
 });
 
 
@@ -194,6 +214,8 @@ myDiagram.addDiagramListener("LinkReshaped", function(e) {
 
     function assignModel(jsonData: any) {
       const componentData = jsonData.components.map((c: any) => {
+        const posX = c.position && c.position.x ? parseFloat(c.position.x) : 0;
+        const posY = c.position && c.position.y ? parseFloat(c.position.y) : 0;
 
         const portsArray = c.ports.map((port: any) => {
           const portColor = port.color || "#ef7b26";
@@ -205,7 +227,8 @@ myDiagram.addDiagramListener("LinkReshaped", function(e) {
         return {
           key: c.name,
           color: c.style.color || "#FFFFFF",
-          loc: go.Point.stringify(new go.Point(0, 0)),
+          loc: go.Point.stringify(new go.Point(posX, posY)),
+          //loc: go.Point.stringify(new go.Point(0, 0)),
           leftArray: portsArray.filter((p: any) => p.panel.fromSpot.equals(go.Spot.Left)),
           topArray: portsArray.filter((p: any) => p.panel.fromSpot.equals(go.Spot.Top)),
           rightArray: portsArray.filter((p: any) => p.panel.fromSpot.equals(go.Spot.Right)),
