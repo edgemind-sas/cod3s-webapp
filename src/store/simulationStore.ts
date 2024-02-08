@@ -57,7 +57,7 @@ export const useSimulationStore = defineStore({
         const newTs = await modelService.fetchTsLastModification();
         if (newTs !== this.tsLastModification) {
           this.tsLastModification = newTs;
-          //this.needDiagramRefresh = true;
+          this.needDiagramRefresh = true;
           
           
         }
