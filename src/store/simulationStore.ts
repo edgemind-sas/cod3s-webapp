@@ -6,7 +6,8 @@ export const useSimulationStore = defineStore({
   id: 'simulation',
   state: () => ({
     simulationStatus: '',
-    needDiagramRefresh: false, 
+    needDiagramRefresh: false,
+    tsLastModification: 0, 
   }),
   actions: {
     async startSimulation() {
@@ -51,7 +52,25 @@ export const useSimulationStore = defineStore({
         console.error('Error going forward with ID:', error);
       }
     },
-   
+    async checkForUpdates() {
+      try {
+        const newTs = await modelService.fetchTsLastModification();
+        if (newTs !== this.tsLastModification) {
+          this.tsLastModification = newTs;
+          //this.needDiagramRefresh = true;
+          
+          
+        }
+      } catch (error) {
+        console.error('Erreur lors de la vérification des mises à jour:', error);
+      }
+    },
+    startPeriodicCheck() {
+      setInterval(() => {
+        this.checkForUpdates();
+      }, 4000); 
+    },
+
     resetRefresh() {
       this.needDiagramRefresh = false; 
     }

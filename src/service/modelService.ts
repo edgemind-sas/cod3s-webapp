@@ -93,4 +93,13 @@ export default {
         throw error;
     }
   },
+  async fetchTsLastModification() {
+    try {
+      const response = await axios.get(`${config.apiBaseUrl}ts_last_modification/`);
+      return response.data.ts_last_modification;
+    } catch (error) {
+      console.error('Erreur lors de la récupération de ts_last_modification:', error);
+      throw error;
+    }
+  },
 };
