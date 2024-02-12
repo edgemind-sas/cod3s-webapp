@@ -56,10 +56,10 @@ export default defineComponent({
 
     function initializeDiagram(jsonData: any) {
       const $ = go.GraphObject.make;
-      if (myDiagram) {
+      /*if (myDiagram) {
         updateDiagramModel(jsonData);
         return;
-      }
+      }*/
 
 
 
@@ -182,33 +182,44 @@ myDiagram.addDiagramListener("LinkReshaped", function(e) {
     }
 
     async function updateDiagramModel() {
-      try {
-        const updatedComponents = await modelService.fetchUpdatedComponents();
+  try {
+    const updatedComponents = await modelService.fetchUpdatedComponents();
 
+    if (updatedComponents.components && updatedComponents.components.length > 0) {
+      myDiagram.startTransaction("updateModel");
 
-
-        if (updatedComponents.components && updatedComponents.components.length > 0) {
-          myDiagram.startTransaction("updateModel");
-
-          updatedComponents.components.forEach(updatedComponent => {
-            const node = myDiagram.findNodeForKey(updatedComponent.name);
-            if (node) {
-              if (updatedComponent.style && updatedComponent.style.color) {
-                myDiagram.model.setDataProperty(node.data, "color", updatedComponent.style.color);
-              }
-              node.updateTargetBindings();
-            }
+      // Mise à jour des styles des composants
+      updatedComponents.components.forEach(updatedComponent => {
+        const node = myDiagram.findNodeForKey(updatedComponent.name);
+        if (node && updatedComponent.style) {
+          Object.keys(updatedComponent.style).forEach(styleKey => {
+            myDiagram.model.setDataProperty(node.data, styleKey, updatedComponent.style[styleKey]);
           });
-
-          myDiagram.commitTransaction("updateModel");
-        } else {
-          console.log("Aucun composant à mettre à jour.");
+          node.updateTargetBindings();
         }
-      } catch (error) {
-        console.error('Erreur lors de la mise à jour du diagramme:', error);
+      });
+
+      // Mise à jour des styles des connexions, si des données de connexion sont fournies
+      if (updatedComponents.connections) {
+        updatedComponents.connections.forEach(updatedConnection => {
+          const link = myDiagram.model.findLinkForData(myDiagram.model.linkDataArray.find(ld => ld.from === updatedConnection.comp_source && ld.to === updatedConnection.comp_target));
+          if (link && updatedConnection.style) {
+            Object.keys(updatedConnection.style).forEach(styleKey => {
+              myDiagram.model.setDataProperty(link.data, styleKey, updatedConnection.style[styleKey]);
+            });
+          }
+        });
       }
+
+      myDiagram.commitTransaction("updateModel");
+    } else {
+      console.log("Aucun composant à mettre à jour.");
     }
-    
+  } catch (error) {
+    console.error('Erreur lors de la mise à jour du diagramme:', error);
+  }
+}
+
 
 
 
@@ -263,12 +274,27 @@ myDiagram.addDiagramListener("LinkReshaped", function(e) {
 
 
 
-    watch(() => simulationStore.needDiagramRefresh, (newVal) => {
-
-      if (newVal) {
-        refreshDiagram();
+    watch([() => simulationStore.needDiagramRefresh, () => simulationStore.needModelRefresh], async ([needDiagramRefresh, needModelRefresh]) => {
+  if (needModelRefresh) {
+    // Réinitialisez complètement le diagramme si needModelRefresh est vrai
+    if (myDiagram) {
+      // Assurez-vous de nettoyer le diagramme existant avant de créer un nouveau
+      myDiagram.div = null;
+      if (myDiagramDiv.value) {
+        myDiagramDiv.value.innerHTML = '';
       }
-    });
+      myDiagram = null;
+    }
+
+    const jsonData = await modelService.loadJsonData();
+    initializeDiagram(jsonData);
+    simulationStore.needModelRefresh = false;
+  } else if (needDiagramRefresh) {
+    // Rafraîchissez simplement le diagramme si needDiagramRefresh est vrai
+    refreshDiagram();
+    simulationStore.needDiagramRefresh = false;
+  }
+}, { immediate: true });
 
     async function refreshDiagram() {
       try {

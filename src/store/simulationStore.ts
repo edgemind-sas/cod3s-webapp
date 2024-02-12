@@ -7,6 +7,7 @@ export const useSimulationStore = defineStore({
   state: () => ({
     simulationStatus: '',
     needDiagramRefresh: false,
+    needModelRefresh: false,
     tsLastModification: 0, 
   }),
   actions: {
@@ -57,7 +58,8 @@ export const useSimulationStore = defineStore({
         const newTs = await modelService.fetchTsLastModification();
         if (newTs !== this.tsLastModification) {
           this.tsLastModification = newTs;
-          this.needDiagramRefresh = true;
+          console.log(this.tsLastModification )
+          this.needModelRefresh = true;
           
           
         }
@@ -73,6 +75,7 @@ export const useSimulationStore = defineStore({
 
     resetRefresh() {
       this.needDiagramRefresh = false; 
+      
     }
   }
 });
