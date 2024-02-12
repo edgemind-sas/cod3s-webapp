@@ -15,9 +15,9 @@ const router = createRouter({
       component: () => import('../views/simulation.vue')
     }, 
     {
-      path: '/resultats',
-      name: 'resultats',
-      component: () => import('../views/resultats.vue')
+      path: '/SimulationInteractive',
+      name: 'SimulationInteractive',
+      component: () => import('../views/SimulationInteractive.vue')
     }, 
      {
       path: '/gojs/:path',

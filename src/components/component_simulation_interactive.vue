@@ -90,10 +90,9 @@ export default defineComponent({
       { title: "State", key: "target" },
     ];
 
-    watch(
-      () => simulationStore.needDiagramRefresh,
-      (newVal) => {
-        if (newVal) {
+   watch([() => simulationStore.needDiagramRefresh], async ([needDiagramRefresh]) => {
+    console.log(needDiagramRefresh)
+        if (needDiagramRefresh) {
           refreshTable();
         }
       }
@@ -112,8 +111,9 @@ export default defineComponent({
     }
 
     onMounted(async () => {
-      simulationStore.startPeriodicCheck();
       refreshTable();
+      simulationStore.startPeriodicCheck();
+      
     });
 
     const handleRowClick = (click: any, row: any) => {

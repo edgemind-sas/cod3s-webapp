@@ -102,4 +102,12 @@ export default {
       throw error;
     }
   },
+  async  getComponentDetails(name: string) {
+    try {
+      const response = await axios.get(`${config.apiBaseUrl}components/?name=${name}`);
+      return response.data.components[0]; 
+    } catch (error) {
+      console.error('Error fetching component details:', error);
+    }
+  }
 };

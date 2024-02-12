@@ -24,10 +24,17 @@
               </v-list-item>
 
               <v-list-item
-                to="/simulation"
+                to="/SimulationInteractive"
                 
                 class="navigation-link">
                 <v-list-item-title>Interactive simulation</v-list-item-title>
+              </v-list-item>
+
+              <v-list-item
+                to="/simulation"
+                
+                class="navigation-link">
+                <v-list-item-title>Simulation</v-list-item-title>
               </v-list-item>
               
             </v-list>

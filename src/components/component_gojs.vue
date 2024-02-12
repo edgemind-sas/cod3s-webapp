@@ -65,6 +65,7 @@ export default defineComponent({
 
       myDiagram = $(go.Diagram, myDiagramDiv.value, {
         "undoManager.isEnabled": true,
+        "animationManager.isEnabled":false,
         layout: $(go.ForceDirectedLayout,
           {
             defaultSpringLength: 50,
@@ -188,7 +189,7 @@ myDiagram.addDiagramListener("LinkReshaped", function(e) {
     if (updatedComponents.components && updatedComponents.components.length > 0) {
       myDiagram.startTransaction("updateModel");
 
-      // Mise à jour des styles des composants
+      
       updatedComponents.components.forEach(updatedComponent => {
         const node = myDiagram.findNodeForKey(updatedComponent.name);
         if (node && updatedComponent.style) {
@@ -199,7 +200,7 @@ myDiagram.addDiagramListener("LinkReshaped", function(e) {
         }
       });
 
-      // Mise à jour des styles des connexions, si des données de connexion sont fournies
+      
       if (updatedComponents.connections) {
         updatedComponents.connections.forEach(updatedConnection => {
           const link = myDiagram.model.findLinkForData(myDiagram.model.linkDataArray.find(ld => ld.from === updatedConnection.comp_source && ld.to === updatedConnection.comp_target));
@@ -276,9 +277,9 @@ myDiagram.addDiagramListener("LinkReshaped", function(e) {
 
     watch([() => simulationStore.needDiagramRefresh, () => simulationStore.needModelRefresh], async ([needDiagramRefresh, needModelRefresh]) => {
   if (needModelRefresh) {
-    // Réinitialisez complètement le diagramme si needModelRefresh est vrai
+    
     if (myDiagram) {
-      // Assurez-vous de nettoyer le diagramme existant avant de créer un nouveau
+     
       myDiagram.div = null;
       if (myDiagramDiv.value) {
         myDiagramDiv.value.innerHTML = '';
@@ -290,9 +291,9 @@ myDiagram.addDiagramListener("LinkReshaped", function(e) {
     initializeDiagram(jsonData);
     simulationStore.needModelRefresh = false;
   } else if (needDiagramRefresh) {
-    // Rafraîchissez simplement le diagramme si needDiagramRefresh est vrai
+    
     refreshDiagram();
-    simulationStore.needDiagramRefresh = false;
+    simulationStore.resetRefresh();
   }
 }, { immediate: true });
 
