@@ -75,7 +75,7 @@ export const useSimulationStore = defineStore({
 
     resetRefresh() {
       this.needDiagramRefresh = false; 
-      this.needModelRefresh = false;
+      //this.needModelRefresh = false;
       
     }
   }
