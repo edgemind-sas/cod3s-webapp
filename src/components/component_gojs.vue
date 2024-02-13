@@ -1,15 +1,33 @@
 <template>
   <div class="filter-container">
     <div ref="myDiagramDiv" class="diagram"></div>
+    <v-tooltip v-model="showTooltip" :position-x="tooltipX" :position-y="tooltipY">
+      <template v-slot:activator="{ props }">
+        <!-- Tooltip activator will be managed by GoJS events -->
+      </template>
+      <v-card v-if="tooltipData">
+        <v-card-title>{{ tooltipData.name }}</v-card-title>
+        <v-card-text>
+          <div v-for="variable in tooltipData.variables" :key="variable.id" class="my-2">
+            <v-chip color="blue" small>{{ variable.name }}</v-chip>
+            <span>: {{ variable.value_current }}</span>
+          </div>
+          <div v-for="state in activeStates" :key="state.id" class="my-2">
+            <v-chip v-if="state.is_active" color="orange" small>{{ state.aut_name }}</v-chip>
+            <span v-if="state.is_active">: {{ state.name }}</span>
+          </div>
+        </v-card-text>
+      </v-card>
+    </v-tooltip>
   </div>
 </template>
-
 <script lang="ts">
-import { defineComponent, ref, onMounted, toRefs, watch } from 'vue';
+import { defineComponent, ref, onMounted, toRefs, watch, computed, nextTick } from 'vue';
 import * as go from 'gojs';
 import modelService from "@/service/modelService"
 import { useSimulationStore } from '@/store/simulationStore';
-
+import { reactive } from 'vue';
+import { useRoute } from 'vue-router';
 
 export default defineComponent({
   props: {
@@ -19,7 +37,18 @@ export default defineComponent({
     const { path } = toRefs(props);
     const myDiagramDiv = ref(null);
     const simulationStore = useSimulationStore();
+    const tooltipData = ref({});
+    const showTooltip = ref(false);
+    const tooltipX = ref(0);
+    const tooltipY = ref(0);
+    const route = useRoute();
 
+
+    const activeStates = computed(() => {
+      return tooltipData.value?.states?.filter(state => state.is_active) || [];
+    });
+    
+    const isModelisationRoute = computed(() => route.path === '/modelisation');
 
     let myDiagram: go.Diagram;
 
@@ -54,6 +83,7 @@ export default defineComponent({
 
 
 
+
     function initializeDiagram(jsonData: any) {
       const $ = go.GraphObject.make;
       /*if (myDiagram) {
@@ -81,6 +111,30 @@ export default defineComponent({
 
       myDiagram.nodeTemplate = $(
         go.Node, "Table",
+        
+        {
+          mouseEnter: async (e, node) => {
+            if (!isModelisationRoute.value) return;
+            const data = node.part.data;
+            // Set the position for the tooltip
+            const mousePt = myDiagram.lastInput.viewPoint;
+            tooltipX.value = mousePt.x;
+            tooltipY.value = mousePt.y;
+
+            try {
+              const details = await modelService.getComponentDetails(data.key);
+              tooltipData.value = details;
+              showTooltip.value = true;
+            } catch (error) {
+              console.error('Error fetching component details:', error);
+              showTooltip.value = false;
+            }
+          },
+          mouseLeave: (e, obj) => {
+            showTooltip.value = false;
+          },
+        },
+
         new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
 
         $(go.Panel, "Auto",
@@ -314,11 +368,18 @@ myDiagram.addDiagramListener("LinkReshaped", function(e) {
 
 
     onMounted(async () => {
+      await nextTick();
 
       refreshDiagram();
     });
 
-    return { myDiagramDiv, refreshDiagram };
+    return { myDiagramDiv, 
+      refreshDiagram,  
+      tooltipData,
+      showTooltip,
+      tooltipX,
+      tooltipY,
+      activeStates};
   },
 });
 </script>
