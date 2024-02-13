@@ -102,12 +102,17 @@ export default {
       throw error;
     }
   },
-  async  getComponentDetails(name: string) {
+  async getComponentDetails(name: string) {
     try {
-      const response = await axios.get(`${config.apiBaseUrl}components/?name=${name}`);
-      return response.data.components[0]; 
+      // Utilisez `name` au lieu de `componentName` dans l'URL
+      const response = await axios.get(`http://localhost:8000/components/?name=${name}`);
+      console.log(response.data.components[0]);
+      
+      return response.data.components[0];
+
     } catch (error) {
       console.error('Error fetching component details:', error);
     }
   }
+  
 };

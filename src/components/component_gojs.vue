@@ -289,11 +289,11 @@ myDiagram.addDiagramListener("LinkReshaped", function(e) {
 
     const jsonData = await modelService.loadJsonData();
     initializeDiagram(jsonData);
-    simulationStore.needModelRefresh = false;
+    //simulationStore.needModelRefresh = false;
   } else if (needDiagramRefresh) {
     
     refreshDiagram();
-    simulationStore.resetRefresh();
+    //simulationStore.resetRefresh();
   }
 }, { immediate: true });
 
