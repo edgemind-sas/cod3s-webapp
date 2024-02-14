@@ -41,6 +41,7 @@ export const useSimulationStore = defineStore({
         await modelService.stopSimulation();
         this.simulationStatus = 'stoped';
         this.needDiagramRefresh = true; 
+        //this.needModelRefresh = true;
       } catch (error) {
         console.error('Error starting simulation:', error);
       }

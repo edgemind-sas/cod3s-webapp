@@ -3,7 +3,7 @@
     <div ref="myDiagramDiv" class="diagram"></div>
     <v-tooltip v-model="showTooltip" :position-x="tooltipX" :position-y="tooltipY">
       <template v-slot:activator="{ props }">
-        <!-- Tooltip activator will be managed by GoJS events -->
+       
       </template>
       <v-card v-if="tooltipData">
         <v-card-title>{{ tooltipData.name }}</v-card-title>
@@ -48,7 +48,7 @@ export default defineComponent({
       return tooltipData.value?.states?.filter(state => state.is_active) || [];
     });
     
-    const isModelisationRoute = computed(() => route.path === '/modelisation');
+    const isModelisationRoute = computed(() => route.path === '');
 
     let myDiagram: go.Diagram;
 
@@ -114,9 +114,10 @@ export default defineComponent({
         
         {
           mouseEnter: async (e, node) => {
-            if (!isModelisationRoute.value) return;
+            if (isModelisationRoute.value) return;
             const data = node.part.data;
             // Set the position for the tooltip
+            const nodeLocation = node.location;
             const mousePt = myDiagram.lastInput.viewPoint;
             tooltipX.value = mousePt.x;
             tooltipY.value = mousePt.y;
@@ -243,7 +244,6 @@ myDiagram.addDiagramListener("LinkReshaped", function(e) {
     if (updatedComponents.components && updatedComponents.components.length > 0) {
       myDiagram.startTransaction("updateModel");
 
-      
       updatedComponents.components.forEach(updatedComponent => {
         const node = myDiagram.findNodeForKey(updatedComponent.name);
         if (node && updatedComponent.style) {
@@ -254,13 +254,14 @@ myDiagram.addDiagramListener("LinkReshaped", function(e) {
         }
       });
 
-      
-      if (updatedComponents.connections) {
+      if (updatedComponents.connections && updatedComponents.connections.length > 0) {
         updatedComponents.connections.forEach(updatedConnection => {
-          const link = myDiagram.model.findLinkForData(myDiagram.model.linkDataArray.find(ld => ld.from === updatedConnection.comp_source && ld.to === updatedConnection.comp_target));
-          if (link && updatedConnection.style) {
+          
+          const linkData = myDiagram.model.linkDataArray.find(ld => ld.from === updatedConnection.comp_source && ld.to === updatedConnection.comp_target);
+          if (linkData && updatedConnection.style) {
             Object.keys(updatedConnection.style).forEach(styleKey => {
-              myDiagram.model.setDataProperty(link.data, styleKey, updatedConnection.style[styleKey]);
+             
+              myDiagram.model.setDataProperty(linkData, styleKey, updatedConnection.style[styleKey]);
             });
           }
         });
@@ -274,6 +275,7 @@ myDiagram.addDiagramListener("LinkReshaped", function(e) {
     console.error('Erreur lors de la mise à jour du diagramme:', error);
   }
 }
+
 
 
 
@@ -310,7 +312,7 @@ myDiagram.addDiagramListener("LinkReshaped", function(e) {
           fromPort: link.port_source,
           toPort: link.port_target,
           stroke_color: link.style.stroke_color || "#1f416d",
-          stroke_width: link.style.stroke_width || 2,
+          stroke_width: link.style.stroke_width || 1,
           to_arrow: link.style.to_arrow || "Standard"
         };
 
