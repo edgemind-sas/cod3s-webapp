@@ -37,7 +37,7 @@
       ></v-text-field>
 
       <div class="d-flex flex-column">
-        <v-btn color="success" class="mt-4" block @click="validate">
+        <v-btn color="success" class="mt-4" block @click="startSim">
           <v-icon>mdi-play</v-icon>
           Start Simulation
         </v-btn>
@@ -51,6 +51,7 @@
 </template>
 
 <script lang="ts">
+import modelService from '@/service/modelService'
 export default {
   data: () => ({
     nbruns: 0,
@@ -64,13 +65,31 @@ export default {
       v => !isNaN(parseFloat(v)) && isFinite(v) || 'Must be a number',
       v => v.toString().match(/^-?\d*(\.\d+)?$/) || 'Must be a float',
     ],
+    
   }),
 
   methods: {
-    async validate() {
-      const { valid } = await this.$refs.form.validate()
+    async startSim() {
+      const simulationParams = {
+        nb_runs: this.nbruns,
+        schedule: [
+          {
+            start: this.Datestart,
+            end: this.Dateend,
+            nvalues: this.nbpoints
+          }
+        ]
+      };
 
-      if (valid) alert('Form is valid')
+      try {
+        const data = await modelService.startSimulation2(simulationParams);
+        console.log('Simulation started successfully. Session ID:', data.session_id);
+        this.$emit('simulation-started', data.session_id);
+        // Vous pouvez ici traiter le session_id comme nécessaire
+      } catch (error) {
+        console.error('Failed to start simulation:', error);
+        // Gestion de l'erreur (par exemple, afficher un message à l'utilisateur)
+      }
     },
     reset() {
       this.$refs.form.reset()

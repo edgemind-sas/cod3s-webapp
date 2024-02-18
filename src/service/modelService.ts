@@ -106,13 +106,36 @@ export default {
     try {
       // Utilisez `name` au lieu de `componentName` dans l'URL
       const response = await axios.get(`http://localhost:8000/components/?name=${name}`);
-      console.log(response.data.components[0]);
+      //console.log(response.data.components[0]);
       
       return response.data.components[0];
 
     } catch (error) {
       console.error('Error fetching component details:', error);
     }
+  }, 
+  async startSimulation2(simulationParams: any): Promise<any> {
+    try {
+      const response = await axios.post(`${config.apiBaseUrl}simulation/run/`, {
+        simu_params: simulationParams
+      });
+      return response.data; 
+    } catch (error) {
+      console.error('Error starting simulation:', error);
+      throw error; 
+    }
+  },
+  // Méthode pour récupérer les indicateurs de simulation
+  async fetchSimulationIndicators(sessionId: string) {
+    const url = `http://localhost:8000/simulation/indicators/?session_id=${sessionId}`;
+    try {
+      const response = await axios.get(url);
+      return response.data; // Retourne les données JSON de la réponse
+    } catch (error) {
+      console.error('Erreur lors de la récupération des indicateurs de simulation:', error);
+      throw error; // Propager l'erreur pour la gestion d'erreur dans le composant
+    }
   }
+
   
 };
