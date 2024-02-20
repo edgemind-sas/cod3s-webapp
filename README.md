@@ -1,4 +1,5 @@
 # cod3s-webapp
+
 COmplexe Dynamic Stochastic System Simulation web application for model and simulation management
 
 ## Project setup
@@ -28,3 +29,5 @@ npm run build
 ### Customize configuration
 
 See [Configuration Reference](https://vitejs.dev/config/).
+
+### structure of project

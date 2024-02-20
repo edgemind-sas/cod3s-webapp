@@ -1,18 +1,26 @@
 <template>
-    <v-row class="fill-height d-flex flex-nowrap">
-      <v-col :style="{ flex: '1 1 auto' }">
-         <component_gojs> </component_gojs>
-      </v-col>
+  <!-- Crée une ligne avec Vuetify qui remplit la hauteur disponible et empêche le wrap des éléments (flex-nowrap) -->
+  <v-row class="fill-height d-flex flex-nowrap">
 
-      <v-col :style="{ flex: '0 0 ' + sidebarWidth + 'px' }" class="sidebar-right">
+    <!-- Colonne principale qui s'adapte automatiquement à l'espace disponible grâce à la propriété flex -->
+    <v-col :style="{ flex: '1 1 auto' }">
+      <!-- Composant personnalisé pour GoJS, probablement pour afficher des graphiques ou des diagrammes -->
+      <component_gojs></component_gojs>
+    </v-col>
 
-        <div class="resize-bar" @mousedown="startResize"></div>
+    <!-- Colonne de la barre latérale avec une largeur fixe déterminée par la variable sidebarWidth -->
+    <v-col :style="{ flex: '0 0 ' + sidebarWidth + 'px' }" class="sidebar-right">
 
+      <!-- Div servant de barre de redimensionnement. Le redimensionnement commence lorsqu'on maintient le clic sur cette barre. -->
+      <div class="resize-bar" @mousedown="startResize"></div>
+
+      <!-- Composant personnalisé pour une interface de simulation interactive -->
       <component_simulation_interactive></component_simulation_interactive>
 
-</v-col>
-      </v-row>
-  </template>
+    </v-col>
+  </v-row>
+</template>
+
   
   <script lang="ts">
   import { defineComponent, ref, onMounted, watch } from 'vue';
@@ -66,49 +74,9 @@
     },
   });
   </script>
+
+
 <style scoped>
-.brand-text {
-  color: #ef7b26;
-  font-family: 'Open Sans', sans-serif;
-  margin-left: 8px; 
-}
-
-html, body, #app, .v-application {
-  height: 100%;
-  margin: 0;
-}
-
-.v-toolbar-title {
-  margin-left: -16px; 
-}
-
-.v-app-bar {
-  box-shadow: none;
-}
-
-.main-content {
-  height: calc(100% - 48px);
-}
-
-.main-content{
-  margin-top: -27px;
-}
-
-.system-name {
-  color: #ef7b26ff !important;
-  font-family: 'Open Sans', sans-serif;
-  background-color: transparent !important; 
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
- 
-}
-
-.sidebar-left {
-  background-color: #c9d4e6ff;
- 
-}
-
 .sidebar-right {
   background-color: #c9d4e6ff; 
   position: relative;
@@ -124,20 +92,4 @@ html, body, #app, .v-application {
   top: 0; 
   cursor: ew-resize; 
 }
-
-.navigation{
-  background-color: #c9d4e6ff !important;
-}
-
-.main-content {
-  height: calc(100% - 48px); 
-  overflow-x: hidden; 
-}
-
-.v-col {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden; 
-}
-
 </style>

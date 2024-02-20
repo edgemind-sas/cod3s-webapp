@@ -105,7 +105,7 @@ export default {
   async getComponentDetails(name: string) {
     try {
       // Utilisez `name` au lieu de `componentName` dans l'URL
-      const response = await axios.get(`http://localhost:8000/components/?name=${name}`);
+      const response = await axios.get(`${config.apiBaseUrl}components/?name=${name}`);
       //console.log(response.data.components[0]);
       
       return response.data.components[0];
@@ -127,9 +127,8 @@ export default {
   },
   // Méthode pour récupérer les indicateurs de simulation
   async fetchSimulationIndicators(sessionId: string) {
-    const url = `http://localhost:8000/simulation/indicators/?session_id=${sessionId}`;
     try {
-      const response = await axios.get(url);
+      const response = await axios.get(`${config.apiBaseUrl}simulation/indicators/?session_id=${sessionId}`);
       return response.data; // Retourne les données JSON de la réponse
     } catch (error) {
       console.error('Erreur lors de la récupération des indicateurs de simulation:', error);
