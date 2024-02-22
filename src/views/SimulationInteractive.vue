@@ -24,6 +24,7 @@
   
   <script lang="ts">
   import { defineComponent, ref, onMounted, watch } from 'vue';
+  import modelService from '@/service/modelService';
   import { useRoute } from 'vue-router';
   import component_gojs from '@/components/component_gojs.vue';
   import component_simulation_interactive from '@/components/component_simulation_interactive.vue'
@@ -35,15 +36,15 @@
     setup() {
     
     const route = useRoute();
-    const sidebarWidth = ref(100);
-    const mainColWidth = ref(900);
+    const sidebarWidth = ref(300);
+    const mainColWidth = ref(700);
 
     const startResize = (event: MouseEvent) => {
     const startX = event.clientX;
     const startWidth = sidebarWidth.value; 
     const startWidthMainCol = mainColWidth.value;
 
-    const doResize = (moveEvent: MouseEvent) => {
+    const doResize = async (moveEvent: MouseEvent) => {
     const diffX = moveEvent.clientX - startX;
     const newSidebarWidth = Math.max(startWidth - diffX, 50);
     const newMainColWidth = Math.max(window.innerWidth - newSidebarWidth - (startWidthMainCol - startWidth), 100);
@@ -52,25 +53,43 @@
     mainColWidth.value = newMainColWidth;
   };
 
-    const stopResize = () => {
+    const stopResize = async () => {
         document.removeEventListener('mousemove', doResize);
         document.removeEventListener('mouseup', stopResize);
+       await modelService.updateFrontConfig({ is_panel_width: sidebarWidth.value })
+          .catch(error => console.error("Erreur lors de la mise à jour de la configuration de la barre latérale:", error));
     };
 
       document.addEventListener('mousemove', doResize);
       document.addEventListener('mouseup', stopResize);
     };
 
+    const loadInitialSidebarConfig = async () => {
+  try {
+    const config = await modelService.getFrontConfig();
+    // Accédez correctement à la configuration selon la structure de la réponse
+    if (config.layout && config.layout.is_panel_width) {
+      sidebarWidth.value = config.layout.is_panel_width;
+      // Ajustez mainColWidth en fonction de la nouvelle sidebarWidth
+      mainColWidth.value = window.innerWidth - sidebarWidth.value;
+    }
+  } catch (error) {
+    console.error("Erreur lors de la récupération de la configuration initiale de la barre latérale:", error);
+  }
+};
+
    
       
     
   
       onMounted(async () => {
-       
+        loadInitialSidebarConfig();
       });
   
-      return {   sidebarWidth,
-      startResize, mainColWidth };;
+      return {   
+      sidebarWidth,
+      startResize,
+       mainColWidth };;
     },
   });
   </script>

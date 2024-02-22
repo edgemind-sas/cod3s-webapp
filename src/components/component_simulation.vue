@@ -1,6 +1,12 @@
 <template>
   <!-- Définit une feuille (conteneur) avec une largeur fixe centrée horizontalement -->
   <v-sheet width="300" class="mx-auto">
+    
+     <!-- Ajout d'un composant v-alert pour afficher les erreurs -->
+     <v-alert type="error" v-model="showError">
+      {{ errorMessage }}
+    </v-alert>
+
      <!-- Formulaire pour la saisie des données de simulation -->
     <v-form ref="form">
       
@@ -47,10 +53,6 @@
           Start Simulation
         </v-btn>
 
-        <!-- Bouton pour réinitialiser le formulaire de simulation -->
-        <v-btn color="error" class="mt-4" block @click="reset">
-          Reset Simulation
-        </v-btn>
       </div>
     </v-form>
   </v-sheet>
@@ -64,6 +66,8 @@ export default {
     Datestart: 0.0, // Heure de début par défaut
     Dateend: 24.0, // Heure de fin par défaut
     nbpoints: 100, // Nombre de points par défaut
+    showError: false, // Contrôle l'affichage de l'alerte d'erreur
+    errorMessage: '', // Message d'erreur à afficher
      // Règles de validation pour les champs numériques
     numberRules: [
       v => !isNaN(parseFloat(v)) && isFinite(v) && v >= 0 || 'Must be a positive number',
@@ -95,14 +99,14 @@ export default {
         const data = await modelService.startSimulation2(simulationParams);
         // Émet un événement avec l'ID de session de la simulation démarrée
         this.$emit('simulation-started', data.session_id);
+        this.showError = false; // En cas de succès, assurez-vous que l'alerte n'est pas affichée
       } catch (error) {
         console.error('Failed to start simulation:', error);
+        this.errorMessage = 'Erreur lors du démarrage de la simulation. Veuillez réessayer.'; // Personnalisez ce message au besoin
+        this.showError = true; // Affiche l'alerte d'erreur
       }
     },
-    // Réinitialise le formulaire à ses valeurs par défaut
-    reset() {
-      this.$refs.form.reset()
-    },
+   
   },
 }
 </script>

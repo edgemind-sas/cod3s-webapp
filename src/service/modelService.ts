@@ -134,7 +134,28 @@ export default {
       console.error('Erreur lors de la récupération des indicateurs de simulation:', error);
       throw error; // Propager l'erreur pour la gestion d'erreur dans le composant
     }
-  }
+  }, 
+  async updateFrontConfig(layoutConfig: any): Promise<any> {
+    try {
+      const response = await axios.post(`${config.apiBaseUrl}update_front_config/`, {
+        layout: layoutConfig
+      });
+      return response.data;
+    } catch (error) {
+      console.error('Erreur lors de la mise à jour de la configuration du front-end:', error);
+      throw error;
+    }
+  },
+
+  async getFrontConfig(): Promise<any> {
+    try {
+      const response = await axios.get(`${config.apiBaseUrl}update_front_config/`);
+      return response.data;
+    } catch (error) {
+      console.error('Erreur lors de la récupération de la configuration du front-end:', error);
+      throw error;
+    }
+  },
 
   
 };

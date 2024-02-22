@@ -1,38 +1,23 @@
 <template>
-  <!-- Utilise v-row pour créer une ligne qui remplit la hauteur disponible et empêche l'enveloppement des flex items -->
   <v-row class="fill-height d-flex flex-nowrap">
-    
-    <!-- Colonne principale prenant l'espace disponible automatiquement -->
     <v-col :style="{ flex: '1 1 auto' }">
-      <!-- Carte principale occupant toute la hauteur de la vue -->
-      <v-card class="edge-mind-theme" style="height: 100vh;"> 
-      
-        <!-- Onglets avec un modèle réactif pour le contrôle de l'onglet actif -->
+      <v-card class="edge-mind-theme" style="height: 100vh;">
         <v-tabs v-model="tab" bg-color="primary">
-          <v-tab value="one">Simulation{{ sessionId ? ' <' + sessionId + '>' : '' }}</v-tab>
+          <v-tab v-for="tabItem in tabs" :key="tabItem.id" :value="tabItem.id">{{ tabItem.name }}</v-tab>
         </v-tabs>
-
-        <!-- Contenu de la carte, occupant 100% de sa hauteur -->
-        <v-card-text style="height: 100%;"> 
-          <!-- Fenêtre pour le contenu des onglets, correspondant au modèle des onglets -->
-          <v-window v-model="tab" style="height: 100%;"> 
-            <!-- Élément de fenêtre pour l'onglet "one" -->
-            <v-window-item value="one">
-              <!-- Affichage conditionnel des indicateurs de simulation avec défilement vertical -->
-              <div v-if="simulationIndicators" style="max-height: 950px; overflow-y: auto;">
-                <pre>{{ formattedSimulationIndicators }}</pre>
+        <v-card-text style="height: 100%;">
+          <v-window v-model="tab" style="height: 100%;">
+            <v-window-item v-for="tabItem in tabs" :key="tabItem.id" :value="tabItem.id">
+              <div style="max-height: 950px; overflow-y: auto;">
+                <pre>{{ formattedSimulationIndicators(tabItem.id) }}</pre>
               </div>
             </v-window-item>
           </v-window>
         </v-card-text>
       </v-card>
     </v-col>
-
-    <!-- Colonne latérale droite avec largeur fixe redimensionnable -->
     <v-col :style="{ flex: '0 0 ' + sidebarWidth + 'px' }" class="sidebar-right">
-      <!-- Barre de redimensionnement -->
       <div class="resize-bar" @mousedown="startResize"></div>
-      <!-- Composant de simulation avec gestionnaire d'événement pour le démarrage de la simulation -->
       <component_simulation @simulation-started="handleSimulationStarted"></component_simulation>
     </v-col>
   </v-row>
@@ -59,12 +44,13 @@ export default defineComponent({
     const sidebarWidth = ref(100); // Largeur initiale de la barre latérale en pixels
     const mainColWidth = ref(900); // Largeur initiale de la colonne principale en pixels
     const sessionId = ref(null); // ID de session pour la simulation, initialement null
-    const simulationIndicators = ref(null); // Données des indicateurs de simulation, initialement null
+    const tabs = ref([]);  // Les onglets, avec un onglet par défaut
+    const simulationIndicators = ref({}); ; // Données des indicateurs de simulation, initialement null
 
-    // Propriété calculée pour formater joliment les indicateurs de simulation en chaîne JSON
-    const formattedSimulationIndicators = computed(() => {
-      return simulationIndicators.value ? JSON.stringify(simulationIndicators.value, null, 2) : '';
-    });
+     // Formatage des indicateurs de simulation pour affichage
+     const formattedSimulationIndicators = (id) => {
+      return simulationIndicators.value[id] ? JSON.stringify(simulationIndicators.value[id], null, 2) : '';
+    };
 
     // Fonction pour initier le redimensionnement de la barre latérale
     const startResize = (event: MouseEvent) => {
@@ -97,11 +83,12 @@ export default defineComponent({
 
     // Gestionnaire pour le démarrage de la simulation
     const handleSimulationStarted = async (id) => {
+      tabs.value.push({ id: id, name: `Simulation <${id}>` });
       sessionId.value = id; // Mise à jour de l'ID de session
       try {
         // Récupération des indicateurs de simulation depuis le service
         const indicators = await modelService.fetchSimulationIndicators(sessionId.value);
-        simulationIndicators.value = indicators;
+        simulationIndicators.value[id] = indicators; // Stockage par ID de session
       } catch (error) {
         console.error('Erreur lors de la récupération des indicateurs:', error);
       }
@@ -121,7 +108,8 @@ export default defineComponent({
       sessionId,
       simulationIndicators,
       handleSimulationStarted, 
-      formattedSimulationIndicators
+      formattedSimulationIndicators, 
+      tabs
     };
   },
 });
