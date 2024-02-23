@@ -86,7 +86,7 @@ export default {
 
   async updatePositions(positions: any): Promise<any> {
     try {
-        const response = await axios.post(`${config.apiBaseUrl}positions_update/`, positions);  
+        const response = await axios.post(`${config.apiBaseUrl}front_cfg/positions/`, positions);  
         return response.data;
     } catch (error) {
         console.error('Erreur lors de la mise à jour des positions:', error);
@@ -137,7 +137,7 @@ export default {
   }, 
   async updateFrontConfig(layoutConfig: any): Promise<any> {
     try {
-      const response = await axios.post(`${config.apiBaseUrl}update_front_config/`, {
+      const response = await axios.post(`${config.apiBaseUrl}front_cfg/layout/`, {
         layout: layoutConfig
       });
       return response.data;
@@ -149,7 +149,7 @@ export default {
 
   async getFrontConfig(): Promise<any> {
     try {
-      const response = await axios.get(`${config.apiBaseUrl}update_front_config/`);
+      const response = await axios.get(`${config.apiBaseUrl}front_cfg/layout/`);
       return response.data;
     } catch (error) {
       console.error('Erreur lors de la récupération de la configuration du front-end:', error);

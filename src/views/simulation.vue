@@ -59,7 +59,7 @@ export default defineComponent({
       const startWidthMainCol = mainColWidth.value; // Largeur initiale de la colonne principale
 
       // Fonction interne pour effectuer le redimensionnement
-      const doResize = (moveEvent: MouseEvent) => {
+      const doResize = async (moveEvent: MouseEvent) => {
         const diffX = moveEvent.clientX - startX; // Calcul du déplacement en X
         // Nouvelles largeurs calculées en respectant les limites minimales
         const newSidebarWidth = Math.max(startWidth - diffX, 50);
@@ -71,9 +71,11 @@ export default defineComponent({
       };
 
       // Fonction pour arrêter le redimensionnement
-      const stopResize = () => {
+      const stopResize = async () => {
         document.removeEventListener('mousemove', doResize);
         document.removeEventListener('mouseup', stopResize);
+        await modelService.updateFrontConfig({ is_panel_width_simulation: sidebarWidth.value })
+          .catch(error => console.error("Erreur lors de la mise à jour de la configuration de la barre latérale:", error));
       };
 
       // Enregistrement des gestionnaires d'événements
@@ -94,9 +96,23 @@ export default defineComponent({
       }
     };
 
+    const loadInitialSidebarConfig = async () => {
+  try {
+    const config = await modelService.getFrontConfig();
+    // Accédez correctement à la configuration selon la structure de la réponse
+    if (config.layout && config.layout.is_panel_width_simulation) {
+      sidebarWidth.value = config.layout.is_panel_width_simulation;
+      // Ajustez mainColWidth en fonction de la nouvelle sidebarWidth
+      mainColWidth.value = window.innerWidth - sidebarWidth.value;
+    }
+  } catch (error) {
+    console.error("Erreur lors de la récupération de la configuration initiale de la barre latérale:", error);
+  }
+};
+
     // Hook onMounted vide, potentiellement pour des initialisations futures
     onMounted(async () => {
-      // Initialisations possibles après le montage du composant
+      loadInitialSidebarConfig();
     });
 
     // Exposition des propriétés et méthodes pour le template
