@@ -41,8 +41,8 @@ export default defineComponent({
     const route = useRoute();
     // Références réactives pour la gestion de l'état local du composant
     const tab = ref('one'); // Pour le contrôle des onglets
-    const sidebarWidth = ref(100); // Largeur initiale de la barre latérale en pixels
-    const mainColWidth = ref(900); // Largeur initiale de la colonne principale en pixels
+    const sidebarWidth = ref(300);
+    const mainColWidth = ref(700); // Largeur initiale de la colonne principale en pixels
     const sessionId = ref(null); // ID de session pour la simulation, initialement null
     const tabs = ref([]);  // Les onglets, avec un onglet par défaut
     const simulationIndicators = ref({}); ; // Données des indicateurs de simulation, initialement null
