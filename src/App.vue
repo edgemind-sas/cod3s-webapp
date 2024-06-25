@@ -1,7 +1,8 @@
 <template>
   <v-app style="height: 100%">
 
-    <v-app-bar color="#c9d4e6ff" dense>
+    <!-- Afficher la barre d'app seulement si showLayout est true -->
+    <v-app-bar v-if="showLayout" color="#c9d4e6ff" dense>
       <v-toolbar-title class="d-flex align-center">
         <v-img src="@/assets/logos/logo.png" height="30" contain></v-img>
         <span class="brand-text">COD3S</span>
@@ -11,40 +12,25 @@
     <v-main class="main-content">
       <v-container fluid class="fill-height">
         <v-row class="fill-height d-flex flex-nowrap">
-          <v-col cols="2" class="sidebar-left">
-
+          <!-- Afficher la sidebar seulement si showLayout est true -->
+          <v-col v-if="showLayout" cols="2" class="sidebar-left">
             <v-list-subheader class="system-name">{{ systemName }}</v-list-subheader>
-
             <v-list class="navigation" dense>
-              
-              <v-list-item
-                link to="/modelisation"
-                class="navigation-link">
+              <v-list-item link to="/modelisation" class="navigation-link">
                 <v-list-item-title>System</v-list-item-title>
               </v-list-item>
-
-              <v-list-item
-                to="/SimulationInteractive"
-                
-                class="navigation-link">
+              <v-list-item to="/SimulationInteractive" class="navigation-link">
                 <v-list-item-title>Interactive simulation</v-list-item-title>
               </v-list-item>
-
-              <v-list-item
-                to="/simulation"
-                
-                class="navigation-link">
+              <v-list-item to="/simulation" class="navigation-link">
                 <v-list-item-title>Simulation</v-list-item-title>
               </v-list-item>
-              
             </v-list>
           </v-col>
 
-          
           <v-col>
             <router-view></router-view>
           </v-col>
-
         </v-row>
       </v-container>
     </v-main>
@@ -52,19 +38,28 @@
 </template>
 
 
+
 <script lang="ts">
-import { defineComponent, ref, onMounted } from 'vue';
+import { defineComponent, ref, onMounted, computed } from 'vue';
 import modelService from "@/service/modelService";
+import { useRoute } from 'vue-router';
 
 export default defineComponent({
   setup() {
     const systemName = ref(null);
+    const route = useRoute();
 
     onMounted(async () => {
       systemName.value = await modelService.fetchSystemName();
     });
+    // Déterminez si la barre latérale et la barre de navigation doivent être affichées
+    const showLayout = computed(() => {
+      // Liste des chemins où la barre latérale et la barre de navigation ne doivent pas être affichées
+      const noLayoutPaths = ['/', '/register'];
+      return !noLayoutPaths.includes(route.path);
+    });
 
-    return { systemName };
+    return { systemName, showLayout };
   },
 })
 </script>
