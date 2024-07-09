@@ -23,80 +23,74 @@
   </v-row>
 </template>
 
-
-<script lang="ts">
-// Importations nécessaires pour définir le composant, gérer l'état, et interagir avec le routeur et les services
-import { defineComponent, ref, onMounted, computed } from 'vue';
+<script setup lang="ts">
+import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
-import component_gojs from '@/components/component_gojs.vue';
 import component_simulation from '@/components/component_simulation.vue';
-import modelService from '@/service/modelService'; 
+import modelService from '@/service/modelService';
 
-export default defineComponent({
-  // Enregistrement des composants enfants pour utilisation dans le template
-  components: { component_simulation, component_gojs },
+// Utilisation du routeur Vue pour accéder aux informations de la route actuelle
+const route = useRoute();
 
-  setup() {
-    // Utilisation du routeur Vue pour accéder aux informations de la route actuelle
-    const route = useRoute();
-    // Références réactives pour la gestion de l'état local du composant
-    const tab = ref('one'); // Pour le contrôle des onglets
-    const sidebarWidth = ref(300);
-    const mainColWidth = ref(700); // Largeur initiale de la colonne principale en pixels
-    const sessionId = ref(null); // ID de session pour la simulation, initialement null
-    const tabs = ref([]);  // Les onglets, avec un onglet par défaut
-    const simulationIndicators = ref({}); ; // Données des indicateurs de simulation, initialement null
+// Références réactives pour la gestion de l'état local du composant
+const tab = ref('one'); // Pour le contrôle des onglets
+const sidebarWidth = ref(300);
+const mainColWidth = ref(700); // Largeur initiale de la colonne principale en pixels
+const sessionId = ref<string | null>(null); // ID de session pour la simulation, initialement null
+const tabs = ref<{ id: string, name: string }[]>([]);  // Les onglets, avec un onglet par défaut
+const simulationIndicators = ref<Record<string, any>>({}); // Données des indicateurs de simulation, initialement null
 
-     // Formatage des indicateurs de simulation pour affichage
-     const formattedSimulationIndicators = (id) => {
-      return simulationIndicators.value[id] ? JSON.stringify(simulationIndicators.value[id], null, 2) : '';
-    };
+// Formatage des indicateurs de simulation pour affichage
+const formattedSimulationIndicators = (id: string) => {
+  return simulationIndicators.value[id] ? JSON.stringify(simulationIndicators.value[id], null, 2) : '';
+};
 
-    // Fonction pour initier le redimensionnement de la barre latérale
-    const startResize = (event: MouseEvent) => {
-      const startX = event.clientX; // Position initiale de la souris en X
-      const startWidth = sidebarWidth.value; // Largeur initiale de la barre latérale
-      const startWidthMainCol = mainColWidth.value; // Largeur initiale de la colonne principale
+// Fonction pour initier le redimensionnement de la barre latérale
+const startResize = (event: MouseEvent) => {
+  const startX = event.clientX; // Position initiale de la souris en X
+  const startWidth = sidebarWidth.value; // Largeur initiale de la barre latérale
+  const startWidthMainCol = mainColWidth.value; // Largeur initiale de la colonne principale
 
-      // Fonction interne pour effectuer le redimensionnement
-      const doResize = async (moveEvent: MouseEvent) => {
-        const diffX = moveEvent.clientX - startX; // Calcul du déplacement en X
-        // Nouvelles largeurs calculées en respectant les limites minimales
-        const newSidebarWidth = Math.max(startWidth - diffX, 50);
-        const newMainColWidth = Math.max(window.innerWidth - newSidebarWidth - (startWidthMainCol - startWidth), 100);
+  // Fonction interne pour effectuer le redimensionnement
+  const doResize = (moveEvent: MouseEvent) => {
+    const diffX = moveEvent.clientX - startX; // Calcul du déplacement en X
+    // Nouvelles largeurs calculées en respectant les limites minimales
+    const newSidebarWidth = Math.max(startWidth - diffX, 50);
+    const newMainColWidth = Math.max(window.innerWidth - newSidebarWidth - (startWidthMainCol - startWidth), 100);
 
-        // Mise à jour des largeurs
-        sidebarWidth.value = newSidebarWidth;
-        mainColWidth.value = newMainColWidth;
-      };
+    // Mise à jour des largeurs
+    sidebarWidth.value = newSidebarWidth;
+    mainColWidth.value = newMainColWidth;
+  };
 
-      // Fonction pour arrêter le redimensionnement
-      const stopResize = async () => {
-        document.removeEventListener('mousemove', doResize);
-        document.removeEventListener('mouseup', stopResize);
-        await modelService.updateFrontConfig({ is_panel_width_simulation: sidebarWidth.value })
-          .catch(error => console.error("Erreur lors de la mise à jour de la configuration de la barre latérale:", error));
-      };
+  // Fonction pour arrêter le redimensionnement
+  const stopResize = async () => {
+    document.removeEventListener('mousemove', doResize);
+    document.removeEventListener('mouseup', stopResize);
+    await modelService.updateFrontConfig({ is_panel_width_simulation: sidebarWidth.value })
+      .catch(error => console.error("Erreur lors de la mise à jour de la configuration de la barre latérale:", error));
+  };
 
-      // Enregistrement des gestionnaires d'événements
-      document.addEventListener('mousemove', doResize);
-      document.addEventListener('mouseup', stopResize);
-    };
+  // Enregistrement des gestionnaires d'événements
+  document.addEventListener('mousemove', doResize);
+  document.addEventListener('mouseup', stopResize);
+};
 
-    // Gestionnaire pour le démarrage de la simulation
-    const handleSimulationStarted = async (id) => {
-      tabs.value.push({ id: id, name: `Simulation <${id}>` });
-      sessionId.value = id; // Mise à jour de l'ID de session
-      try {
-        // Récupération des indicateurs de simulation depuis le service
-        const indicators = await modelService.fetchSimulationIndicators(sessionId.value);
-        simulationIndicators.value[id] = indicators; // Stockage par ID de session
-      } catch (error) {
-        console.error('Erreur lors de la récupération des indicateurs:', error);
-      }
-    };
+// Gestionnaire pour le démarrage de la simulation
+const handleSimulationStarted = async (id: string) => {
+  tabs.value.push({ id: id, name: `Simulation <${id}>` });
+  sessionId.value = id; // Mise à jour de l'ID de session
+  try {
+    // Récupération des indicateurs de simulation depuis le service
+    const indicators = await modelService.fetchSimulationIndicators(sessionId.value);
+    simulationIndicators.value[id] = indicators; // Stockage par ID de session
+  } catch (error) {
+    console.error('Erreur lors de la récupération des indicateurs:', error);
+  }
+};
 
-    const loadInitialSidebarConfig = async () => {
+// Fonction pour charger la configuration initiale de la barre latérale
+const loadInitialSidebarConfig = async () => {
   try {
     const config = await modelService.getFrontConfig();
     // Accédez correctement à la configuration selon la structure de la réponse
@@ -110,41 +104,25 @@ export default defineComponent({
   }
 };
 
-    // Hook onMounted vide, potentiellement pour des initialisations futures
-    onMounted(async () => {
-      loadInitialSidebarConfig();
-    });
-
-    // Exposition des propriétés et méthodes pour le template
-    return { 
-      sidebarWidth,
-      startResize,
-      mainColWidth, 
-      tab,
-      sessionId,
-      simulationIndicators,
-      handleSimulationStarted, 
-      formattedSimulationIndicators, 
-      tabs
-    };
-  },
+// Hook onMounted pour charger la configuration initiale
+onMounted(() => {
+  loadInitialSidebarConfig();
 });
 </script>
 
 <style scoped>
 .sidebar-right {
-background-color: #c9d4e6ff; 
-position: relative;
-
+  background-color: #c9d4e6ff; 
+  position: relative;
 }
 
 .resize-bar {
-width: 10px; 
-height: 100%; 
-background-color: #ccc; 
-position: absolute; 
-left: 0; 
-top: 0; 
-cursor: ew-resize; 
+  width: 10px; 
+  height: 100%; 
+  background-color: #ccc; 
+  position: absolute; 
+  left: 0; 
+  top: 0; 
+  cursor: ew-resize; 
 }
 </style>

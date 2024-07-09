@@ -1,7 +1,6 @@
 // modelService.ts
 import axios, { AxiosError } from 'axios';
 import config from '@/config/globals';  
-import { error } from 'console';
 import { useAuthStore } from '@/store/authStore';
 import router from '@/router';
 
@@ -17,7 +16,7 @@ axiosInstance.interceptors.response.use(
     if (error.response && error.response.status === 401) {
       authStore.logout();
       router.push({ name: 'Login' });
-      window.location.reload();
+      
     }
 
     return Promise.reject(error);
@@ -309,7 +308,7 @@ export default {
     }
   },
 
-  async register(first_name: any, last_name: any, email: any, password: any, roles: any) {
+  async register(first_name: string, last_name: string, email: string, password: string, roles: string[]) {
     const userData = {
       first_name,
       last_name,
@@ -318,7 +317,7 @@ export default {
       roles
     };
     try {
-      const response = await axios.post(`${config.apiBaseUrl}auth/register`, userData, {
+      const response = await axiosInstance.post('auth/register', userData, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -326,9 +325,9 @@ export default {
       return response.data;
     } catch (error) {
       if (axios.isAxiosError(error)) { 
-        console.error('Error during login:', error.response);
+        console.error('Error during registration:', error.response?.data);
       } else {
-        console.error('Error during login:', error);
+        console.error('Error during registration:', error);
       }
       throw error; 
     }

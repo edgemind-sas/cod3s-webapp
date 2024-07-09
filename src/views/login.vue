@@ -60,34 +60,30 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
+import { ref } from 'vue';
 import { useAuthStore } from '@/store/authStore';
 import { useRouter } from 'vue-router';
 
-export default {
-  data() {
-    return {
-      email: '',
-      password: '',
-      visible: false,
-    };
-  },
-  methods: {
-    toggleVisibility() {
-      this.visible = !this.visible;
-    },
-    async handleLogin() {
-      const authStore = useAuthStore();
-      try {
-        await authStore.login(this.email, this.password);
-        this.$router.push('/modelisation');  // Redirection after successful login
-      } catch (error) {
-        console.error('Login failed:', error);
-        alert('Login failed: ' + error.message);
-  }
-}
+const email = ref<string>('');
+const password = ref<string>('');
+const visible = ref<boolean>(false);
+const router = useRouter();
+const authStore = useAuthStore();
 
+const toggleVisibility = () => {
+  visible.value = !visible.value;
+};
+
+const handleLogin = async () => {
+  try {
+    await authStore.login(email.value, password.value);
+    router.push('/modelisation'); 
+  } catch (error) {
+    console.error('Login failed:', error);
+    alert('Login failed: ' + (error as Error).message);
   }
-}
+};
 </script>
+
 

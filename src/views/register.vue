@@ -19,30 +19,31 @@
   </v-card>
 </template>
 
-<script>
-import modelService from "@/service/modelService";
+<script setup lang="ts">
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import modelService from '@/service/modelService';
 
-export default {
-  data: () => ({
-    first: '',
-    last: '',
-    email: '',
-    password: '',
-    role: 'user'
-  }),
-  methods: {
-    async handleRegister() {
-      try {
-        const roles = [this.role]; 
-        await modelService.register(this.first, this.last, this.email, this.password, roles);
-        alert('Registration successful');
-        this.$router.push('/'); 
-      } catch (error) {
-        console.error('Registration failed:', error.message);
-        alert('Registration failed: ' + error.message); 
-      }
-    }
+// Références réactives pour les champs de saisie
+const first = ref('');
+const last = ref('');
+const email = ref('');
+const password = ref('');
+const role = ref('user');
+
+const router = useRouter();
+
+// Fonction pour gérer l'inscription
+const handleRegister = async () => {
+  try {
+    const roles = [role.value];
+    await modelService.register(first.value, last.value, email.value, password.value, roles);
+    alert('Registration successful');
+    router.push('/');
+  } catch (error) {
+    console.error('Registration failed:', (error as Error).message);
+    alert('Registration failed: ' + (error as Error).message);
   }
 };
 </script>
+

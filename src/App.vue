@@ -1,6 +1,5 @@
 <template>
   <v-app style="height: 100%">
-
     <!-- Afficher la barre d'app seulement si showLayout est true -->
     <v-app-bar v-if="showLayout" color="#c9d4e6ff" dense>
       <v-toolbar-title class="d-flex align-center">
@@ -37,36 +36,27 @@
   </v-app>
 </template>
 
-
-
-<script lang="ts">
-import { defineComponent, ref, onMounted, computed } from 'vue';
-import modelService from "@/service/modelService";
+<script setup lang="ts">
+import { ref, onMounted, computed } from 'vue';
 import { useRoute } from 'vue-router';
+import modelService from '@/service/modelService';
 
-export default defineComponent({
-  setup() {
-    const systemName = ref(null);
-    const route = useRoute();
+const systemName = ref<string | null>(null);
+const route = useRoute();
 
-    onMounted(async () => {
-      systemName.value = await modelService.fetchSystemName();
-    });
-    // Déterminez si la barre latérale et la barre de navigation doivent être affichées
-    const showLayout = computed(() => {
-      // Liste des chemins où la barre latérale et la barre de navigation ne doivent pas être affichées
-      const noLayoutPaths = ['/', '/register'];
-      return !noLayoutPaths.includes(route.path);
-    });
+onMounted(async () => {
+  systemName.value = await modelService.fetchSystemName();
+});
 
-    return { systemName, showLayout };
-  },
-})
+// Déterminez si la barre latérale et la barre de navigation doivent être affichées
+const showLayout = computed(() => {
+  // Liste des chemins où la barre latérale et la barre de navigation ne doivent pas être affichées
+  const noLayoutPaths = ['/', '/register'];
+  return !noLayoutPaths.includes(route.path);
+});
 </script>
 
-
-<style>
-
+<style scoped>
 .brand-text {
   color: #ef7b26;
   font-family: 'Open Sans', sans-serif;
@@ -88,10 +78,8 @@ html, body, #app, .v-application {
 
 .main-content {
   height: calc(100% - 48px);
-}
-
-.main-content{
   margin-top: -27px;
+  overflow-x: hidden;
 }
 
 .system-name {
@@ -101,18 +89,15 @@ html, body, #app, .v-application {
   display: flex; 
   justify-content: center; 
   align-items: center; 
- 
 }
 
 .sidebar-left {
   background-color: #c9d4e6ff;
- 
 }
 
 .sidebar-right {
   background-color: #c9d4e6ff; 
   position: relative;
-  
 }
 
 .resize-bar {
@@ -125,13 +110,8 @@ html, body, #app, .v-application {
   cursor: ew-resize; 
 }
 
-.navigation{
+.navigation {
   background-color: #c9d4e6ff !important;
-}
-
-.main-content {
-  height: calc(100% - 48px); 
-  overflow-x: hidden; 
 }
 
 .v-col {
@@ -139,5 +119,4 @@ html, body, #app, .v-application {
   flex-direction: column;
   overflow: hidden; 
 }
-
 </style>

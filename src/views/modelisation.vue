@@ -6,24 +6,15 @@
   </div> 
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 // Importations nécessaires depuis Vue et le composant enfant component_gojs.vue
-import { defineComponent, onMounted } from 'vue';
+import { onMounted } from 'vue';
 import component_gojs from '@/components/component_gojs.vue';
 
-export default defineComponent({
-  // Déclaration des composants enfants utilisés dans ce composant
-  components: { component_gojs },
-
-  setup() {
-    // Hook onMounted exécuté après que le composant soit monté dans le DOM
-    // Actuellement, le corps de cette fonction est vide, indiquant qu'aucune action n'est effectuée au montage
-    onMounted(async () => {
-      // Actions potentielles à exécuter après le montage du composant
-    });
-
-    // Rien n'est retourné de setup(), indiquant qu'aucune propriété ou méthode réactive n'est utilisée
-    return {  };
-  },
+// Enregistre le composant enfant
+onMounted(async () => {
+  // Logique à exécuter lorsque le composant est monté
 });
+
 </script>
+
