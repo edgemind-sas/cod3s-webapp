@@ -243,16 +243,30 @@ async function updateDiagramModel() {
   }
 }
 
-function assignModel(jsonData: any) {
+async function assignModel(jsonData: any) {
+  // Déclarez positionsMap avec un type explicite
+  let positionsMap: { [key: string]: { x: number, y: number } } = {};
+
+  try {
+    const positionData = await modelService.fetchComponentPositions(); // Récupération des positions via fetchComponentPositions
+    positionsMap = positionData.components.reduce((map: { [key: string]: { x: number, y: number } }, component: any) => {
+      map[component.comp_name] = { x: parseFloat(component.x), y: parseFloat(component.y) };
+      return map;
+    }, {});
+  } catch (error) {
+    console.error("Erreur lors de la récupération des positions :", error);
+  }
+
+  // Construire le modèle en utilisant les positions récupérées
   const componentData = jsonData.components.map((c: any) => {
-    const posX = c.position && c.position.x ? parseFloat(c.position.x) : 0;
-    const posY = c.position && c.position.y ? parseFloat(c.position.y) : 0;
+    // Récupérer les positions à partir de positionsMap, sinon utiliser les positions par défaut
+    const posX = positionsMap[c.name]?.x ?? 0;
+    const posY = positionsMap[c.name]?.y ?? 0;
 
     const portsArray = c.ports.map((port: any) => {
       const portColor = port.color || "#ef7b26";
       const portSpot = convertPortPositionToSpot(port.spot);
-      const portPanel = makePort(port.name, portSpot, true, true, portColor);
-      return { portId: port.name, panel: portPanel };
+      return { portId: port.name, panel: makePort(port.name, portSpot, true, true, portColor) };
     });
 
     return {
@@ -268,7 +282,7 @@ function assignModel(jsonData: any) {
   });
 
   const linkDataArray = jsonData.connections.map((link: any) => {
-    const processedLink = {
+    return {
       from: link.comp_source,
       to: link.comp_target,
       fromPort: link.port_source,
@@ -277,8 +291,6 @@ function assignModel(jsonData: any) {
       stroke_width: link.style.stroke_width || 1,
       to_arrow: link.style.to_arrow || "Standard"
     };
-
-    return processedLink;
   });
 
   myDiagram.model = new go.GraphLinksModel({

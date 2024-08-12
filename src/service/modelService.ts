@@ -332,4 +332,19 @@ export default {
       throw error; 
     }
   },
+  async  fetchComponentPositions(): Promise<any> {
+    try {
+      const response = await axios.get(
+        `${config.apiBaseUrl}front_cfg/positions/`, 
+        {
+          headers: getAuthHeaders() 
+        }
+      );
+      return response.data;
+    } catch (error) {
+      console.error('Erreur lors de la récupération des positions des composants:', error);
+      throw error;
+    }
+  }
+  
 };

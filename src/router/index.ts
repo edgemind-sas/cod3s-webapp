@@ -21,19 +21,19 @@ const router = createRouter({
       path: '/modelisation',
       name: 'modelisation',
       component: () => import('../views/modelisation.vue'), 
-      meta: { requiresAuth: true }
+      meta: { requiresAuth: false }
     }, 
     {
       path: '/simulation',
       name: 'simulation',
       component: () => import('../views/simulation.vue'), 
-      meta: { requiresAuth: true }
+      meta: { requiresAuth: false }
     }, 
     {
       path: '/SimulationInteractive',
       name: 'SimulationInteractive',
       component: () => import('../views/SimulationInteractive.vue'), 
-      meta: { requiresAuth: true }
+      meta: { requiresAuth: false }
     }, 
      {
       path: '/gojs/:path',
