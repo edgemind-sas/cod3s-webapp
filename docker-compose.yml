@@ -32,4 +32,4 @@ services:
 
 networks:
   cod3s_network:
-    external: true  # Assurez-vous que ce réseau existe
+   
