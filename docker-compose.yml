@@ -26,7 +26,7 @@ services:
       - ./certs:/etc/nginx/ssl  # Monter les certificats SSL générés
     ports:
       - "0:80"  # Mapper le port 80 du conteneur au port 80 de l'hôte
-      - "443:443"  # Mapper le port 443 pour HTTPS
+      - "0:443"  # Mapper le port 443 pour HTTPS
     depends_on:
       - frontend  # Assure-toi que le service frontend est démarré en premier
     networks:
