@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   frontend:
+    container_name: cod3s-project-${PROJECT_NAME}-webapp
     build:
       context: .
       dockerfile: Dockerfile  # Utilise le Dockerfile pour Vite
@@ -16,6 +17,7 @@ services:
       - cod3s_network
 
   nginx:
+    container_name: cod3s-project-${PROJECT_NAME}-nginx
     build: 
       context: .
       dockerfile: Dockerfile.nginx  # Dockerfile pour Nginx uniquement
