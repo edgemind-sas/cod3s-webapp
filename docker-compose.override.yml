@@ -1,0 +1,5 @@
+version: '3.8'
+
+networks:
+  default_network:
+    name: ${PROJECT_NAME}_network

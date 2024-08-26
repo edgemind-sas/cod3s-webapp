@@ -14,7 +14,7 @@ services:
     environment:
       - NODE_ENV=development
     networks:
-      - cod3s_network
+      - default_network
 
   nginx:
     container_name: cod3s-project-${PROJECT_NAME}-nginx
@@ -30,8 +30,9 @@ services:
     depends_on:
       - frontend  # Assure-toi que le service frontend est démarré en premier
     networks:
-      - cod3s_network
+      - default_network
 
 networks:
-  cod3s_network:
+  default_network:
+    driver: bridge
    
