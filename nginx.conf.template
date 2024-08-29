@@ -1,23 +1,17 @@
 events {}
 
 http {
-    # Zones de limitation de requêtes et connexions
-    limit_req_zone $binary_remote_addr zone=req_limit:10m rate=500r/s;
-    limit_conn_zone $binary_remote_addr zone=conn_limit:10m;
-
-    # Log configuration
     access_log /var/log/nginx/access.log;
     error_log /var/log/nginx/error.log warn;
 
-    upstream frontend {
-        server frontend:3000;
+    upstream backend {
+        server backend:${BACKEND_PORT};  # Connecte Nginx au conteneur backend via le port dynamique
     }
 
     server {
         listen 80;
         server_name yourdomain.com;
 
-        # Rediriger HTTP vers HTTPS
         return 301 https://$host$request_uri;
     }
 
@@ -31,23 +25,22 @@ http {
         ssl_ciphers HIGH:!aNULL:!MD5;
 
         location / {
-            proxy_pass http://frontend;
+            root /usr/share/nginx/html;
+            try_files $uri $uri/ /index.html;
+        }
+
+        location /api/ {
+            proxy_pass http://backend;  # Redirige les requêtes /api/ vers le backend
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
             proxy_set_header X-Forwarded-Proto $scheme;
-
-            # Protection contre les attaques DoS
-            limit_req zone=req_limit burst=10000 nodelay;
-            limit_conn conn_limit 20;
         }
 
-        # Sécurisation avec des en-têtes de sécurité
         add_header X-Frame-Options "SAMEORIGIN";
         add_header X-XSS-Protection "1; mode=block";
         add_header X-Content-Type-Options "nosniff";
 
-        # Journalisation des accès et des erreurs
         access_log /var/log/nginx/access.log;
         error_log /var/log/nginx/error.log;
     }
