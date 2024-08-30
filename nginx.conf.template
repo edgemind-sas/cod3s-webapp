@@ -5,7 +5,7 @@ http {
     error_log /var/log/nginx/error.log warn;
 
     upstream backend {
-        server backend:${BACKEND_PORT};  # Connecte Nginx au conteneur backend via le port dynamique
+        server api:${BACKEND_PORT};  # Connecte Nginx au conteneur backend via le port dynamique
     }
 
     server {

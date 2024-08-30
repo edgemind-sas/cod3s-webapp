@@ -46,7 +46,7 @@ export const useSimulationStore = defineStore({
         console.error('Error starting simulation:', error);
       }
     },
-    async goForwardID(transition_id) {
+    async goForwardID(transition_id: any) {
       try {
         await modelService.goForwardID(transition_id);
         this.needDiagramRefresh = true;

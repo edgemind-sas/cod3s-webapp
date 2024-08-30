@@ -1,5 +1,5 @@
 # Étape 1 : Construire l'application avec Node.js
-FROM node:16 AS build
+FROM node:18 AS build
 
 # Définir le répertoire de travail
 WORKDIR /app
@@ -7,8 +7,8 @@ WORKDIR /app
 # Copier les fichiers package.json et package-lock.json
 COPY package*.json ./
 
-# Installer les dépendances
-RUN npm install
+# Installer les dépendances avec legacy-peer-deps
+RUN npm install --legacy-peer-deps
 
 # Copier tout le code source
 COPY . .

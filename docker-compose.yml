@@ -11,6 +11,7 @@ services:
       - "${NGINX_SSL_PORT}:443"
     environment:
       - NODE_ENV=production
+      - BACKEND_PORT=${BACKEND_PORT}  # Ajouter cette ligne
     networks:
       - default_network
     volumes:
@@ -18,4 +19,4 @@ services:
 
 networks:
   default_network:
-  external: true
+  #external: true

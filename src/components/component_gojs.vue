@@ -35,7 +35,7 @@ import { useSimulationStore } from '@/store/simulationStore';
 import { useRoute } from 'vue-router';
 
 // Références réactives et état du composant
-const myDiagramDiv = ref(null);
+const myDiagramDiv = ref<HTMLDivElement | null>(null);
 const simulationStore = useSimulationStore();
 const tooltipData = ref<any>({});
 const showTooltip = ref(false);
@@ -49,7 +49,7 @@ const activeStates = computed(() => {
 
 const isModelisationRoute = computed(() => route.path === '');
 
-let myDiagram: go.Diagram;
+let myDiagram: go.Diagram | null = null;
 
 // Fonction pour convertir une position de port en un spot GoJS
 function convertPortPositionToSpot(position: string): go.Spot {
@@ -63,7 +63,13 @@ function convertPortPositionToSpot(position: string): go.Spot {
 }
 
 // Fonction pour créer un port dans le diagramme
-function makePort(portId: string, spot: go.Spot = go.Spot.Top, output: boolean = true, input: boolean = false, color: string = "#ef7b26"): go.GraphObject {
+function makePort(
+  portId: string,
+  spot: go.Spot = go.Spot.Top,
+  output: boolean = true,
+  input: boolean = false,
+  color: string = "#ef7b26"
+): go.GraphObject {
   const $ = go.GraphObject.make;
   return $(go.Shape, "Rectangle", {
     portId: portId,
@@ -80,6 +86,12 @@ function makePort(portId: string, spot: go.Spot = go.Spot.Top, output: boolean =
 // Fonction pour initialiser le diagramme avec des données JSON
 function initializeDiagram(jsonData: any) {
   const $ = go.GraphObject.make;
+
+  if (!myDiagramDiv.value) {
+    console.error("myDiagramDiv is null");
+    return;
+  }
+
   myDiagram = $(go.Diagram, myDiagramDiv.value, {
     "undoManager.isEnabled": true,
     "animationManager.isEnabled": false,
@@ -111,8 +123,10 @@ function initializeDiagram(jsonData: any) {
     go.Node, "Table", {
       mouseEnter: async (e, node) => {
         if (isModelisationRoute.value) return;
-        const data = node.part.data;
-        const mousePt = myDiagram.lastInput.viewPoint;
+        const data = node.part?.data;
+        if (!data) return;
+
+        const mousePt = myDiagram!.lastInput.viewPoint;
         tooltipX.value = mousePt.x;
         tooltipY.value = mousePt.y;
 
@@ -198,37 +212,40 @@ function initializeDiagram(jsonData: any) {
   });
 
   myDiagram.addDiagramListener("LinkReshaped", function (e) {
-    const link = e.subject;
-    const points = link.points.toArray().map(p => ({ x: p.x, y: p.y }));
-    console.log(`Le link ${link.data.key} a été redimensionné. Points:`, points);
-  });
+  const link = e.subject as go.Link;
+  const points = link.points.toArray().map((p: go.Point) => ({ x: p.x, y: p.y }));
+  console.log(`Le link ${link.data.key} a été redimensionné. Points:`, points);
+});
+
 
   assignModel(jsonData);
 }
 
 async function updateDiagramModel() {
+  if (!myDiagram) return;
+
   try {
     const updatedComponents = await modelService.fetchUpdatedComponents();
 
     if (updatedComponents.components && updatedComponents.components.length > 0) {
       myDiagram.startTransaction("updateModel");
 
-      updatedComponents.components.forEach(updatedComponent => {
-        const node = myDiagram.findNodeForKey(updatedComponent.name);
+      updatedComponents.components.forEach((updatedComponent: any) => {
+        const node = myDiagram!.findNodeForKey(updatedComponent.name);
         if (node && updatedComponent.style) {
           Object.keys(updatedComponent.style).forEach(styleKey => {
-            myDiagram.model.setDataProperty(node.data, styleKey, updatedComponent.style[styleKey]);
+            myDiagram!.model.setDataProperty(node.data, styleKey, updatedComponent.style[styleKey]);
           });
           node.updateTargetBindings();
         }
       });
 
       if (updatedComponents.connections && updatedComponents.connections.length > 0) {
-        updatedComponents.connections.forEach(updatedConnection => {
-          const linkData = myDiagram.model.linkDataArray.find(ld => ld.from === updatedConnection.comp_source && ld.to === updatedConnection.comp_target);
+        updatedComponents.connections.forEach((updatedConnection: any) => {
+          const linkData = (myDiagram!.model as go.GraphLinksModel).linkDataArray.find((ld: any) => ld.from === updatedConnection.comp_source && ld.to === updatedConnection.comp_target);
           if (linkData && updatedConnection.style) {
             Object.keys(updatedConnection.style).forEach(styleKey => {
-              myDiagram.model.setDataProperty(linkData, styleKey, updatedConnection.style[styleKey]);
+              myDiagram!.model.setDataProperty(linkData, styleKey, updatedConnection.style[styleKey]);
             });
           }
         });
@@ -293,7 +310,7 @@ async function assignModel(jsonData: any) {
     };
   });
 
-  myDiagram.model = new go.GraphLinksModel({
+  myDiagram!.model = new go.GraphLinksModel({
     linkFromPortIdProperty: "fromPort",
     linkToPortIdProperty: "toPort",
     nodeDataArray: componentData,
