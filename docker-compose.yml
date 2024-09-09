@@ -12,6 +12,7 @@ services:
     environment:
       - NODE_ENV=production
       - BACKEND_PORT=${BACKEND_PORT}
+      - NGINX_SSL_PORT=${NGINX_SSL_PORT}
     networks:
       - default_network
     volumes:
