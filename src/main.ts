@@ -17,4 +17,8 @@ const app = createApp(App)
 
 registerPlugins(app)
 
+// Set the document title dynamically
+const projectName = import.meta.env.VITE_PROJECT_NAME || 'DefaultProjectName';
+document.title = `cod3sApp-${projectName}`;
+
 app.mount('#app')
